@@ -1,5 +1,37 @@
+/* CSS Styling for GameWorks */
 
+.Banner{
+    width: 100%;
+    height: 40vh;
+}
+
+.NavigationBar{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.NavigationBar ul li{
+    list-style: none;
+    margin: 10px 20px;
+    display: inline-block;
+}
+
+.GameWorksWebsite{
+    width: 200px;
+    height: 50px;
+}
+.GameWorksLogo{
+    width: 50px;
+    height: 50px;
+}
+
+.AccountImage{
+    width: 50px;
+    height: 50px;
+}
 
 body{
-    background-color: bisque;
-    }
+    background-color: white;
+}
