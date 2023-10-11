@@ -1,44 +1,44 @@
 /* CSS Styling for GameWorks */
 
-.Banner{
+.banner{
     width: 100%;
     height: 40vh;
 }
 
-.NavigationBar{
+.navigationbar{
     width: 98%;
     margin: auto;
     display: flex;
     justify-content: space-between;
 }
 
-.NavigationBar ul li{
+.navigationbar ul li{
     list-style: none;
     margin: 10px 20px;
     display: inline-block;
 }
 
-.GameWorksWebsiteLogoB{
+.gameworkswebsitelogob{
     width: 200px;
     height: 50px;
 }
 
-div.AccountLogo_Text {
+div.accountlogotext {
     vertical-align: top;
     display: inline-block;
     text-align: center;
 }
 
-.AccountLogo{
+.accountlogo{
     width: 50px;
     height: 50px;
 }
 
-.AccountCaption {
+.accountcaption {
     display: block;
 }
 
-.FullScreenButton{
+.fullscreenbutton{
     width: 50px;
     height: 50px;
 }
