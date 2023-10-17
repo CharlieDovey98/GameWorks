@@ -41,11 +41,22 @@ div.accountlogotext {
 }
 
 body{
+    padding: 0;
+    margin: 0;
+    background-color: black;
     background-image: url("../Images/BlackHole.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     color: #ffffff;
+}
+
+footer{
+    font-size: 1em;
+    color: #ffffff;
+    margin-top: 200px;
+    text-align: center;
 }
 /* Styling across all pages END */
 
@@ -57,23 +68,26 @@ body{
     justify-content: center;
     padding: 40px;
     font-size: 3em;
-    color: #aca908;
+    color: #ffffff;
+    font-weight: 600;
 
 }
 .gamepagecontainer{
     width: 800px;
     height: 800px;
-    border: 15px solid #ffffff;
+    border: 15px solid blue;
+    background-color: black;
     margin: auto;
-    display: flex;
     align-items: center;
     justify-content: center;
+    display: flex;
 }
 
 .gamecontainer{
     width: 500px;
     height: 500px;
     border: 15px solid #ffffff;
+    background-color: #aca908;
     padding: 50px;
 
 }
@@ -81,6 +95,15 @@ body{
 .fullscreenbutton{
     width: 50px;
     height: 50px;
+}
+
+.tutorialcontainer{
+    border: 15px solid #ffffff;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 600;
+    flex-direction: column;
+    text-align: center;
 }
 
 /* Styling across the index page END */
@@ -93,6 +116,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #ffffff;
 }
 
 .logincontainer{
