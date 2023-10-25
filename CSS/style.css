@@ -2,266 +2,318 @@
 
 /* Styling across all pages --Start*/
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
 
-.banner{
-    width: 100%;
-    height: 15vh;
-    border: 15px solid transparent;
+.banner {
+  width: auto;
+  height: 10vh;
+  border: 15px solid transparent;
 }
 
-.navigationbar{
-    width: 98%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+.navigationbar {
+  width: auto;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-.navigationbar ul li{
-    list-style: none;
-    margin: 10px 20px;
-    display: inline-block;
-    
+.navigationbar ul li {
+  list-style: none;
+  margin: 10px 20px;
+  display: inline-block;
 }
-.navigationbar ul li a{
-    color: white;
-    font-size: 17px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: capitalize;
+.navigationbar ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: capitalize;
 }
 
-
-.gameworkswebsitelogob{
-    width: 200px;
-    height: 50px;
+.gameworkswebsitelogob {
+  width: 200px;
+  height: 50px;
 }
 
 div.accountlogotext {
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
 }
 
-.accountlogo{
-    width: 50px;
-    height: 50px;
+.accountlogo {
+  width: 40px;
+  height: 40px;
 }
 
 .accountcaption {
-    display: block;
-    color: #ffffff;
+  display: block;
+  color: #ffffff;
 }
 
-body{
-    padding: 0;
-    margin: 0;
-    background-color: black;
-    background-image: url("../Images/BlackHole.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #ffffff;
-    font-family: "poppins", sans-serif;
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+  background-image: url("../Images/BlackHole.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: "poppins", sans-serif;
 }
 
-footer{
-    font-size: 1em;
-    color: #ffffff;
-    margin-top: 200px;
-    text-align: center;
+footer {
+  font-size: 1em;
+  color: #ffffff;
+  margin-top: 200px;
+  text-align: center;
 }
 /* Styling across all pages --END */
 
 /* Styling across the index page --START */
 
-.PlaySpaceInvaders{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    font-size: 3em;
-    color: #ffffff;
-    font-weight: 600;
-
+.PlaySpaceInvaders {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  font-size: 3em;
+  color: #ffffff;
+  font-weight: 600;
 }
-.gamepagecontainer{
-    width: 800px;
-    height: 800px;
-    border: 15px solid blue;
-    background-color: black;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
-
-.gamecontainer{
-    width: 500px;
-    height: 500px;
-    border: 15px solid #ffffff;
-    background-color: #aca908;
-    padding: 50px;
-
+.gamepagecontainer {
+  width: 800px;
+  height: 700px;
+  border: 15px solid white;
+  background-color: transparent;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-.fullscreenbutton{
-    width: 50px;
-    height: 50px;
+.gamecontainer {
+  width: 500px;
+  height: 500px;
+  border: 15px solid #ffffff;
+  background-color: black;
+  padding: 50px;
 }
 
-.tutorialcontainer{
-    border: 15px solid #ffffff;
-    color: #ffffff;
-    margin: auto;
-    width: 1000px;
-    height: 500px;
-    font-size: 1em;
-    font-weight: 600;
-    flex-direction: column;
-    text-align: center;
+.fullscreenbutton {
+  width: 50px;
+  height: 50px;
+  float: right;
+}
+
+.tutorialcontainer {
+  border: 15px solid #ffffff;
+  color: #ffffff;
+  margin: auto;
+  width: 1000px;
+  height: 500px;
+  font-size: 1em;
+  font-weight: 600;
+  flex-direction: column;
+  text-align: center;
 }
 
 /* Styling across the index page --END */
 
 /* Sign in or Register page styling --START*/
-.formcontainer{
-    margin: 0;
-    padding: 0;
-    min-height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
+.formcontainer {
+  margin: 0;
+  padding: 0;
+  min-height: 10vh;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
 }
 
-.logincontainer{
-    align-items: center;
-    margin-right: 100px;
-    padding: 20px 20px 20px 20px;
-    border: 2px solid;
-    border-radius: 20px;
-
+.logincontainer {
+  align-items: center;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  margin-right: 100px;
+  padding: 20px 20px 20px 20px;
+  border: 2px solid;
+  border-radius: 20px;
 }
-.registercontainer{
-    align-items: center;
-    margin-left: 100px;
-    padding: 20px 20px 20px 20px;
-    border: 2px solid;
-    border-radius: 20px;
-
-}
-
-.userlogo{
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    right: 1px;
-    top: 15px;
+.registercontainer {
+  align-items: center;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  margin-left: 100px;
+  padding: 20px 20px 20px 20px;
+  border: 2px solid;
+  border-radius: 20px;
 }
 
-.passwordlogo{
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    right: 0px;
-    top: 15px;
+.userlogo {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 1px;
+  top: 15px;
 }
 
-.emaillogo{
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    right: 0px;
-    top: 15px;
+/*.passwordlogo {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 0px;
+  top: 15px;
+}*/
+
+.emaillogo {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 0px;
+  top: 15px;
 }
 
-.useridlogo{
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    right: 1px;
-    top: 15px;
+.useridlogo {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 1px;
+  top: 15px;
 }
 
-.formheadings{
-    font-size: 2em;
-    margin: 0 0 0 0;
-    color: #aca908;
-    text-align: center;
+.formheadings {
+  font-size: 2em;
+  margin: 0 0 0 0;
+  color: #aca908;
+  text-align: center;
 }
 
-.formbuttons{
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: center;
+.formbuttons {
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: center;
 }
 
-form{
-    position: relative;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+form {
+  position: relative;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.inputbox{
-    position: relative;
-    margin: 10px 0;
-    width: 310px;
-    border-bottom: 2px solid #ffffff;
+.inputbox {
+  position: relative;
+  margin: 10px 0;
+  width: 310px;
+  border-bottom: 2px solid #ffffff;
 }
 
-.inputbox label{
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    color: #aca908;
-    font-size: 1em;
-    pointer-events: none;
-    transition: .5s;
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: #aca908;
+  font-size: 1em;
+  font-weight: bold;
+  pointer-events: none;
+  transition: 0.5s;
 }
 
 input:valid ~ label,
-input:focus ~ label{
-    top: -5px;
+input:focus ~ label {
+  top: -5px;
 }
 
-.inputbox input{
-    width: 100%;
-    height: 40px;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    padding: 0 35px 0 5;
-    color: #ffffff;
+.inputbox input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5;
+  color: #ffffff;
 }
 
-.formbuttons{
-    width: 30%;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-
+.formbuttons {
+  width: 30%;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
 }
 /* Sign in or Register page styling --END */
 
 /* profile page styling --START */
-.profiletable{
-
+.profileinformationcontainer {
+  border: 10px solid #ffffff;
+  background-color: black;
+  margin: auto;
+  width: 400px;
+  height: 230px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
-.profileinformationcontainer{
-    border: 10px solid #ffffff;
-    background-color: black;
-    margin: 30%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+.profiletable {
+}
+
+.pheader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  color: #ffffff;
+  font-weight: 600;
 }
 /* profile page styling --END */
+
+/* information page styling --START */
+
+.iheader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  color: #ffffff;
+  font-weight: 600;
+}
+/* information page styling --END */
+
+/* leaderboard page styling --START */
+
+.leaderboardtable {
+  border: 10px solid #ffffff;
+  background-color: black;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.lhead {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.lreturn {
+  text-align: center;
+}
+/* leaderboard page styling --END */
