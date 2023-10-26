@@ -127,7 +127,7 @@ footer {
   margin: 0;
   padding: 0;
   min-height: 10vh;
-  padding-top: 20px;
+  padding-top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +139,7 @@ footer {
   background: transparent;
   backdrop-filter: blur(10px);
   margin-right: 100px;
-  padding: 20px 20px 20px 20px;
+  padding: 40px 40px 40px 40px;
   border: 2px solid;
   border-radius: 20px;
 }
@@ -148,7 +148,7 @@ footer {
   background: transparent;
   backdrop-filter: blur(10px);
   margin-left: 100px;
-  padding: 20px 20px 20px 20px;
+  padding: 40px 40px 40px 40px;
   border: 2px solid;
   border-radius: 20px;
 }
@@ -157,32 +157,32 @@ footer {
   position: absolute;
   height: 20px;
   width: 20px;
-  right: 1px;
-  top: 15px;
+  left: -29px;
+  top: 13px;
 }
 
-/*.passwordlogo {
+.passwordlogo {
   position: absolute;
-  height: 20px;
-  width: 20px;
-  right: 0px;
-  top: 15px;
-}*/
+  height: 22px;
+  width: 22px;
+  left: -29px;
+  top: 13px;
+}
 
 .emaillogo {
   position: absolute;
   height: 20px;
   width: 20px;
-  left: 0px;
-  top: 15px;
+  left: -29px;
+  top: 13px;
 }
 
 .useridlogo {
   position: absolute;
   height: 20px;
   width: 20px;
-  right: 1px;
-  top: 15px;
+  left: -29px;
+  top: 13px;
 }
 
 .formheadings {
