@@ -1,101 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr"> <!--English, Left to right text-->
 
 <head>
     <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameWorks</title>
+    <title>GameWorks Rankings</title>
 </head>
 
-<body id="leaderboardpage"> <!--individual to each page-->
-    <scrpit type="text/javascrpit" scr="../JavaScript/script.js"></scrpit> <!--Link to the JavaScript file-->
-    <nav>
-        <div class="banner">
-            <div class="navigationbar">
-                <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
-                <ul>
-                    <li> <a data-active="index" href="index.html">Home</a> </li>
-                    <li> <a data-active="signin_register" href="signin_register.html">SignIn / SignUP</a> </li>
-                    <li> <a data-active="leaderboard" href="leaderboard.html">Leaderboard</a> </li>
-                    <li> <a data-active="information" href="information.html">Information</a> </li>
-                </ul>
-                <div class="accountlogotext">
-                    <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
-                            class="accountlogo"> </a>
-                    <a href="Profile.html"> <span class="accountcaption">Profile</span> </a>
-                </div>
-            </div>
+<body>
+    <div class="navigationbar">
+        <div class="gameworkswebsitecontainer">
+            <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-    </nav>
+        <ul>
+            <li> <a href="index.html"><button type="button">Home</button></a> </li>
+            <li> <a href="signin_register.html"><button type="button">Sign In / Sign Up</button></a> </li>
+            <li> <a href="leaderboard.html"><button type="button" class="active">Leaderboard</button></a> </li>
+            <li> <a href="information.html"><button type="button">Information</button></a> </li>
+        </ul>
+        <div class="accountlogocontainer">
+            <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
+                    class="accountlogo"> </a>
+            <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
+        </div>
+
+    </div>
     <header class="lhead"> Leaderboard Rankings </header>
     <div class="Leaderboardbox">
         <table class="leaderboardtable">
+            
             <tr>
-                <th>ColumnH1</th>
-                <th>ColumnH2</th>
-                <th>ColumnH3</th>
+                <th>Position</th>
+                <th>Name</th>
+                <th>Highscore</th>
             </tr>
             <tr>
-                <td>Data1</td>
-                <td>Info1</td>
-                <td>Info1</td>
+                <td> 1</td>
+                <td>Benn</td>
+                <td>123,456</td>
             </tr>
             <tr>
-                <td>Data2</td>
-                <td>Info2</td>
-                <td>Info3</td>
+                <td>2</td>
+                <td>Adam</td>
+                <td>88,003</td>
             </tr>
             <tr>
-                <td>Data3</td>
-                <td>Info4</td>
-                <td>Info4</td>
+                <td>3</td>
+                <td>jose</td>
+                <td>79,011</td>
             </tr>
             <tr>
-                <td>Data2</td>
-                <td>Info2</td>
-                <td>Info3</td>
+                <td>4</td>
+                <td>Chloe</td>
+                <td>56,000</td>
             </tr>
             <tr>
-                <td>Data3</td>
-                <td>Info4</td>
-                <td>Info4</td>
+                <td>5</td>
+                <td>Sammy</td>
+                <td>50,000</td>
             </tr>
             <tr>
-                <td>Data2</td>
-                <td>Info2</td>
-                <td>Info3</td>
+                <td>6</td>
+                <td>Cody</td>
+                <td>29,000</td>
             </tr>
             <tr>
-                <td>Data3</td>
-                <td>Info4</td>
-                <td>Info4</td>
+                <td>7</td>
+                <td>T</td>
+                <td>25,000</td>
             </tr>
             <tr>
-                <td>Data2</td>
-                <td>Info2</td>
-                <td>Info3</td>
+                <td>8</td>
+                <td>Manny</td>
+                <td>20,000</td>
             </tr>
             <tr>
-                <td>Data3</td>
-                <td>Info4</td>
-                <td>Info4</td>
+                <td>9</td>
+                <td>Steve</td>
+                <td>10,000</td>
             </tr>
             <tr>
-                <td>Data2</td>
-                <td>Info2</td>
-                <td>Info3</td>
+                <td>10</td>
+                <td>Carl</td>
+                <td>1,000</td>
             </tr>
+        
         </table>
     </div>
-    <p class="lreturn"> To return to Space Invaders<a href="index.html">Click Here</a></p>
-    <p>
-        quisque id diam vel quam elementum pulvinar etiam non. Nunc sed augue lacus viverra vitae. Habitasse platea
-        dictumst quisque sagittis. Amet tellus cras adipiscing enim. Commodo nulla facilisi nullam vehicula. Lectus sit
-        amet est placerat in. Ut tellus elementum sagittis vitae et leo duis ut diam. Consequat semper viverra nam
-        libero justo. Pellentesque adipiscing commodo elit at. Aliquam ultrices sagittis orci a scelerisque purus.
-        Viverra aliquet eget sit amet tellus cras adipiscing enim eu. Vel eros donec ac odio tempor orci. Bibendum arcu
-        vitae elementum curabitur vitae nunc sed velit. Sapien nec sagittis aliquam malesuada bibendum arcu vitae.
+    <p class="lreturn"> To return to Space Invaders <a href="index.html"> Click Here</a></p>
+    <p class="lbody">
+        To have a score show on the leaderboard make sure you have registered an anccount and have signed in. 
+        Then head over to the home page and get your top score on Space Invaders. 
+        Once you have completed the game or run out of lives you can save your score to the leaderboard. 
+        For additional stats and information, make sure to head over to your profile page located in the top right corner of the screen! 
     </p>
     <footer>
         <p>Created by Charlie Dovey M00843428 &copy;. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">

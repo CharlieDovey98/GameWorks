@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr"> <!--English, Left to right text-->
 
 <head>
     <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameWorks</title>
+    <title>GameWorks Profile</title>
 </head>
 
-<body id="profilepage"> <!--individual to each page-->
-    <scrpit type="text/javascrpit" scr="../JavaScript/script.js"></scrpit> <!--Link to the JavaScript file-->
-    <nav>
-        <div class="banner">
-            <div class="navigationbar">
-                <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
-                <ul>
-                    <li> <a data-active="index" href="index.html">Home</a> </li>
-                    <li> <a data-active="signin_register" href="signin_register.html">SignIn / SignUP</a> </li>
-                    <li> <a data-active="leaderboard" href="leaderboard.html">Leaderboard</a> </li>
-                    <li> <a data-active="information" href="information.html">Information</a> </li>
-                </ul>
-                <div class="accountlogotext">
-                    <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
-                            class="accountlogo"> </a>
-                    <a href="Profile.html"> <span class="accountcaption">Profile</span> </a>
-                </div>
-            </div>
+<body>
+    <div class="navigationbar">
+        <div class="gameworkswebsitecontainer">
+            <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-    </nav>
+        <ul>
+            <li> <a href="index.html"><button type="button">Home</button></a> </li>
+            <li> <a href="signin_register.html"><button type="button">Sign In / Sign Up</button></a> </li>
+            <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
+            <li> <a href="information.html"><button type="button">Information</button></a> </li>
+        </ul>
+        <div class="accountlogocontainer">
+            <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
+                    class="accountlogo"> </a>
+            <a class="accountcaption" href="Profile.html"> <span class="active">Profile</span> </a>
+        </div>
+
+    </div>
     <header class="pheader"> Profile information </header>
     <div class="profileinformationcontainer">
         <table class="profiletable">

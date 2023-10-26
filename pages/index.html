@@ -3,32 +3,31 @@
 
 <head>
     <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
-    <meta charset="UTF-8"> 
+    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameWorks</title>
+    <title>GameWorks Information</title>
 </head>
 
-<body id="indexpage"> <!--individual to each page-->
-    <scrpit type="text/javascript" scr="../JavaScript/script.js"></scrpit> <!--Link to the JavaScript file-->
-    <nav>
-        <div class="banner">
-            <div class="navigationbar">
-                <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
-                <ul>
-                    <li> <a data-active="index" href="index.html">Home</a> </li>
-                    <li> <a data-active="signin_register" href="signin_register.html">SignIn / SignUP</a> </li>
-                    <li> <a data-active="leaderboard" href="leaderboard.html">Leaderboard</a> </li>
-                    <li> <a data-active="information" href="information.html">Information</a> </li>
-                </ul>
-                <div class="accountlogotext">
-                    <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
-                            class="accountlogo"> </a>
-                    <a href="Profile.html"> <span class="accountcaption">Profile</span> </a>
-                </div>
-            </div>
+<body>
+    <div class="navigationbar">
+        <div class="gameworkswebsitecontainer">
+            <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-    </nav>
-    <header class="PlaySpaceInvaders"> Play Space Invaders </header>
+        <ul>
+            <li> <a href="index.html"><button type="button" class="active">Home</button></a> </li>
+            <li> <a href="signin_register.html"><button type="button">Sign In / Sign Up</button></a> </li>
+            <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
+            <li> <a href="information.html"><button type="button">Information</button></a> </li>
+        </ul>
+        <div class="accountlogocontainer">
+            <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
+                    class="accountlogo"> </a>
+            <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
+        </div>
+
+    </div>
+    <h class="PlaySpaceInvaders"> Play Space Invaders </h>
     <div class="gamepagecontainer">
         <div class="gamecontainer">
 
@@ -36,11 +35,12 @@
         <img src="../Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton">
     </div>
     <div class="tutorialcontainer">
-        <h1>Tutorial:</h1>
+        <h1 class="heading">Tutorial :</h1>
         <p>To play Space Invaders you will need to use the arrow keys; left [] and right [] to move your space ship
             across the horizon.
             <br>The up [] arrow key or the space bar [__] will allow your ship to shoot towards the alien invasion.
         </p>
+        <h2 class="heading">Objective :</h2>
         <p>Your objective is to soot down the decending rows of alien space ships while dodging their retaliatory fire.
             <br>The aliens will move side to ide and shoot progressively faster as you progress through the rounds
             making each round harder and harder.
@@ -52,12 +52,12 @@
         </p>
     </div>
 
-
-    <footer>
-        <p>Created by Charlie Dovey M00843428 &copy;. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-                Send me an Email</a> Middlesex University London. The Burroughs, NW4 4BT.<a href="tel:02084115000"> Call
-                MDX</a>
-    </footer>
+</body>
+<footer>
+    <p>Created by Charlie Dovey M00843428 &copy;. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
+            Send me an Email</a> Middlesex University London. The Burroughs, NW4 4BT.<a href="tel:02084115000"> Call
+            MDX</a>
+</footer>
 </body>
 
 </html>
