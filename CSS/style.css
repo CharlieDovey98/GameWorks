@@ -16,13 +16,14 @@
   justify-content: space-between;
   transition: all 0.5s ease;
 }
+
 .navigationbar ul li {
   list-style: none;
   display: inline-block;
   justify-content: space-between;
   padding: 0 50px 0 50px;
-
 }
+
 .navigationbar button{
   
   border: 2px solid white;
@@ -45,6 +46,7 @@
   font-family: "poppins", sans-serif;
   /* text-transform: uppercase;  Not sure about uppercase nav links?...*/
 }
+
 .navigationbar button:hover {
   border: 2px solid gold;
   
@@ -127,7 +129,6 @@ footer {
 .gamepagecontainer {
   width: 800px;
   height: 700px;
-  border: 15px solid white;
   background-color: transparent;
   margin: auto;
   align-items: center;
@@ -147,6 +148,8 @@ footer {
   width: 50px;
   height: 50px;
   float: right;
+  margin: 0 0 0 10px;
+  transform: translateY(293px);
 }
 
 .tutorialcontainer {
@@ -165,6 +168,32 @@ footer {
 .tutorialcontainer .heading{
 color: gold;
 }
+
+.arrowup{
+  height: 40px;
+  width: 40px;
+  transform: translateY(15px);
+  backdrop-filter: none;
+}
+.arrowleft{
+  height: 40px;
+  width: 40px;
+  transform: translateY(15px);
+  backdrop-filter: none;
+}
+.arrowright{
+  height: 40px;
+  width: 40px;
+  transform: translateY(15px);
+  backdrop-filter: none;
+}
+.spacebar{
+  height: 20px;
+  width: 80px;
+  transform: translateY(5px);
+  backdrop-filter: none;
+}
+
 /* Styling across the index page --END */
 
 /* Sign in or Register page styling --START*/
