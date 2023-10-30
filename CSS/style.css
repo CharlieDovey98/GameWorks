@@ -1,13 +1,15 @@
-/* CSS Styling for GameWorks */
+/* CSS Styling for GameWorks website */
 
 /* Styling across all pages --Start*/
 
+/* Import the Poppins font family for use in my website */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
 
 .navigationbar {
   width: auto;
   height: 10vh;
   background: transparent;
+  /*backdrop-filter: blur(2px);  Q - Do i have a blur navigation bar or a solid colour or nothing? */
   border: 15px solid transparent;
   border-top: 0;
   margin: 0;
@@ -24,8 +26,7 @@
   padding: 0 50px 0 50px;
 }
 
-.navigationbar button{
-  
+.navigationbar button {
   border: 2px solid white;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -40,20 +41,17 @@
   border-radius: 15px;
 }
 .navigationbar a {
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  font-family: "poppins", sans-serif;
   /* text-transform: uppercase;  Not sure about uppercase nav links?...*/
 }
 
 .navigationbar button:hover {
   border: 2px solid gold;
-  
 }
 .navigationbar .active {
   color: gold;
-  
 }
 
 .gameworkswebsitecontainer {
@@ -79,38 +77,46 @@
 
 .accountcaption {
   display: block;
-  color: #ffffff;
+  color: white;
   text-decoration: none;
   font-size: large;
   font-weight: 600;
 }
 
-.accountcaption :hover{
+.accountcaption :hover {
   color: gold;
 }
 
-.accountcaption:active{
-color: gold;
+.accountcaption:active {
+  color: gold;
 }
 
 body {
   min-height: 100vh;
+  margin: 0;
   background-color: black;
   background-image: url("../Images/BlackHole.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  color: #ffffff;
-  font-family: "poppins", sans-serif;
+  color: white;
+  font-weight: 900;
+  font-family: "Poppins", sans-serif;
   text-align: center;
 }
 
-footer {
-  font-size: 1em;
-  color: #ffffff;
-  margin-top: 200px;
+.footer {
+  width: 100%;
+  color: white;
   text-align: center;
+  font-size: 1em;
+  font-weight: 900;
+}
+.footer a {
+  color: gold;
+  font-weight: 900;
+  text-decoration: none;
 }
 /* Styling across all pages --END */
 
@@ -120,42 +126,44 @@ footer {
   margin: auto;
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
   font-size: 50px;
-  color: #ffffff;
+  color: white;
   font-weight: 900;
   font-family: "poppins", sans-serif;
 }
 .gamepagecontainer {
+  /*how to center this box ctrl i to see width and height*/
   width: 800px;
   height: 700px;
   background-color: transparent;
   margin: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  display: flex;
 }
 
 .gamecontainer {
   width: 500px;
   height: 500px;
-  border: 15px solid #ffffff;
+  border: 5px solid white;
   background-color: black;
   padding: 50px;
 }
 
 .fullscreenbutton {
-  width: 50px;
-  height: 50px;
+  width: auto;
+  height: auto;
   float: right;
   margin: 0 0 0 10px;
-  transform: translateY(293px);
+  transform: translateY(280px);
+  cursor: pointer;
 }
 
 .tutorialcontainer {
-  border: 1px solid #ffffff;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
   border-radius: 20px;
-  color: #ffffff;
+  color: white;
   margin: 15%;
   width: auto;
   height: auto;
@@ -163,34 +171,36 @@ footer {
   font-weight: 600;
   flex-direction: column;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 0;
 }
-.tutorialcontainer .heading{
-color: gold;
+.tutorialcontainer .heading {
+  color: gold;
+  margin-top: 0;
 }
 
-.arrowup{
-  height: 40px;
-  width: 40px;
-  transform: translateY(15px);
+.arrowup {
+  height: 35px;
+  width: 35px;
+  transform: translateY(12px);
   backdrop-filter: none;
 }
-.arrowleft{
-  height: 40px;
-  width: 40px;
-  transform: translateY(15px);
+
+.arrowleft {
+  height: 35px;
+  width: 35px;
+  transform: translateY(12px);
   backdrop-filter: none;
 }
-.arrowright{
-  height: 40px;
-  width: 40px;
-  transform: translateY(15px);
+.arrowright {
+  height: 35px;
+  width: 35px;
+  transform: translateY(12px);
   backdrop-filter: none;
 }
-.spacebar{
-  height: 20px;
+.spacebar {
+  height: 25px;
   width: 80px;
-  transform: translateY(5px);
+  transform: translateY(7px);
   backdrop-filter: none;
 }
 
@@ -205,7 +215,7 @@ color: gold;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: white;
 }
 
 .logincontainer {
@@ -262,7 +272,7 @@ color: gold;
 .formheadings {
   font-size: 2em;
   margin: 0 0 0 0;
-  color: #aca908;
+  color: gold;
   text-align: center;
 }
 
@@ -285,7 +295,7 @@ form {
   position: relative;
   margin: 10px 0;
   width: 310px;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid white;
 }
 
 .inputbox label {
@@ -293,7 +303,7 @@ form {
   top: 50%;
   left: 5%;
   transform: translateY(-50%);
-  color: #aca908;
+  color: gold;
   font-size: 1em;
   font-weight: bold;
   pointer-events: none;
@@ -313,7 +323,7 @@ input:focus ~ label {
   outline: none;
   font-size: 1em;
   padding: 0 35px 0 5;
-  color: #ffffff;
+  color: white;
 }
 
 .formbuttons {
@@ -324,45 +334,16 @@ input:focus ~ label {
   font-size: 1em;
   font-weight: 600;
 }
+.signinsignupcontainer{
+  text-align: left;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  padding: 20px 20px 20px 20px;
+  border-radius: 20px;
+  margin: 15%;
+  margin-top: 20px;
+}
 /* Sign in or Register page styling --END */
-
-/* profile page styling --START */
-.profileinformationcontainer {
-  border: 10px solid #ffffff;
-  background-color: black;
-  margin: auto;
-  width: 400px;
-  height: 230px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-.profiletable {
-}
-
-.pheader {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  font-size: 3em;
-  color: #ffffff;
-  font-weight: 600;
-}
-/* profile page styling --END */
-
-/* information page styling --START */
-
-.iheader {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  font-size: 3em;
-  color: #ffffff;
-  font-weight: 600;
-}
-/* information page styling --END */
 
 /* leaderboard page styling --START */
 
@@ -377,10 +358,10 @@ input:focus ~ label {
 }
 
 .leaderboardtable {
-  border: 10px solid yellow;
+  border: 5px solid gold;
   background-color: transparent;
   border-radius: 20px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   margin: auto;
   max-width: fit-content;
   align-items: center;
@@ -394,11 +375,12 @@ input:focus ~ label {
   font-size: 2em;
   padding: 5px 20px 5px 20px;
   text-align: center;
+  color: gold;
 }
 
 .leaderboardtable td {
   text-align: center;
-  color: #aca908;
+  color: white;
   font-weight: 600;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -406,6 +388,84 @@ input:focus ~ label {
 
 .lreturn {
   text-align: center;
+  font-weight: 900;
+  font-size: 1.2em;
+}
+
+.lreturn a {
+  color: gold;
+  font-weight: 900;
+  text-decoration: none;
+}
+.lbodycontainer {
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  color: white;
+  margin: 20%;
+  padding: 20px 20px 20px 20px;
+  width: auto;
+  height: auto;
+  font-size: 1em;
   font-weight: 600;
+  text-align: center;
+  margin-top: 0;
 }
 /* leaderboard page styling --END */
+
+/* information page styling --START */
+
+.iheader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  color: white;
+  font-weight: 600;
+}
+.informationcontainer{
+  text-align: left;
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  padding: 20px 20px 20px 20px;
+  border-radius: 20px;
+  margin: 15%;
+  margin-top: 20px;
+}
+.informationcontainer a {
+  color: gold;
+}
+
+/* information page styling --END */
+
+/* profile page styling --START */
+
+.profileinformationcontainer {
+  border: 5px solid white;
+  margin: auto;
+  width: 400px;
+  height: 230px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  padding: 40px 40px 40px 40px;
+  border-radius: 20px;
+}
+.profiletable {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.pheader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-size: 3em;
+  color: white;
+  font-weight: 600;
+}
+/* profile page styling --END */

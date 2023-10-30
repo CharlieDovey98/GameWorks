@@ -16,7 +16,7 @@
         </div>
         <ul>
             <li> <a href="index.html"><button type="button" class="active">Home</button></a> </li>
-            <li> <a href="signin_register.html"><button type="button">Sign In / Sign Up</button></a> </li>
+            <li> <a href="signin_signup.html"><button type="button">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
@@ -32,7 +32,30 @@
         <div class="gamecontainer">
 
         </div>
-        <img src="../Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton">
+        <img src="../Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton" onclick="toggleFullScreen()">
+        <script>
+        /* reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen */
+        function toggleFullScreen() {
+            if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+             (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+              if (document.documentElement.requestFullScreen) {  
+                document.documentElement.requestFullScreen();  
+              } else if (document.documentElement.mozRequestFullScreen) {  
+                document.documentElement.mozRequestFullScreen();  
+              } else if (document.documentElement.webkitRequestFullScreen) {  
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+              }  
+            } else {  
+              if (document.cancelFullScreen) {  
+                document.cancelFullScreen();  
+              } else if (document.mozCancelFullScreen) {  
+                document.mozCancelFullScreen();  
+              } else if (document.webkitCancelFullScreen) {  
+                document.webkitCancelFullScreen();  
+              }  
+            }  
+          }
+          </script>
     </div>
     <div class="tutorialcontainer">
         <h1 class="heading">Tutorial :</h1>
@@ -53,11 +76,9 @@
     </div>
 
 </body>
-<footer>
+<div class="footer">
     <p>Created by Charlie Dovey M00843428 &copy;. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-            Send me an Email</a> Middlesex University London. The Burroughs, NW4 4BT.<a href="tel:02084115000"> Call
-            MDX</a>
-</footer>
+            Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The Burroughs, NW4 4BT. Contact: <a href="tel:02084115000"> Call MDX</a>
+    </div>
 </body>
-
 </html>
