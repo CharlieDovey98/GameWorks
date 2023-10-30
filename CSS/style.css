@@ -2,8 +2,9 @@
 
 /* Styling across all pages --Start*/
 
-/* Import the Poppins font family for use in my website */
+/* Import the Poppins and Arcade font family for use in my website */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
 
 .navigationbar {
   width: auto;
@@ -40,6 +41,7 @@
   padding: 5px 15px 5px 15px;
   border-radius: 15px;
 }
+
 .navigationbar a {
   color: white;
   text-decoration: none;
@@ -107,12 +109,15 @@ body {
 }
 
 .footer {
+  position: absolute;
+  margin-top: 50px;
   width: 100%;
   color: white;
   text-align: center;
   font-size: 1em;
   font-weight: 900;
 }
+
 .footer a {
   color: gold;
   font-weight: 900;
@@ -121,22 +126,23 @@ body {
 /* Styling across all pages --END */
 
 /* Styling across the index page --START */
-
 .PlaySpaceInvaders {
   margin: auto;
   display: flex;
   justify-content: center;
-  font-size: 50px;
-  color: white;
-  font-weight: 900;
-  font-family: "poppins", sans-serif;
+  font-size: 40px;
+  color: gold;
+  font-weight: 600;
+  font-family: "Arcade", sans-serif;
 }
+
 .gamepagecontainer {
-  /*how to center this box ctrl i to see width and height*/
+                                          /*how to center this box ctrl i to see width and height*/
   width: 800px;
-  height: 700px;
+  height: 650px;
   background-color: transparent;
   margin: auto;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +170,8 @@ body {
   backdrop-filter: blur(10px);
   border-radius: 20px;
   color: white;
-  margin: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
   width: auto;
   height: auto;
   font-size: 1em;
@@ -173,6 +180,7 @@ body {
   text-align: center;
   margin-top: 0;
 }
+
 .tutorialcontainer .heading {
   color: gold;
   margin-top: 0;
@@ -191,19 +199,20 @@ body {
   transform: translateY(12px);
   backdrop-filter: none;
 }
+
 .arrowright {
   height: 35px;
   width: 35px;
   transform: translateY(12px);
   backdrop-filter: none;
 }
+
 .spacebar {
   height: 25px;
   width: 80px;
   transform: translateY(7px);
   backdrop-filter: none;
 }
-
 /* Styling across the index page --END */
 
 /* Sign in or Register page styling --START*/
@@ -227,6 +236,7 @@ body {
   border: 2px solid;
   border-radius: 20px;
 }
+
 .registercontainer {
   align-items: center;
   background: transparent;
@@ -270,10 +280,12 @@ body {
 }
 
 .formheadings {
-  font-size: 2em;
   margin: 0 0 0 0;
-  color: gold;
   text-align: center;
+  font-size: 30px;
+  color: gold;
+  font-weight: 600;
+  font-family: "Arcade", sans-serif;
 }
 
 .formbuttons {
@@ -334,27 +346,31 @@ input:focus ~ label {
   font-size: 1em;
   font-weight: 600;
 }
+
 .signinsignupcontainer{
-  text-align: left;
   border: 1px solid white;
   backdrop-filter: blur(10px);
-  padding: 20px 20px 20px 20px;
   border-radius: 20px;
-  margin: 15%;
-  margin-top: 20px;
+  color: white;
+  margin-left: 24%;
+  margin-right: 24%;
+  margin-top: 40px;
+  font-size: 1em;
+  font-weight: 600;
+  flex-direction: column;
+  text-align: center;
 }
 /* Sign in or Register page styling --END */
 
 /* leaderboard page styling --START */
-
 .lhead {
   margin: auto;
   display: flex;
   justify-content: center;
-  padding: 10px;
-  font-size: 3em;
-  color: white;
-  font-weight: bolder;
+  font-size: 40px;
+  color: gold;
+  font-weight: 600;
+  font-family: "Arcade", sans-serif;
 }
 
 .leaderboardtable {
@@ -363,6 +379,7 @@ input:focus ~ label {
   border-radius: 20px;
   backdrop-filter: blur(10px);
   margin: auto;
+  margin-top: 20px;
   max-width: fit-content;
   align-items: center;
   justify-content: center;
@@ -372,18 +389,21 @@ input:focus ~ label {
 }
 
 .leaderboardtable th {
-  font-size: 2em;
+  font-size: 2.5em;
   padding: 5px 20px 5px 20px;
+  font-weight: 200;
   text-align: center;
   color: gold;
+  font-family: 'ArcadeClassic', sans-serif;
 }
 
 .leaderboardtable td {
   text-align: center;
   color: white;
-  font-weight: 600;
-  font-size: 1.5em;
+  font-size: 2em;
   text-transform: uppercase;
+  font-weight: 100;
+  font-family: 'ArcadeClassic', sans-serif;
 }
 
 .lreturn {
@@ -397,75 +417,96 @@ input:focus ~ label {
   font-weight: 900;
   text-decoration: none;
 }
+
 .lbodycontainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
   color: white;
-  margin: 20%;
+  margin-top: 0;
+  margin-left: 20%;
+  margin-right: 20%;
   padding: 20px 20px 20px 20px;
-  width: auto;
-  height: auto;
   font-size: 1em;
   font-weight: 600;
-  text-align: center;
-  margin-top: 0;
+  text-align: left;
 }
 /* leaderboard page styling --END */
 
 /* information page styling --START */
-
 .iheader {
   margin: auto;
   display: flex;
   justify-content: center;
-  padding: 10px;
-  font-size: 3em;
-  color: white;
+  font-size: 40px;
+  color: gold;
   font-weight: 600;
+  font-family: "Arcade", sans-serif;
 }
+
 .informationcontainer{
   text-align: left;
   border: 1px solid white;
   backdrop-filter: blur(10px);
   padding: 20px 20px 20px 20px;
   border-radius: 20px;
-  margin: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: 20px;
 }
+
 .informationcontainer a {
   color: gold;
 }
 
+.informationcontainer h1{
+  color: gold;
+}
 /* information page styling --END */
 
 /* profile page styling --START */
+.pheader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  color: gold;
+  font-weight: 600;
+  font-family: "Arcade", sans-serif;
+}
 
 .profileinformationcontainer {
   border: 5px solid white;
   margin: auto;
-  width: 400px;
-  height: 230px;
+  width: 600px;
+  height: 300px;
+  margin-bottom: 50px;
+  margin-top: 20px;
   align-items: center;
   justify-content: center;
   display: flex;
   background: transparent;
   backdrop-filter: blur(10px);
-  padding: 40px 40px 40px 40px;
+  padding: 40px 10px 40px 10px;
   border-radius: 20px;
 }
-.profiletable {
-  font-size: 1em;
-  font-weight: 600;
+
+.profiletable td{
+  padding: 10px 20px 10px 20px;
+  font-size: 1.2em;
+  text-align: left;
 }
 
-.pheader {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  font-size: 3em;
-  color: white;
-  font-weight: 600;
+.profiledescription{
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2em;
+  margin-bottom: 160px;
+}
+
+.profiledescription a {
+  color: gold;
+  font-weight: 900;
+  text-decoration: none;
 }
 /* profile page styling --END */
