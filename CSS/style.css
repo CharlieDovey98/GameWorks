@@ -2,9 +2,10 @@
 
 /* Styling across all pages --Start*/
 
-/* Import the Poppins and Arcade font family for use in my website */
+/* Import the Poppins, Astropolis and Arcade font family for use in my website */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
 @import url('https://fonts.cdnfonts.com/css/arcade-classic');
+@import url('https://fonts.cdnfonts.com/css/astropolis');
 
 .navigationbar {
   width: auto;
@@ -134,7 +135,7 @@ body {
   font-size: 40px;
   color: gold;
   font-weight: 100;
-  font-family: 'ArcadeClassic', sans-serif;
+  font-family: 'Astropolis Academy', sans-serif;
 }
 
 .gamepagecontainer {
@@ -185,6 +186,7 @@ body {
 .tutorialcontainer .heading {
   color: gold;
   margin-top: 0;
+  font-family: 'Astropolis', sans-serif;
 }
 
 .arrowup {
