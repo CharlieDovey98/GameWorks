@@ -12,7 +12,7 @@
   background: transparent;
   /*backdrop-filter: blur(2px);  Q - Do i have a blur navigation bar or a solid colour or nothing? */
   border: 15px solid transparent;
-  border-top: 0;
+  border-top: 5px;
   margin: 0;
   display: flex;
   align-items: center;
@@ -75,6 +75,7 @@
 .accountlogo {
   width: 40px;
   height: 40px;
+  transform: translateY(8px);
 }
 
 .accountcaption {
@@ -104,7 +105,7 @@ body {
   background-attachment: fixed;
   color: white;
   font-weight: 900;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
 }
 
@@ -132,8 +133,8 @@ body {
   justify-content: center;
   font-size: 40px;
   color: gold;
-  font-weight: 600;
-  font-family: "Arcade", sans-serif;
+  font-weight: 100;
+  font-family: 'ArcadeClassic', sans-serif;
 }
 
 .gamepagecontainer {
@@ -285,7 +286,7 @@ body {
   font-size: 30px;
   color: gold;
   font-weight: 600;
-  font-family: "Arcade", sans-serif;
+  font-family: sans-serif;
 }
 
 .formbuttons {
@@ -370,7 +371,7 @@ input:focus ~ label {
   font-size: 40px;
   color: gold;
   font-weight: 600;
-  font-family: "Arcade", sans-serif;
+  font-family: sans-serif;
 }
 
 .leaderboardtable {
@@ -389,12 +390,13 @@ input:focus ~ label {
 }
 
 .leaderboardtable th {
-  font-size: 2.5em;
+  font-size: 2em;
   padding: 5px 20px 5px 20px;
-  font-weight: 200;
+  font-weight: 600;
   text-align: center;
   color: gold;
-  font-family: 'ArcadeClassic', sans-serif;
+  font-family: sans-serif;
+  text-transform: uppercase;
 }
 
 .leaderboardtable td {
@@ -441,7 +443,7 @@ input:focus ~ label {
   font-size: 40px;
   color: gold;
   font-weight: 600;
-  font-family: "Arcade", sans-serif;
+  font-family: sans-serif;
 }
 
 .informationcontainer{
@@ -472,7 +474,7 @@ input:focus ~ label {
   font-size: 40px;
   color: gold;
   font-weight: 600;
-  font-family: "Arcade", sans-serif;
+  font-family: sans-serif;
 }
 
 .profileinformationcontainer {
