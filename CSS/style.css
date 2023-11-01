@@ -1,12 +1,13 @@
 /* CSS Styling for GameWorks website */
 
-/* Styling across all pages --Start*/
+/* Everything below this comment is Styling across all pages --- */
 
 /* Import the Poppins, Astropolis and Arcade font family for use in my website */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap");
 @import url('https://fonts.cdnfonts.com/css/arcade-classic');
 @import url('https://fonts.cdnfonts.com/css/astropolis');
 
+/* Styling for the navigation bar across all pages */
 .navigationbar {
   width: auto;
   height: 10vh;
@@ -27,6 +28,7 @@
   padding: 0 50px 0 50px;
 }
 
+/* Styling for the navigation buttons across all pages */
 .navigationbar button {
   border: 2px solid white;
   background-color: transparent;
@@ -49,35 +51,43 @@
   font-weight: 600;
 }
 
+/* Styling for navigation buttons when hovering over them */
 .navigationbar button:hover {
   border: 2px solid gold;
 }
+
+/* Styling for navigation buttons when active. The active button visually shows what page your on */
 .navigationbar .active {
   color: gold;
 }
 
+/* Styling for the website logo container/div */
 .gameworkswebsitecontainer {
   vertical-align: top;
   display: inline-block;
-  text-align: center;
 }
+
+/* Styling for the GameWorks website logo .png */
 .gameworkswebsitelogob {
   width: 200px;
   height: 50px;
 }
 
+/* Styling for the GameWorks profile container/div */
 .accountlogocontainer {
   margin-left: 10%;
   vertical-align: top;
   display: inline-block;
 }
 
+/* Styling for the profile logo .png */
 .accountlogo {
   width: 40px;
   height: 40px;
   transform: translateY(8px);
 }
 
+/* Styling for the account logo caption cited at the top right of all pages beneath the profile logo icon*/
 .accountcaption {
   display: block;
   color: white;
@@ -86,14 +96,17 @@
   font-weight: 600;
 }
 
+/* Styling to make the .accountcaption (above) show as gold when the cursor is hovering over it */
 .accountcaption :hover {
   color: gold;
 }
 
+/* Styling to make the .accountcaption (above) show as gold when the on that page */
 .accountcaption:active {
   color: gold;
 }
 
+/* Styling across all page bodys */
 body {
   
   margin: 0;
@@ -109,6 +122,7 @@ body {
   text-align: center;
 }
 
+/* Styling across all page footers */
 .footer {
   position: absolute;
   margin-top: 15px;
@@ -127,9 +141,10 @@ body {
   font-weight: 900;
   text-decoration: none;
 }
-/* Styling across all pages --END */
+/* Everything above this comment is Styling across all pages --- */
+/* Everything below this comment is Styling across the index.html page --- */
 
-/* Styling across the index page --START */
+/* Styling for the  heading on the index page*/
 .PlaySpaceInvaders {
   margin: auto;
   display: flex;
@@ -137,11 +152,11 @@ body {
   font-size: 40px;
   color: gold;
   font-weight: 100;
-  font-family: 'Astropolis Academy', sans-serif;
+  font-family: 'Astropolis Academy', sans-serif;/* Using the font family 'Astropolis Academy' imported at the top of this style.css sheet */
 }
 
+/* a div to hold the game canvas and the fullscreen button*/
 .gamepagecontainer {
-                                          /*how to center this box ctrl i to see width and height*/
   width: 800px;
   height: 650px;
   background-color: transparent;
@@ -152,6 +167,7 @@ body {
   justify-content: center;
 }
 
+/* A placeholder canvas where the game will be */
 .gamecontainer {
   width: 500px;
   height: 500px;
@@ -161,6 +177,7 @@ body {
   margin-left: 60px;
 }
 
+/* a full screen image that when clicked makes the website fullscreen using javascrpit */
 .fullscreenbutton {
   width: auto;
   height: auto;
@@ -170,6 +187,7 @@ body {
   cursor: pointer;
 }
 
+/* a div to hold the tutorial and objective statements */
 .tutorialcontainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
@@ -186,12 +204,14 @@ body {
   margin-top: 0;
 }
 
+/* styling for the and objective headers */
 .tutorialcontainer .heading {
   color: gold;
   margin-top: 0;
   font-family: 'Poppins', sans-serif;
 }
 
+/* below are some images within the tutorial and objective paragraphs. these are visual aids to help the player play the game */
 .arrowup {
   height: 35px;
   width: 35px;
@@ -221,7 +241,7 @@ body {
 }
 /* Styling across the index page --END */
 
-/* Sign in or Register page styling --START*/
+/* Sign in or Register page styling --START */
 .shead {
   margin: auto;
   display: flex;
@@ -500,7 +520,7 @@ input:focus ~ label {
 .profileinformationcontainer {
   border: 1px solid white;
   margin: auto;
-  width: 600px;
+  width: 800px;
   height: 350px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -513,8 +533,17 @@ input:focus ~ label {
   border-radius: 20px;
 }
 
-.profiletable td{
-  padding: 10px 20px 10px 20px;
+.profiletable {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.profiletable table td{
+  padding: 10px 5px 10px 5px;
+  width: 300px;
+  height: 20px;
   font-size: 1.2em;
   text-align: left;
 }
