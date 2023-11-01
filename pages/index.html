@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> <!--English, Left to right text-->
-
+<html lang="en" dir="ltr"> <!-- Language English, Left to right text direction -->
+<!-- The head for the page, containing all important information -->
 <head>
     <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
     <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
@@ -8,18 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Information</title>
 </head>
-
+<!-- below is the body tag, containing the all the code for the page -->
 <body>
+    <!--  a div for all the navigation links fixed at the top of the page -->
     <div class="navigationbar">
+        <!-- a div containing the website logo image-->
         <div class="gameworkswebsitecontainer">
             <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
+        <!--  a list for all the navigation links -->
         <ul>
             <li> <a href="index.html"><button type="button" class="active">Home</button></a> </li>
             <li> <a href="signin_signup.html"><button type="button">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
+        <!-- a div to hold the profile image and username text -->
         <div class="accountlogocontainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
                     class="accountlogo"> </a>
@@ -27,16 +31,18 @@
         </div>
 
     </div>
+    <!--- this is the page heading -->
     <h class="PlaySpaceInvaders"> Play Space Invaders </h>
+    <!-- a div with a black canvas as a placeholder for where the game would be -->
     <div class="gamepagecontainer">
         <div class="gamecontainer">
-
         </div>
         <img src="../Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton"
             onclick="toggleFullScreen()">
         <script>
-            /* Fullscreen element:
-            reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen */
+            /* Below is the code for a fullscreen element,
+               called when the user clicks on the full screen button:
+               reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen */
             function toggleFullScreen() {
                 if ((document.fullScreenElement && document.fullScreenElement !== null) ||
                     (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -59,8 +65,9 @@
             }
         </script>
     </div>
+    <!-- below is a div for a box containing the tutorial and objective -->
     <div class="tutorialcontainer">
-        <h2 class="heading">Tutorial:</h2>
+        <h2 class="heading">Tutorial :</h2>
         <p>To play Space Invaders you will need to use the arrow keys; left <img src="../Images/ArrowLeft.png"
                 alt="Arrow Key Left" class="arrowleft"> and right <img src="../Images/ArrowRight.png"
                 alt="Arrow Key Right" class="arrowright"> to move your space ship
@@ -69,7 +76,7 @@
             <img src="../Images/SpaceBar.png" alt="Space Bar" class="spacebar"> will allow your ship to shoot towards
             the alien invasion.
         </p>
-        <h2 class="heading">Objective:</h2>
+        <h2 class="heading">Objective :</h2>
         <p>
             Your objective is to shoot down the descending rows of alien spaceships while dodging their retaliatory fire.<br>
             The aliens will move side to side and shoot faster as you progress through the rounds making each round harder and harder.<br>
@@ -79,8 +86,8 @@
             Good luck on your journey should you choose to accept pilot.
         </p>
     </div>
-
 </body>
+<!-- below is a div containing the code for the footer -->
 <div class="footer">
     <p>GameWorks &copy; Created by Charlie Dovey M00843428. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
         Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The
