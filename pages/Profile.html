@@ -1,89 +1,95 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> <!-- Language English, Left to right text direction -->
-<!-- The head for the page, containing all important information -->
+<!-- Below is a html tag to set the language to English, and left to right text direction -->
+<html lang="en" dir="ltr">
+<!-- Below is the head for the page, containing all important information -->
 <head>
-    <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
-    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
+    <!-- Below is the link to the stylesheet CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Below is the link to the JavaScript file -->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script>
+    <!-- Below is a meta tag to set the universal character set to UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Below is the meta information to set the website to the pixel width of the device in use -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Profile</title>
 </head>
-<!-- below is the body tag, containing the all the code for the page -->
+<!-- Below is the body tag, containing the all the code for the page -->
 <body>
-    <!--  a div for all the navigation links fixed at the top of the page -->
+    <!-- Below is a div for all the navigation links fixed at the top of the page -->
     <div class="navigationbar">
-        <!-- a div containing the website logo image-->
+        <!-- Below is a div containing the website logo image -->
         <div class="gameworkswebsitecontainer">
             <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-        <!--  a list for all the navigation links --> 
+        <!-- Below is an unordered list for all the navigation links -->
         <ul>
             <li> <a href="index.html"><button type="button">Home</button></a> </li>
             <li> <a href="signin_signup.html"><button type="button">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
-        <!-- a div to hold the profile image and username text -->
+        <!-- Below is a div to hold the profile image and username text that will update with the users username, through javascript -->
         <div class="accountlogocontainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
                     class="accountlogo"> </a>
+                    <!-- Below is a span with the class active, which allows css to show the user which page they're currently on -->
             <a class="accountcaption" href="Profile.html"> <span class="active">Profile</span> </a>
         </div>
     </div>
-    <!--- this is the page heading -->
+    <!--- Below is the page heading -->
     <h class="pheader"> Profile Information </h>
-    <!-- a div to hold the users profile information, stored when they create an account -->
+    <!-- Below is a div to hold the profile information table -->
     <div class="profileinformationcontainer">
-        <div class="profiletable"> 
+        <img src="../Images/AccountLogo.png" alt="AccountLogo" class="profilelogo">
+        <!-- Below is a table contained within a div, which holds the users profile information, stored when they create an account -->
+        <div class="profiletable">
             <table>
-            <tr>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <td class="title">Email : </td>
-                <td class="information">cd908@live.mdx.ac.uk</td>
-            </tr>
-            <tr>
-                <td class="title">Username : </td>
-                <td class="information">CD98</td>
-            </tr>
-            <tr>
-                <td class="title">Forename : </td>
-                <td class="information">Charlie</td>
-            </tr>
-            <tr>
-                <td class="title">Surname : </td>
-                <td class="information">Dovey</td>
-            </tr>
-            <tr>
-                <td class="title">Games played : </td>
-                <td class="information">15</td>
-            </tr>
-            <tr>
-                <td class="title">Highest Score : </td>
-                <td class="information">88,003</td>
-            </tr>
+                <tr>
+                    <td class="ptabletitle">Email : </td>
+                    <td>cd908@live.mdx.ac.uk</td>
+                </tr>
+                <tr>
+                    <td class="ptabletitle">Username : </td>
+                    <td>CD98</td>
+                </tr>
+                <tr>
+                    <td class="ptabletitle">Forename : </td>
+                    <td>Charlie</td>
+                </tr>
+                <tr>
+                    <td class="ptabletitle">Surname : </td>
+                    <td>Dovey</td>
+                </tr>
+                <tr>
+                    <td class="ptabletitle">Games played : </td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td class="ptabletitle">Highest Score : </td>
+                    <td>88,003</td>
+                </tr>
             </table>
-            </div>
-        <!-- below is a div for the log out button -->
+        </div>
+        <!-- Below is a div which contains the log out button -->
         <div class="logoutbutton">
             <button type="button">Log out</button>
         </div>
     </div>
-    <!-- below is a div to hold a paragraph about ypur profile -->
-    <div class="profiledescription">
+    <!-- below is a div to hold some text about the users profile information-->
+    <div class="userinformationcontainer">
         <p>
             You must be a registered user to view your profile information above.<br>
             Please head over to the <a href="signin_signup.html">Sign In/ Sign Up</a> page if you have not registered with us.
         </p>
+        <p>If any of your profile information above is inaccurate, don't hesitate to reach out to our support 
+            team by navigating to the <a href="mailto:CD908@live.mdx.ac.uk">'Your information'</a> section of the information page.
+        </p>
     </div>
-    <!-- below is a div containing the code for the footer -->
+    <!-- Below is a div containing the code for the footer -->
     <div class="footer">
-        <p>GameWorks &copy; Created by CD M00843428. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-            Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The
-            Burroughs, NW4 4BT. Contact: <a href="tel:02084115000"> Call MDX</a>
+        <p>GameWorks &copy;&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
         </p>
     </div>
 </body>
+
 </html>

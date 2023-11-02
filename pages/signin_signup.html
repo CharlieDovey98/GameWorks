@@ -1,109 +1,129 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> <!-- Language English, Left to right text direction -->
-<!-- The head for the page, containing all important information -->
+<!-- Below is a html tag to set the language to English, and left to right text direction -->
+<html lang="en" dir="ltr">
+<!-- Below is the head for the page, containing all important information -->
 <head>
-    <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
-    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
+    <!-- Below is the link to the stylesheet CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Below is the link to the JavaScript file -->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script>
+    <!-- Below is a meta tag to set the universal character set to UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Below is the meta information to set the website to the pixel width of the device in use -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Signin</title>
 </head>
-<!-- below is the body tag, containing the all the code for the page -->
+<!-- Below is the body tag, containing the all the code for the page -->
 <body>
-    <!--  a div for all the navigation links fixed at the top of the page -->
+    <!-- Below is a div for all the navigation links fixed at the top of the page -->
     <div class="navigationbar">
-        <!-- a div containing the website logo image-->
+        <!-- Below is a div containing the website logo image -->
         <div class="gameworkswebsitecontainer">
             <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-        <!--  a list for all the navigation links -->
+        <!-- Below is an unordered list for all the navigation links -->
         <ul>
             <li> <a href="index.html"><button type="button">Home</button></a> </li>
+            <!-- Below is a span with the class active, which allows css to show the user which page they're currently on -->
             <li> <a href="signin_signup.html" type="button"><button class="active">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
-        <!-- a div to hold the profile image and username text -->
+        <!-- Below is a div to hold the profile image and username text that will update with the users username, through javascript -->
         <div class="accountlogocontainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
                     class="accountlogo"> </a>
             <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
         </div>
     </div>
-    <!--- this is the page heading -->
+    <!--- Below is the page heading -->
     <h class="shead">Sign up to GameWorks</h>
-    <!-- a div for the sign up and sign in form -->
+    <!-- Below is a div for the sign up and sign in form -->
     <div class="formcontainer">
-        <!-- a div to hold the login form -->
+        <!-- Below is a div to hold the login form -->
         <div class="logincontainer">
             <form action="">
                 <h1 class="formheadings">Login</h1>
+                <!-- Below is a div to hold a user input point within the form -->
                 <div class="inputbox">
                     <img src="../Images/User.png" alt="User Logo" class="userlogo">
                     <input type="username" required>
                     <label for="">Username</label>
                 </div>
+                <!-- Below is a div to hold a user input point within the form -->
                 <div class="inputbox">
                     <img src="../Images/Passwordlock.png" alt="Password Logo" class="passwordlogo">
                     <input type="password" required>
                     <label for="">Password</label>
                 </div>
-                <!-- a button to log in to your account -->
-                <br><button type="button" >Log in</button>
-
             </form>
+            <!-- Below is a button to log in to your account -->
+            <div class="formbuttoncontainer">
+                <button type="button">Log in</button>
+                <!-- Below is a button to start the 'forgot details' process -->
+                <button type="button">Forgot details</button>
+            </div>
         </div>
-        <!-- a div to hold the register form -->
+        <!-- Below is a div to hold the register form -->
         <div class="registercontainer">
             <form action="">
                 <h1 class="formheadings">Register</h1>
                 <div class="inputbox">
-                    <img src="../Images/User.png" alt="User Logo" class="userlogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/User.png" alt="User Logo"
+                        class="userlogo"><!-- an image inserted next to the forms input box-->
                     <input type="username" required><!-- required makes the form input required for the form to work -->
                     <label for="">Username</label>
                 </div>
                 <div class="inputbox">
-                    <img src="../Images/Email.png" alt="Email Logo" class="emaillogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/Email.png" alt="Email Logo"
+                        class="emaillogo"><!-- an image inserted next to the forms input box-->
                     <input type="email" required><!-- required makes the form input required for the form to work -->
                     <label for="">Email</label>
                 </div>
                 <div class="inputbox">
-                    <img src="../Images/Passwordlock.png" alt="Password Logo" class="passwordlogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/Passwordlock.png" alt="Password Logo"
+                        class="passwordlogo"><!-- an image inserted next to the forms input box-->
                     <input type="password" required><!-- required makes the form input required for the form to work -->
                     <label for="">Password</label>
                 </div>
                 <div class="inputbox">
-                    <img src="../Images/Passwordlock.png" alt="Password Logo" class="passwordlogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/Passwordlock.png" alt="Password Logo"
+                        class="passwordlogo"><!-- an image inserted next to the forms input box-->
                     <input type="password" required><!-- required makes the form input required for the form to work -->
                     <label for="">Re-enter Password</label>
                 </div>
                 <div class="inputbox">
-                    <img src="../Images/Userid.png" alt="User id Logo" class="useridlogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/Userid.png" alt="User id Logo"
+                        class="useridlogo"><!-- an image inserted next to the forms input box-->
                     <input type="forename" required><!-- required makes the form input required for the form to work -->
                     <label for="">Forename</label>
                 </div>
                 <div class="inputbox">
-                    <img src="../Images/Userid.png" alt="User id Logo" class="useridlogo"><!-- an image inserted next to the forms input box-->
+                    <img src="../Images/Userid.png" alt="User id Logo"
+                        class="useridlogo"><!-- an image inserted next to the forms input box-->
                     <input type="surname" required><!-- required makes the form input required for the form to work -->
                     <label for="">Surname</label>
                 </div>
-                <!-- a button to save your information and register your account -->
-                <br><button type="button" >Register</button>
             </form>
-
+            <!-- a button to save your information and register your account -->
+            <div class="formbuttoncontainer">
+                <button type="button">Register</button>
+            </div>
         </div>
     </div>
-    <!-- a div to hold information for signing up/ in-->
-    <div class="signinsignupcontainer">
-        <p>Please create an account with us using the register form, to be able to store your high score on the leaderboard.</p>
+    <!-- Below is a div to hold information for signing up/ in -->
+    <div class="forminformationcontainer">
+        <p>Please create an account with us using the register form, to be able to store your high score on the
+            leaderboard.</p>
         <p>If you have an account, please sign in using your chosen username and password using the login form.</p>
+        <p>To view GameWorks data security information please navigate to the <a
+                href="mailto:CD908@live.mdx.ac.uk">'Your information'</a> section on the information page.</p>
     </div>
-    <!-- below is a div containing the code for the footer -->
+    <!-- Below is a div containing the code for the footer -->
     <div class="footer">
-        <p>GameWorks &copy; Created by Charlie Dovey M00843428. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-            Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The
-            Burroughs, NW4 4BT. Contact: <a href="tel:02084115000"> Call MDX</a>
+        <p>GameWorks &copy;&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
         </p>
     </div>
 </body>
+
 </html>

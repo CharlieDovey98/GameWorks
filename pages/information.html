@@ -1,84 +1,132 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> <!-- Language English, Left to right text direction -->
-<!-- The head for the page, containing all important information -->
+<!-- Below is a html tag to set the language to English, and left to right text direction -->
+<html lang="en" dir="ltr">
+<!-- Below is the head for the page, containing all important information -->
 <head>
-    <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
-    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
+    <!-- Below is the link to the stylesheet CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Below is the link to the JavaScript file -->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script>
+    <!-- Below is a meta tag to set the universal character set to UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Below is the meta information to set the website to the pixel width of the device in use -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Information</title>
 </head>
-<!-- below is the body tag, containing the all the code for the page -->
+<!-- Below is the body tag, containing the all the code for the page -->
 <body>
-    <!--  a div for all the navigation links fixed at the top of the page -->
+    <!-- Below is a div for all the navigation links fixed at the top of the page -->
     <div class="navigationbar">
-        <!-- a div containing the website logo image-->
+        <!-- Below is a div containing the website logo image -->
         <div class="gameworkswebsitecontainer">
             <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-        <!--  a list for all the navigation links -->
+        <!-- Below is an unordered list for all the navigation links -->
         <ul>
             <li> <a href="index.html"><button type="button">Home</button></a> </li>
             <li> <a href="signin_signup.html"><button type="button">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
+            <!-- Below is a span with the class active, which allows css to show the user which page they're currently on -->
             <li> <a href="information.html"><button type="button" class="active">Information</button></a> </li>
         </ul>
-        <!-- a div to hold the profile image and username text -->
+        <!-- Below is a div to hold the profile image and username text that will update with the users username, through javascript -->
         <div class="accountlogocontainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
                     class="accountlogo"> </a>
             <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
         </div>
     </div>
-    <!--- this is the page heading -->
-    <header class="iheader"> Game Works </header>
-    <!-- a div to hold all the website information -->
+    <!--- Below is the page heading -->
+    <h class="iheader"> Game Works </h>
+    <!-- Below is a div to hold all the website information using headings h1, h3, and paragraphs -->
     <div class="informationcontainer">
         <h1>GameWorks</h1>
-        <p>Gameworks website was created to provide users with a fun and interactive place to play Space Invaders. <br>Further 'Arcade' style games are planned to be added
-             to the Gameworks website. Keep an eye on the announcements section for titles and dates of releases. </p>
-        
+        <p>Gameworks website was created to provide users with a fun and interactive place to play Space Invaders.
+            <br>Further 'Arcade' style games are planned to be added
+            to the Gameworks website. Keep an eye on the announcements section for titles and dates of releases. </p>
+
         <h1>Updates and Announcements</h1>
         <p>Announcements and updates to the website will be shown here:<br>There are currently no announcements.</p>
-        
+
         <h1>Space Invaders</h1>
-        <p>Space Invaders is a classic arcade game that was first released in 1978 by Taito Corporation, a Japanese company specialising in video games, toys, arcade cabinets, and game centers. It is an iconic and influential video game. Developed by Tomohiro Nishikado, "Space Invaders" was among the earliest 
-            shooting games and played a significant role in shaping the arcade gaming industry.
-        </p>
-        <p>In Space Invaders you will control your spaceship using the Left and Right arrow keys to move horizontally at the bottom of the screen. 
-            Your spaceship has a cannon that can be fired using the space bar or up arrow key to shoot towards the enemy invasion. 
-            Your objective is to shoot at and destroy the descending rows of alien spaceships, while dodging their retaliatory missile fire. 
-            The playable area will consist of asteroids that provide temporary protection from enemy fire. 
-            You will start the game with three lives, losing a life every time you are struck by an alien missile. 
-            Once you have lost all your lives your score will be displayed and saved to the leaderboard. 
-            The aliens will move side to side and shoot progressively faster as you progress through the rounds making each round harder and harder. 
-            The aliens will increase in number and have more health further into the game calling for backup from their larger alien spacecraft. 
-            The last level you will face will be a boss level with their leader present. 
-            This will be a formidable opponent with buffed abilities including fire rate and health.
-        </p>
-        <p>Have a look at the <a href="https://en.wikipedia.org/wiki/Space_Invaders" target="_blank">Space invaders Wikipedia</a> page
-            to learn about the vast history of the game or to explore the world of Arcade games.
-        </p>
+        <!-- Below is an unordered list to aid the user to see the subheadings -->
+        <ul>
+            <h3>
+                <li>Arcade gaming
+            </h3>
+            <p>Space Invaders is a classic arcade game that was first released in 1978 by Taito Corporation, a Japanese
+                company specialising in video games, toys, arcade cabinets, and game centers. It is an iconic and
+                influential video game. Developed by Tomohiro Nishikado, "Space Invaders" was among the earliest
+                shooting games and played a significant role in shaping the arcade gaming industry.
+            </p>
+            <h3>
+                <li>Our game</li>
+            </h3>
+            <p>In Space Invaders you will control your spaceship using the Left and Right arrow keys to move
+                horizontally at the bottom of the screen.
+                Your spaceship has a cannon that can be fired using the space bar or up arrow key to shoot towards the
+                enemy invasion.
+                Your objective is to shoot at and destroy the descending rows of alien spaceships, while dodging their
+                retaliatory missile fire.
+                The playable area will consist of asteroids that provide temporary protection from enemy fire.
+                You will start the game with three lives, losing a life every time you are struck by an alien missile.
+                Once you have lost all your lives your score will be displayed and saved to the leaderboard.
+                The aliens will move side to side and shoot progressively faster as you progress through the rounds
+                making each round harder and harder.
+                The aliens will increase in number and have more health further into the game calling for backup from
+                their larger alien spacecraft.
+                The last level you will face will be a boss level, with their leader present.
+                This will be a formidable opponent with buffed abilities including fire rate and health.
+            </p>
+            <h3>
+                <li>Further information</li>
+            </h3>
+            <!-- Below are some external links to websites where users can access more information -->
+            <p>Have a look at the <a href="https://en.wikipedia.org/wiki/Space_Invaders" target="_blank">Space invaders
+                    Wikipedia</a> page
+                to learn about the vast history of the game or to explore the world of Arcade games.
+            </p>
+            <p>Checkout <a href="https://www.thefactsite.com/space-invaders-facts/" target="_blank">The Fact Site</a>
+                to learn 12 interesting facts about space invaders.
+            </p>
+        </ul>
         <h1>Accessibility</h1>
-        <p>GameWorks website is committed to providing an accessible and inclusive gaming experience for all users. 
-            We strive to ensure that everyone, regardless of their impairments, 
+        <p>GameWorks website is committed to providing an accessible and inclusive gaming experience for all users.
+            We strive to ensure that everyone, regardless of their impairments,
             abilities or disabilities, can enjoy our website and its content with ease.
         </p>
         <h1>Your information</h1>
-        <p>We collect and store user information solely for the purpose of enhancing your gaming experience and improving our services. 
-            Your personal data, such as your password and email address, will be kept confidential and used exclusively for account management and communication. 
-            We do not share your information with third parties for marketing purposes and will never sell on your confidential information.
-            Your 
+        <p>We collect and store user information solely for the purpose of enhancing your gaming experience and
+            improving our services.
+            Your personal data, such as your password and email address, will be kept confidential and used exclusively
+            for account management and communication.
+            We do not share your information with third parties for marketing purposes and will never sell on your
+            confidential information.
+            Your
         </p>
-        <h1>Feedback</h1>
-        <p>We welcome user feedback and are committed to addressing any concerns promptly. Users can reach out via email, located at the bottom of every page.</p>
+        <h1>Feedback & Support</h1>
+        <!-- Below is text containing some links to allow the user to email or phone -->
+        <p>To reach out for support, simply send an <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">email</a> to
+            our dedicated support team or if you would like to speak
+            to one of our representatives please <a href="tel:02084115000"> phone</a>. Whether you have questions,
+            encounter issues,
+            or need assistance, we're here to help!. Please provide as much detail as possible in your message to help
+            us
+            understand your needs and respond more effectively. Our team is committed to providing timely and
+            comprehensive support,
+            and we'll do our best to assist you with any inquiries or concerns you may have.
+            We look forward to hearing from you and resolving any issues to ensure your experience with our website is a
+            positive one.
+        </p>
+        <p>
+            We also welcome user feedback and are committed to addressing any concerns or improvements promptly.
+        </p>
     </div>
-    <!-- below is a div containing the code for the footer -->
+    <!-- Below is a div containing the code for the footer -->
     <div class="footer">
-        <p>GameWorks &copy; Created by Charlie Dovey M00843428. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-            Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The
-            Burroughs, NW4 4BT. Contact: <a href="tel:02084115000"> Call MDX</a>
+        <p>GameWorks &copy;&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
         </p>
     </div>
 </body>
+
 </html>

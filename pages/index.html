@@ -1,48 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"> <!-- Language English, Left to right text direction -->
-<!-- The head for the page, containing all important information -->
+<!-- Below is a html tag to set the language to English, and left to right text direction -->
+<html lang="en" dir="ltr"> 
+<!-- Below is the head for the page, containing all important information -->
 <head>
-    <link rel="stylesheet" href="../CSS/style.css"> <!--Link to the stylesheet CSS file-->
-    <script type="text/javascript" scr="../JavaScript/script.js"></script> <!--Link to the JavaScript file-->
+    <!-- Below is the link to the stylesheet CSS file -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <!-- Below is the link to the JavaScript file -->
+    <script type="text/javascript" scr="../JavaScript/script.js"></script>
+    <!-- Below is a meta tag to set the universal character set to UTF-8 -->
     <meta charset="UTF-8">
+    <!-- Below is the meta information to set the website to the pixel width of the device in use -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Information</title>
 </head>
-<!-- below is the body tag, containing the all the code for the page -->
+<!-- Below is the body tag, containing the all the code for the page -->
 <body>
-    <!--  a div for all the navigation links fixed at the top of the page -->
+    <!-- Below is a div for all the navigation links fixed at the top of the page -->
     <div class="navigationbar">
-        <!-- a div containing the website logo image-->
+        <!-- Below is a div containing the website logo image -->
         <div class="gameworkswebsitecontainer">
             <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
         </div>
-        <!--  a list for all the navigation links -->
+        <!-- Below is an unordered list for all the navigation links -->
         <ul>
+            <!-- Below is a span with the class active, which allows css to show the user which page they're currently on -->
             <li> <a href="index.html"><button type="button" class="active">Home</button></a> </li>
             <li> <a href="signin_signup.html"><button type="button">Sign In / Sign Up</button></a> </li>
             <li> <a href="leaderboard.html"><button type="button">Leaderboard</button></a> </li>
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
-        <!-- a div to hold the profile image and username text -->
+        <!-- Below is a div to hold the profile image and username text that will update with the users username, through javascript -->
         <div class="accountlogocontainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
                     class="accountlogo"> </a>
             <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
         </div>
-
     </div>
-    <!--- this is the page heading -->
+    <!--- Below is the page heading -->
     <h class="PlaySpaceInvaders"> Play Space Invaders </h>
-    <!-- a div with a black canvas as a placeholder for where the game would be -->
+    <!-- Below is a div to hold the game canvas and the fullscreen button -->
     <div class="gamepagecontainer">
+        <!-- Below is a div with a black canvas as a placeholder for where the game would be -->
         <div class="gamecontainer">
         </div>
+        <!-- Below is an image which the user can click on to make the webpage fullscreen -->
         <img src="../Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton"
             onclick="toggleFullScreen()">
+        <!-- Below is the code for a fullscreen element,
+            called when the user clicks on the full screen png:
+            reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen -->
         <script>
-            /* Below is the code for a fullscreen element,
-               called when the user clicks on the full screen button:
-               reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen */
             function toggleFullScreen() {
                 if ((document.fullScreenElement && document.fullScreenElement !== null) ||
                     (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -65,9 +72,9 @@
             }
         </script>
     </div>
-    <!-- below is a div for a box containing the tutorial and objective -->
+    <!-- below is a div for a box containing the tutorial and objective headings and text -->
     <div class="tutorialcontainer">
-        <h2 class="heading">Tutorial :</h2>
+        <h1 class="heading">Tutorial :</h1>
         <p>To play Space Invaders you will need to use the arrow keys; left <img src="../Images/ArrowLeft.png"
                 alt="Arrow Key Left" class="arrowleft"> and right <img src="../Images/ArrowRight.png"
                 alt="Arrow Key Right" class="arrowright"> to move your space ship
@@ -76,23 +83,25 @@
             <img src="../Images/SpaceBar.png" alt="Space Bar" class="spacebar"> will allow your ship to shoot towards
             the alien invasion.
         </p>
-        <h2 class="heading">Objective :</h2>
+        <h1 class="heading">Objective :</h1>
         <p>
-            Your objective is to shoot down the descending rows of alien spaceships while dodging their retaliatory fire.<br>
-            The aliens will move side to side and shoot faster as you progress through the rounds making each round harder and harder.<br>
-            The aliens will increase in number the further you progress the game as they call for backup from their larger alien spacecraft.<br>
+            Your objective is to shoot down the descending rows of alien spaceships while dodging their retaliatory
+            fire.<br>
+            The aliens will move side to side and shoot faster as you progress through the rounds making each round
+            harder and harder.<br>
+            The aliens will increase in number the further you progress through the game, as they call for backup from
+            their larger alien spacecraft.<br>
             The last level will be a boss level with their leader present.<br>
             This will be a formidable opponent with buffed abilities including fire rate and health.<br>
             Good luck on your journey should you choose to accept pilot.
         </p>
     </div>
 </body>
-<!-- below is a div containing the code for the footer -->
+<!-- Below is a div containing the code for the footer -->
 <div class="footer">
-    <p>GameWorks &copy; Created by Charlie Dovey M00843428. Contact: <a href="mailto:CD908@live.mdx.ac.uk" target="_blank">
-        Send me an Email</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created for Middlesex University London. The
-        Burroughs, NW4 4BT. Contact: <a href="tel:02084115000"> Call MDX</a>
+    <p>GameWorks &copy;&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
     </p>
 </div>
 </body>
+
 </html>
