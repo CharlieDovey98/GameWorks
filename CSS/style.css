@@ -141,8 +141,9 @@ body {
   background-attachment: fixed;
   color: white;
   font-weight: 900;
-  font-family: "Poppins", sans-serif; /* Using the font-family 'Poppins' imported at the top of this style.css sheet */
   text-align: center;
+  font-family: "Poppins", sans-serif; 
+  /* Using the font-family 'Poppins' imported at the top of this style.css sheet */
 }
 
 /* Below is the styling for the footer div */
@@ -486,11 +487,25 @@ this allows the user to see what they are typing */
   backdrop-filter: blur(10px);
   margin: auto;
   margin-top: 20px;
-  width: 800px;
+  width: 700px;
   height: 600px;
   margin-bottom: 20px;
   align-items: center;
   justify-content: center;
+}
+
+/* Below is the styling for the placing images for 1st, 2nd, 3rd place within the leaderboard */
+.trophy{
+  width: 30px;
+  height: 30px;
+}
+.secondmedal{
+  width: 30px;
+  height: 30px;
+}
+.thirdmedal{
+  width: 30px;
+  height: 30px;
 }
 
 /* Below is the styling for the leaderboard table */
@@ -502,17 +517,17 @@ this allows the user to see what they are typing */
   justify-content: center;
   display: flex;
   border-spacing: 10px;
-  padding: 7px 50px 7px 50px;
+  padding: 7px 0 7px 0;
 }
 
 /* Below is the styling for the leaderboard table headings */
 .leaderboardtable th {
   font-size: 1.7em;
   padding: 5px 20px 5px 20px;
-  font-weight: 600;
+  font-weight: 100;
   text-align: center;
   color: gold;
-  font-family: sans-serif;
+  font-family: "Astropolis Academy", sans-serif; 
   text-transform: uppercase;
 }
 
