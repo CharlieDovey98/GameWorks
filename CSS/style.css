@@ -8,23 +8,19 @@
 /* --- Everything below this comment is styling across all pages --- */
 
 /* Below is the scroll bar styling across all pages */
-/* Scrollbar width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Scrollbar track */
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Scrollbar handle */
 ::-webkit-scrollbar-thumb {
   background: white;
   border-radius: 20px;
 }
 
-/* Scrollbar handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: gold;
 }
