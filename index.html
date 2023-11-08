@@ -6,7 +6,7 @@
     <!-- Below is the link to the stylesheet CSS file -->
     <link rel="stylesheet" href="CSS/style.css">
     <!-- Below is the link to the JavaScript file -->
-    <script scr="JavaScript/script.js"></script>
+    <script src="Javascript/script.js" ></script>
     <!-- Below are meta tags to set the universal character set to UTF-8 and a meta tag for the website width -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,34 +42,10 @@
         <!-- Below is a div with a black canvas as a placeholder for where the game would be -->
         <div class="gamecontainer">
         </div>
-        <!-- Below is an image which the user can click on to make the webpage fullscreen -->
+        <!-- Below is an image which the user can click on to make the webpage fullscreen. -->
         <img src="Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullscreenbutton"
             onclick="toggleFullScreen()">
-        <!-- Below is the code for a fullscreen element,
-            called when the user clicks on the full screen png:
-            reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen -->
-        <script>
-            function toggleFullScreen() {
-                if ((document.fullScreenElement && document.fullScreenElement !== null) ||
-                    (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-                    if (document.documentElement.requestFullScreen) {
-                        document.documentElement.requestFullScreen();
-                    } else if (document.documentElement.mozRequestFullScreen) {
-                        document.documentElement.mozRequestFullScreen();
-                    } else if (document.documentElement.webkitRequestFullScreen) {
-                        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-                    }
-                } else {
-                    if (document.cancelFullScreen) {
-                        document.cancelFullScreen();
-                    } else if (document.mozCancelFullScreen) {
-                        document.mozCancelFullScreen();
-                    } else if (document.webkitCancelFullScreen) {
-                        document.webkitCancelFullScreen();
-                    }
-                }
-            }
-        </script>
+        
     </div>
     <!-- below is a div for a box containing the tutorial and objective headings and text -->
     <div class="tutorialcontainer">
@@ -101,7 +77,11 @@
     <p>GameWorks &copy; 2023&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
     </p>
 </div>
-
+<script>
+    window.onload = function() {
+      pageLoadLog();
+    };
+  </script>
 </body>
 
 </html>
