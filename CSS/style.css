@@ -354,7 +354,7 @@ within the sign in and register form */
   height: 20px;
   width: 20px;
   left: -29px;
-  top: 13px;
+  top: 10px;
 }
 
 .passwordlogo {
@@ -362,7 +362,7 @@ within the sign in and register form */
   height: 22px;
   width: 22px;
   left: -29px;
-  top: 13px;
+  top: 10px;
 }
 
 .emaillogo {
@@ -370,7 +370,7 @@ within the sign in and register form */
   height: 20px;
   width: 20px;
   left: -29px;
-  top: 13px;
+  top: 10px;
 }
 
 .useridlogo {
@@ -378,7 +378,7 @@ within the sign in and register form */
   height: 20px;
   width: 20px;
   left: -29px;
-  top: 13px;
+  top: 10px;
 }
 
 /* Below is the styling for the form headings */
@@ -391,16 +391,6 @@ within the sign in and register form */
   font-family: "Poppins", sans-serif;
 }
 
-/* Below is the styling for both forms */
-form {
-  position: relative;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 /* Below is the styling for the input boxes within both forms */
 .inputbox {
   position: relative;
@@ -411,13 +401,14 @@ form {
 
 /* Below is the styling for the input boxes' labels, within both forms */
 .inputbox label {
+  pointer-events: none;
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 1%;
-  transform: translateY(-50%);
+  padding: 0;
   color: gold;
   font-size: 1em;
-  font-weight: bold;
+  font-weight: 600;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -425,9 +416,12 @@ form {
 /* Below is more styling for the input boxes' labels within both forms.
 This makes the labels move above the input box,
 this allows the user to see what they are typing */
-.inputbox input:valid ~ label,
-.inputbox input:focus ~ label {
-  top: -5px;
+.inputbox input:focus + label,
+.inputbox input:not(:placeholder-shown) + label {
+  top: -20%;
+  left: 1%;
+  font-size: .8em;
+  opacity: 1;
 }
 
 /* Below is the styling for the input, within the input boxes, within both forms */
