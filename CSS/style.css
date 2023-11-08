@@ -286,8 +286,8 @@ These are visual aids to help the player play the game */
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 }
-/* Below is the styling for the div to hold both the log in and the sign up forms */
-.formcontainer {
+/* Below is the styling for the div to hold both the log in and the sign up divs */
+.inputcontainer {
   margin: 0;
   padding: 0;
   padding-top: 20px;
@@ -298,7 +298,7 @@ These are visual aids to help the player play the game */
   background: transparent;
 }
 
-/* Below is the styling for a div to hold the login form */
+/* Below is the styling for a div to hold the login input field */
 .logincontainer {
   align-items: center;
   background: transparent;
@@ -309,7 +309,7 @@ These are visual aids to help the player play the game */
   border-radius: 20px;
 }
 
-/* Below is the styling for a div to hold the register form */
+/* Below is the styling for a div to hold the register input field */
 .registercontainer {
   align-items: center;
   background: transparent;
@@ -320,15 +320,15 @@ These are visual aids to help the player play the game */
   border-radius: 20px;
 }
 
-/* Below is the styling for a div to hold the buttons for each form */
-.formbuttoncontainer {
+/* Below is the styling for a div to hold the buttons for each 'form' */
+.optionbuttoncontainer {
   width: 100%;
   display: block;
   justify-content: space-between;
 }
 
-/* Below is the styling for the buttons below each form */
-.formbuttoncontainer button {
+/* Below is the styling for the buttons at the bottom of both input divs */
+.optionbuttoncontainer button {
   border: 2px solid white;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -343,12 +343,12 @@ These are visual aids to help the player play the game */
 }
 
 /* Below is the styling for the bottons when hovering over them */
-.formcontainer button:hover {
+.inputcontainer button:hover {
   border: 2px solid gold;
 }
 
 /* below is the styling for the images inline with their respective input, 
-within the sign in and register form */
+within the sign in and register div */
 .userlogo {
   position: absolute;
   height: 20px;
@@ -382,7 +382,7 @@ within the sign in and register form */
 }
 
 /* Below is the styling for the form headings */
-.formheadings {
+.inputfieldheadings {
   margin: 0 0 0 0;
   text-align: center;
   font-size: 30px;
@@ -391,7 +391,7 @@ within the sign in and register form */
   font-family: "Poppins", sans-serif;
 }
 
-/* Below is the styling for the input boxes within both forms */
+/* Below is the styling for the input boxes within both the sign in and register div */
 .inputbox {
   position: relative;
   margin: 10px 0;
@@ -399,7 +399,7 @@ within the sign in and register form */
   border-bottom: 2px solid white;
 }
 
-/* Below is the styling for the input boxes' labels, within both forms */
+/* Below is the styling for the input boxes' labels */
 .inputbox label {
   pointer-events: none;
   position: absolute;
@@ -413,7 +413,7 @@ within the sign in and register form */
   transition: 0.5s;
 }
 
-/* Below is more styling for the input boxes' labels within both forms.
+/* Below is more styling for the input boxes' labels.
 This makes the labels move above the input box,
 this allows the user to see what they are typing */
 .inputbox input:focus + label,
@@ -424,7 +424,7 @@ this allows the user to see what they are typing */
   opacity: 1;
 }
 
-/* Below is the styling for the input, within the input boxes, within both forms */
+/* Below is the styling for the text input, within the input boxes. */
 .inputbox input {
   width: 100%;
   height: 40px;
