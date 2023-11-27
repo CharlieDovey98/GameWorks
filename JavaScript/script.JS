@@ -144,8 +144,6 @@ function createAliens() {
 }
 
 
-
-
 // Sign Up
 function signUp() {
   // Attain the user input fields: username, password
@@ -173,7 +171,6 @@ function signUp() {
   signUpForenameInputbox.parentElement.className = "inputBox";
   signUpSurnameInputbox.parentElement.className = "inputBox";
   signUpPrompt.innerHTML = "";
-
 
   // Validation
   // Guard clauses checking for empty fields
@@ -297,9 +294,6 @@ function signUp() {
   
 }
 
-
-
-
 // SignIn
 function signIn() {
 
@@ -339,9 +333,6 @@ let signInPasswordInputbox = document.getElementById("signInPassword");
     signInUsernameInputbox.parentElement.className = "inputBox error";
   }
 }
-
-
-
 
 // Forgot details button function.                  !!needs tweaking
 function forgotDetails() {
