@@ -6,19 +6,19 @@
     <!-- Below is the link to the stylesheet CSS file -->
     <link rel="stylesheet" href="../CSS/style.css">
     <!-- Below is the link to the JavaScript file -->
-    <script src="Javascript/script.js" ></script>
+    <script src="../Javascript/script.js" ></script>
     <!-- Below are meta tags to set the universal character set to UTF-8 and a meta tag for the website width -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameWorks User Signin</title>
+    <title>GameWorks User</title>
 </head>
 <!-- Below is the body tag, containing the all the code for the page -->
 <body>
     <!-- Below is a div for all the navigation links fixed at the top of the page -->
-    <div class="navigationbar">
+    <div class="navigationBar">
         <!-- Below is a div containing the website logo image -->
-        <div class="gameworkswebsitecontainer">
-            <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameworkswebsitelogob">
+        <div class="gameWorksWebsiteContainer">
+            <img src="../Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameWorksWebsiteLogoB">
         </div>
         <!-- Below is an unordered list for all the navigation links -->
         <ul>
@@ -29,89 +29,92 @@
             <li> <a href="information.html"><button type="button">Information</button></a> </li>
         </ul>
         <!-- Below is a div to hold the profile image and username text that will update with the users username, through javascript -->
-        <div class="accountlogocontainer">
+        <div class="accountLogoContainer">
             <a href="Profile.html"> <img src="../Images/AccountLogo.png" alt="AccountLogo" title="Profile"
-                    class="accountlogo"> </a>
-            <a class="accountcaption" href="Profile.html"> <span>Profile</span> </a>
+                    class="accountLogo"> </a>
+            <a class="accountCaption" href="Profile.html"> <span>Profile</span> </a>
         </div>
     </div>
-    <h class="shead">Sign in to GameWorks</h>
-    <!-- Below is a div for the register and sign in input field -->
-    <div class="inputcontainer">
-        <!-- Below is a div to hold the login input fields -->
-        <div class="logincontainer">
-                <h1 class="inputfieldheadings">Login</h1>
+    <h class="sHead">Sign in to GameWorks</h>
+    <!-- Below is a div for the sign up and sign in input field -->
+    <div class="inputContainer">
+        <!-- Below is a div to hold the sign in input fields -->
+        <div class="signInContainer">
+                <h1 class="inputFieldHeadings">Sign In</h1>
                 <!-- Below is a div to hold a users username input point -->
-                <div class="inputbox">
-                    <img src="../Images/User.png" alt="User Logo" class="userlogo">
-                    <input type="text" id="username" placeholder=" ">
+                <div class="inputBox">
+                    <img src="../Images/User.png" alt="User Logo" class="userLogo">
+                    <input type="text" id="signInUsername" placeholder="">
                     <label for="username">Username</label>
                 </div>
                 <!-- Below is a div to hold a users password input point -->
-                <div class="inputbox">
-                    <img src="../Images/Passwordlock.png" alt="Password Logo" class="passwordlogo">
-                    <input type="text" id="password" placeholder=" ">
+                <div class="inputBox">
+                    <img src="../Images/Passwordlock.png" alt="Password Logo" class="passwordLogo">
+                    <input type="password" id="signInPassword" placeholder="">
                     <label for="password">Password</label>
                 </div>
-            <!-- Below is a button to log in to your account -->
-            <div class="optionbuttoncontainer">
-                <button type="button">Log in</button>
+            <P id="signInPrompt"></P>
+            <div class="optionButtonContainer">
+                <!-- Below is a button to sign in to your account -->
+                <button type="button" onclick="signIn()">Sign In</button>
                 <!-- Below is a button to start the 'forgot details' process -->
-                <button type="button">Forgot details</button>
+                <button type="button" onclick="forgotDetails()">Forgot details</button>
             </div>
         </div>
-        <!-- Below is a div to hold the register input field -->
-        <div class="registercontainer">
-                <h1 class="inputfieldheadings">Register</h1>
-                <div class="inputbox">
+        <!-- Below is a div to hold the sign up input field -->
+        <div class="signUpContainer">
+                <h1 class="inputFieldHeadings" >Sign Up</h1>
+                <div class="inputBox">
                     <img src="../Images/User.png" alt="User Logo"
-                        class="userlogo"><!-- an image inserted next to the input box-->
-                    <input type="text" id="username" placeholder=" ">
+                        class="userLogo"><!-- an image inserted next to the input box-->
+                    <input type="text" id="signUpUsername" placeholder=" ">
                     <label for="username">Username</label>
                 </div>
-                <div class="inputbox">
+                <div class="inputBox">
                     <img src="../Images/Email.png" alt="Email Logo"
-                        class="emaillogo">
-                    <input type="email" id="email" placeholder=" ">
+                        class="emailLogo">
+                    <input type="email" id="signUpEmail" placeholder=" ">
                     <label for="email">Email</label>
                 </div>
-                <div class="inputbox">
+                <div class="inputBox">
                     <img src="../Images/Passwordlock.png" alt="Password Logo"
-                        class="passwordlogo">
-                    <input type="text" id="password" placeholder=" ">
+                        class="passwordLogo">
+                    <input type="password" id="signUpPassword" placeholder=" ">
                     <label for="password">Password</label>
                 </div>
-                <div class="inputbox">
+                <div class="inputBox">
                     <img src="../Images/Passwordlock.png" alt="Password Logo"
-                        class="passwordlogo">
-                    <input type="text" id="password" placeholder=" ">
+                        class="passwordLogo">
+                    <input type="password" id="signUpPasswordCheck" placeholder=" ">
                     <label for="password">Re-enter Password</label>
                 </div>
-                <div class="inputbox">
+                <div class="inputBox">
                     <img src="../Images/Userid.png" alt="User id Logo"
-                        class="useridlogo">
-                    <input type="text" id="forename" placeholder=" ">
+                        class="userIdLogo">
+                    <input type="text" id="signUpForename" placeholder=" ">
                     <label for="forename">Forename</label>
                 </div>
-                <div class="inputbox">
+                <div class="inputBox">
                     <img src="../Images/Userid.png" alt="User id Logo"
-                        class="useridlogo">
-                    <input type="text" id="surname" placeholder=" ">
+                        class="userIdLogo">
+                    <input type="text" id="signUpSurname" placeholder=" ">
                     <label for="surname">Surname</label>
                 </div>
-            <!-- a button to save your information and register your account -->
-            <div class="optionbuttoncontainer">
-                <button type="button">Register</button>
+                <P id="signUpPrompt"></P>
+            <!-- a button to save your information and Sign up your account -->
+            <div class="optionButtonContainer">
+                <button type="button" onclick="signUp()">Sign Up</button>
             </div>
         </div>
     </div>
     <!-- Below is a div to hold information for signing up/ in -->
-    <div class="forminformationcontainer">
-        <p>Please create an account with us using the register form, to be able to store your high score on the
+    <div class="formInformationContainer">
+        <p>Please create an account with us using the sign up form, to be able to store your high score on the
             leaderboard.</p>
-        <p>If you have an account, please sign in using your chosen username and password using the login form.</p>
+        <p>After creating an account, please sign in using your chosen username and password using the sign In form.</p>
         <p>To view GameWorks data security information please navigate to the <a
             href="information.html#yourinformation">Your information</a> section on the information page.</p>
+            <p>Head over to your <a href="Profile.html">Profile</a> page to sign out</p>
     </div>
     <!-- Below is a div containing the code for the footer -->
     <div class="footer">

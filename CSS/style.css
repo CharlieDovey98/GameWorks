@@ -26,7 +26,7 @@
 }
 
 /* Below is the styling for the navigation bar across all pages */
-.navigationbar {
+.navigationBar {
   width: auto;
   height: 80px;
   background: transparent;
@@ -40,7 +40,7 @@
 }
 
 /* Below is the styling for the unordered list storing the navigation buttons */
-.navigationbar ul li {
+.navigationBar ul li {
   list-style: none;
   display: inline-block;
   justify-content: space-between;
@@ -48,7 +48,7 @@
 }
 
 /* Below is the styling for the navigation buttons across all pages */
-.navigationbar button {
+.navigationBar button {
   border: 2px solid white;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -65,44 +65,44 @@
 }
 
 /* Below is the styling for the navigation button text */
-.navigationbar a {
+.navigationBar a {
   color: white;
   text-decoration: none;
   font-weight: 600;
 }
 
 /* Below is the styling for navigation buttons when hovering over them */
-.navigationbar button:hover {
+.navigationBar button:hover {
   border: 2px solid gold;
 }
 
 /* Below is the styling for navigation buttons when active. 
 The active button visually shows what page your on */
-.navigationbar .active {
+.navigationBar .active {
   color: gold;
 }
 
 /* Below is the styling for the website logo container/div */
-.gameworkswebsitecontainer {
+.gameWorksWebsiteContainer {
   vertical-align: top;
   display: inline-block;
 }
 
 /* Below is the styling for the GameWorks website logo .png */
-.gameworkswebsitelogob {
+.gameWorksWebsiteLogoB {
   width: 200px;
   height: 50px;
 }
 
 /* Below is the styling for the GameWorks profile container/div */
-.accountlogocontainer {
+.accountLogoContainer {
   margin-left: 10%;
   vertical-align: top;
   display: inline-block;
 }
 
 /* Below is the styling for the profile logo .png */
-.accountlogo {
+.accountLogo {
   width: 40px;
   height: 40px;
   transform: translateY(8px);
@@ -110,7 +110,7 @@ The active button visually shows what page your on */
 
 /* Below is the styling for the account logo caption cited 
 at the top right of all pages beneath the profile logo icon*/
-.accountcaption {
+.accountCaption {
   display: block;
   color: white;
   text-decoration: none;
@@ -120,13 +120,13 @@ at the top right of all pages beneath the profile logo icon*/
 
 /* Below is the styling to make the .accountcaption (above) 
 show as gold when the cursor is hovering over it */
-.accountcaption :hover {
+.accountCaption :hover {
   color: gold;
 }
 
 /* Below is the styling to make the .accountcaption (above) 
 show as gold when the user is on that page */
-.accountcaption:active {
+.accountCaption:active {
   color: gold;
 }
 
@@ -173,7 +173,7 @@ body {
 /* --- Everything below this comment is the styling across the index.html page --- */
 
 /* Below is the styling for the heading on the index page*/
-.PlaySpaceInvaders {
+.playSpaceInvaders {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -186,7 +186,7 @@ body {
 }
 
 /* Below is a div to hold the game canvas and the fullscreen button*/
-.gamepagecontainer {
+.gamePageContainer {
   width: 800px;
   height: 650px;
   background-color: transparent;
@@ -196,21 +196,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 5px solid white;
+
 }
 
-/* Below is the styling for a placeholder canvas where the game will be */
-.gamecontainer {
-  width: 500px;
-  height: 500px;
+/* Below is the styling for a placeholder canvas where the game will be 
+.gamecanvas {
   border: 5px solid white;
   background-color: black;
   padding: 50px;
   margin-left: 60px;
+}*/
+#board{
+  background-color: black;
+  border: 5px solid white;
+
 }
 
 /* Below is the styling for the full screen image 
 that when clicked makes the website fullscreen using javascrpit */
-.fullscreenbutton {
+.fullScreenButton {
   width: auto;
   height: auto;
   float: right;
@@ -220,7 +225,7 @@ that when clicked makes the website fullscreen using javascrpit */
 }
 
 /* Below is the styling for a div to hold the tutorial and objective statements */
-.tutorialcontainer {
+.tutorialContainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -237,7 +242,7 @@ that when clicked makes the website fullscreen using javascrpit */
 }
 
 /* Below is the styling for the tutorial and objective headers */
-.tutorialcontainer .heading {
+.tutorialContainer .heading {
   color: gold;
   margin-top: 0;
   font-family: "Poppins", sans-serif;
@@ -245,28 +250,28 @@ that when clicked makes the website fullscreen using javascrpit */
 
 /* Below is the styling for some images within the tutorial and objective paragraphs. 
 These are visual aids to help the player play the game */
-.arrowup {
+.arrowUp {
   height: 35px;
   width: 35px;
   transform: translateY(12px); /* this styling moves the image to a preferred position */
   backdrop-filter: none;
 }
 
-.arrowleft {
+.arrowLeft {
   height: 35px;
   width: 35px;
   transform: translateY(12px);
   backdrop-filter: none;
 }
 
-.arrowright {
+.arrowRight {
   height: 35px;
   width: 35px;
   transform: translateY(12px);
   backdrop-filter: none;
 }
 
-.spacebar {
+.spaceBar {
   height: 25px;
   width: 80px;
   transform: translateY(7px);
@@ -277,7 +282,7 @@ These are visual aids to help the player play the game */
 /* --- Everything below this comment is Styling across the signin_signup.html page --- */
 
 /* Below is the styling for the header on the at the top of the page */
-.shead {
+.sHead {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -286,8 +291,8 @@ These are visual aids to help the player play the game */
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 }
-/* Below is the styling for the div to hold both the log in and the sign up divs */
-.inputcontainer {
+/* Below is the styling for the div to hold both the Sign in and the sign up divs */
+.inputContainer {
   margin: 0;
   padding: 0;
   padding-top: 20px;
@@ -298,8 +303,8 @@ These are visual aids to help the player play the game */
   background: transparent;
 }
 
-/* Below is the styling for a div to hold the login input field */
-.logincontainer {
+/* Below is the styling for a div to hold the sign in input field */
+.signInContainer {
   align-items: center;
   background: transparent;
   backdrop-filter: blur(10px);
@@ -310,7 +315,7 @@ These are visual aids to help the player play the game */
 }
 
 /* Below is the styling for a div to hold the register input field */
-.registercontainer {
+.signUpContainer {
   align-items: center;
   background: transparent;
   backdrop-filter: blur(10px);
@@ -321,14 +326,14 @@ These are visual aids to help the player play the game */
 }
 
 /* Below is the styling for a div to hold the buttons for each 'form' */
-.optionbuttoncontainer {
+.optionButtonContainer {
   width: 100%;
   display: block;
   justify-content: space-between;
 }
 
 /* Below is the styling for the buttons at the bottom of both input divs */
-.optionbuttoncontainer button {
+.optionButtonContainer button {
   border: 2px solid white;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -343,13 +348,13 @@ These are visual aids to help the player play the game */
 }
 
 /* Below is the styling for the bottons when hovering over them */
-.inputcontainer button:hover {
+.inputContainer button:hover {
   border: 2px solid gold;
 }
 
 /* below is the styling for the images inline with their respective input, 
 within the sign in and register div */
-.userlogo {
+.userLogo {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -357,7 +362,7 @@ within the sign in and register div */
   top: 10px;
 }
 
-.passwordlogo {
+.passwordLogo {
   position: absolute;
   height: 22px;
   width: 22px;
@@ -365,7 +370,7 @@ within the sign in and register div */
   top: 10px;
 }
 
-.emaillogo {
+.emailLogo {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -373,7 +378,7 @@ within the sign in and register div */
   top: 10px;
 }
 
-.useridlogo {
+.userIdLogo {
   position: absolute;
   height: 20px;
   width: 20px;
@@ -382,7 +387,7 @@ within the sign in and register div */
 }
 
 /* Below is the styling for the form headings */
-.inputfieldheadings {
+.inputFieldHeadings {
   margin: 0 0 0 0;
   text-align: center;
   font-size: 30px;
@@ -392,15 +397,23 @@ within the sign in and register div */
 }
 
 /* Below is the styling for the input boxes within both the sign in and register div */
-.inputbox {
+.inputBox {
   position: relative;
-  margin: 10px 0;
+  margin: 20px 0;
   width: 310px;
   border-bottom: 2px solid white;
 }
 
+.inputBox.success  {
+  border-bottom: 2px solid green;
+}
+
+.inputBox.error {
+  border-bottom: 2px solid red;
+}
+
 /* Below is the styling for the input boxes' labels */
-.inputbox label {
+.inputBox label {
   pointer-events: none;
   position: absolute;
   top: 20%;
@@ -416,8 +429,8 @@ within the sign in and register div */
 /* Below is more styling for the input boxes' labels.
 This makes the labels move above the input box,
 this allows the user to see what they are typing */
-.inputbox input:focus + label,
-.inputbox input:not(:placeholder-shown) + label {
+.inputBox input:focus + label,
+.inputBox input:not(:placeholder-shown) + label {
   top: -20%;
   left: 1%;
   font-size: .8em;
@@ -425,7 +438,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the text input, within the input boxes. */
-.inputbox input {
+.inputBox input {
   width: 100%;
   height: 40px;
   background: transparent;
@@ -437,7 +450,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the information container beneath both forms */
-.forminformationcontainer {
+.formInformationContainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -452,7 +465,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the information container links beneath both forms */
-.forminformationcontainer a {
+.formInformationContainer a {
   color: gold;
   font-weight: 900;
   text-decoration: none;
@@ -462,7 +475,7 @@ this allows the user to see what they are typing */
 /* --- Everything below this comment is the styling for the leaderboard.html page --- */
 
 /* Below is the styling for the heading at the top of the page */
-.lhead {
+.lHead {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -473,7 +486,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard div */
-.Leaderboardbox {
+.leaderboardBox {
   display: flex;
   border: 1px solid white;
   background-color: transparent;
@@ -493,17 +506,17 @@ this allows the user to see what they are typing */
   width: 30px;
   height: 30px;
 }
-.secondmedal{
+.secondMedal{
   width: 30px;
   height: 30px;
 }
-.thirdmedal{
+.thirdMedal{
   width: 30px;
   height: 30px;
 }
 
 /* Below is the styling for the leaderboard table */
-.leaderboardtable {
+.leaderboardTable {
   margin: auto;
   margin-top: 20px;
   max-width: fit-content;
@@ -515,7 +528,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table headings */
-.leaderboardtable th {
+.leaderboardTable th {
   font-size: 1.7em;
   padding: 5px 20px 5px 20px;
   font-weight: 100;
@@ -526,7 +539,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table data */
-.leaderboardtable td {
+.leaderboardTable td {
   text-align: center;
   color: white;
   font-size: 2em;
@@ -537,7 +550,7 @@ this allows the user to see what they are typing */
 
 /* Below is the styling for the return text, 
 located beneath the leaderboard div */
-.lreturn {
+.lReturn {
   text-align: center;
   font-weight: 900;
   font-size: 1.2em;
@@ -545,7 +558,7 @@ located beneath the leaderboard div */
 
 /* Below is the styling for the return text link, 
 located beneath the leaderboard div */
-.lreturn a {
+.lReturn a {
   color: gold;
   font-weight: 900;
   text-decoration: none;
@@ -553,7 +566,7 @@ located beneath the leaderboard div */
 
 /* Below is the styling for the leaderboard information div, 
 located beneath the return text */
-.lbodycontainer {
+.lBodyContainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
@@ -571,7 +584,7 @@ located beneath the return text */
 /* --- Everything below this comment is styling for the information.html page --- */
 
 /* Below is the styling for the header located at the top of the page */
-.iheader {
+.iHeader {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -582,7 +595,7 @@ located beneath the return text */
 }
 
 /* Below is the styling for the div that contains informational text */
-.informationcontainer {
+.informationContainer {
   text-align: left;
   border: 1px solid white;
   backdrop-filter: blur(10px);
@@ -594,41 +607,41 @@ located beneath the return text */
 }
 
 /* Below is the styling for the links throughout the text */
-.informationcontainer a {
+.informationContainer a {
   color: gold;
 }
 
 /* Below is the styling for the heading 1's throughout the text */
-.informationcontainer h1 {
+.informationContainer h1 {
   color: gold;
 }
 
 /* Below is the styling for the heading 3's throughout the text */
-.informationcontainer h3 {
+.informationContainer h3 {
   color: gold;
   padding: 0 0 0 0;
   margin: 0 0 0 0;
 }
 
 /* Below is the styling for the un-ordered list within the text */
-.informationcontainer ul {
+.informationContainer ul {
   text-align: left;
   padding: 0 0 0 0;
 }
 
 /* Below is the styling for the un-ordered list's text within the text */
-.informationcontainer ul p {
+.informationContainer ul p {
   text-align: left;
   padding: 0 0 0 0;
 }
 
 /* Below is the styling for the un-ordered lists list items within the text */
-.informationcontainer ul li {
+.informationContainer ul li {
   margin-left: 20px;
 }
 
 /* Below is the styling for the un-ordered list, list markers within the text */
-.informationcontainer ul li::marker {
+.informationContainer ul li::marker {
   color: white;
 }
 
@@ -636,7 +649,7 @@ located beneath the return text */
 /* --- Everything below this comment is styling for the profile.html page --- */
 
 /* Below is the styling for the header located at the top of the page */
-.pheader {
+.pHeader {
   margin: auto;
   display: flex;
   justify-content: center;
@@ -648,7 +661,7 @@ located beneath the return text */
 
 /* Below is the styling for the profile information div, 
 containing a table of the users profile information*/
-.profileinformationcontainer {
+.profileInformationContainer {
   border: 1px solid white;
   margin: auto;
   width: 650px;
@@ -666,25 +679,25 @@ containing a table of the users profile information*/
 
 /* Bellow is the styling for a profile image,
  located above the profile information table */
-.profilelogo {
+.profileLogo {
   width: 80px;
   height: 80px;
 }
 
 /* Below is the styling for the profile information table */
-.profiletable {
+.profileTable {
   justify-content: center;
   display: flex;
 }
 
 /* Below is the styling for the table data with class name "ptabletitle" */
-.profiletable td.ptabletitle {
+.profileTable td.pTableTitle {
   width: 150px;
   padding: 0 50px 0 100px;
 }
 
 /* Below is the styling for the table data */
-.profiletable table td {
+.profileTable table td {
   padding: 10px 5px 10px 5px;
   width: 300px;
   height: 20px;
@@ -693,9 +706,9 @@ containing a table of the users profile information*/
   text-align: left;
 }
 
-/* Below is the styling for the log out button, 
+/* Below is the styling for the sign out button, 
 located beneath the profile table */
-.logoutbutton button {
+.signOutButton button {
   border: 2px solid white;
   background-color: transparent;
   backdrop-filter: blur(20px);
@@ -710,15 +723,15 @@ located beneath the profile table */
   border-radius: 15px;
 }
 
-/* Below is the styling for the log out button,
+/* Below is the styling for the sign out button,
 when the users cursor is hovering over it */
-.logoutbutton button:hover {
+.signOutButton button:hover {
   border: 2px solid gold;
 }
 
 /* Below is the styling for the user information div, 
 containing informational text to aid the user*/
-.userinformationcontainer {
+.userInformationContainer {
   border: 1px solid white;
   margin: auto;
   width: 800px;
@@ -735,7 +748,7 @@ containing informational text to aid the user*/
 }
 
 /* Below is the styling for the user information text */
-.userinformationcontainer p {
+.userInformationContainer p {
   text-align: center;
   font-weight: 600;
   font-size: 1em;
@@ -743,7 +756,7 @@ containing informational text to aid the user*/
 }
 
 /* Below is the styling for the user information text links */
-.userinformationcontainer a {
+.userInformationContainer a {
   color: gold;
   font-weight: 900;
   text-decoration: none;
