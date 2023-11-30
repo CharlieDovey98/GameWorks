@@ -31,7 +31,7 @@ function toggleFullScreen() {
 // Space invaders coding.
 
 // Canvas details.
-let tileSize = 50;
+let tileSize = 40;
 let rows = 16;
 let columns = 16;
 
@@ -245,7 +245,7 @@ function signUp() {
   const validPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!?<>£$€%^&*#@])[A-Za-z\d!?<>£$€%^&*#@]{8,}$/;
   if (!validPasswordRegex.test(signUpPassword)){
     signUpPasswordInputbox.parentElement.className = "inputBox error";
-    signUpPrompt.innerHTML = "Password strength inadequate\n1x Uppercase\n1x Lowercase\n1x Number\n1x of !?<>£$€%^&*#@";
+    signUpPrompt.innerText = "Password strength inadequate\n1x Uppercase\n1x Lowercase\n1x Number\n1x of !?<>£$€%^&*#@";
     return;
   }
 
@@ -260,12 +260,12 @@ function signUp() {
   const validNameRegex = /^[A-Za-z]{3,}$/;
   if (!validNameRegex.test(signUpForename)) {
     signUpForenameInputbox.parentElement.className = "inputBox error";
-    signUpPrompt.innerHTML = "Please enter a forename without\nspaces, numbers, special characters";
+    signUpPrompt.innerText = "Please enter a forename without\nspaces, numbers, special characters";
     return;
   }
   if (!validNameRegex.test(signUpSurname)) {
     signUpSurnameInputbox.parentElement.className = "inputBox error";
-    signUpPrompt.innerHTML = "Please enter a surname without\nspaces, numbers, special characters";
+    signUpPrompt.innerText = "Please enter a surname without\nspaces, numbers, special characters";
     return;
   }
   
@@ -337,7 +337,7 @@ let signInPasswordInputbox = document.getElementById("signInPassword");
 // Forgot details button function.                  !!needs tweaking
 function forgotDetails() {
   let forgotUsername = document.getElementById("signInUsername").value;
-  if ((forgotUsername = " ")) {
+  if (forgotUsername = "") {
     window.confirm(
       "A reset password link has been sent to the Email of " +
         forgotUsername +

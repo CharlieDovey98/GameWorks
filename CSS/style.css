@@ -196,8 +196,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5px solid white;
-
 }
 
 /* Below is the styling for a placeholder canvas where the game will be 
@@ -276,6 +274,11 @@ These are visual aids to help the player play the game */
   width: 80px;
   transform: translateY(7px);
   backdrop-filter: none;
+}
+
+.board {
+  width: 600px;
+  height: 600px;
 }
 
 /* --- Everything above this comment is Styling across the index.html page --- */
@@ -469,6 +472,18 @@ this allows the user to see what they are typing */
   color: gold;
   font-weight: 900;
   text-decoration: none;
+}
+
+.signInPrompt {
+  align-self: start;
+  display: block;
+  text-align: left;
+}
+
+.signUpPrompt {
+  align-items: start;
+  display: block;
+  text-align: left;
 }
 
 /* --- Everything above this comment is the styling for the Signin_signup.html page --- */
