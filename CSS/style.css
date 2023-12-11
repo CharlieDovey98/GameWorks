@@ -187,8 +187,6 @@ body {
 
 /* Below is a div to hold the game canvas and the fullscreen button*/
 .gamePageContainer {
-  width: 800px;
-  height: 650px;
   background-color: transparent;
   margin: auto;
   margin-bottom: 20px;
@@ -198,17 +196,42 @@ body {
   justify-content: center;
 }
 
-/* Below is the styling for a placeholder canvas where the game will be 
-.gamecanvas {
-  border: 5px solid white;
-  background-color: black;
-  padding: 50px;
-  margin-left: 60px;
-}*/
+/* Below is the styling for a placeholder canvas where the game will be */
 #board{
-  background-color: black;
+  width: 600px;
+  height: 600px;
   border: 5px solid white;
+  background: url(/Images/CanvasBackground.png);
+  animation: scroll-background  10s linear infinite;
+  position: relative;
+  z-index: -2;
+}
 
+@keyframes scroll-background {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: 600px;
+  }
+}
+
+/* Below is the styling for the Start Game button 
+that when clicked makes the game start */
+#startButton {
+  border: 2px solid white;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 5px 15px 5px 15px;
+  border-radius: 15px;
+  transform: translateY(-60px);
 }
 
 /* Below is the styling for the full screen image 
@@ -218,18 +241,17 @@ that when clicked makes the website fullscreen using javascrpit */
   height: auto;
   float: right;
   margin: 0 0 0 10px;
-  transform: translateY(280px);
   cursor: pointer;
 }
 
-/* Below is the styling for a div to hold the tutorial and objective statements */
+/* Below is the styling for a div to hold the tutorial statements */
 .tutorialContainer {
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
   color: white;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
   width: auto;
   height: auto;
   font-size: 1em;
@@ -239,11 +261,35 @@ that when clicked makes the website fullscreen using javascrpit */
   margin-top: 0;
 }
 
-/* Below is the styling for the tutorial and objective headers */
+/* Below is the styling for the tutorial headers */
 .tutorialContainer .heading {
   color: gold;
   margin-top: 0;
   font-family: "Poppins", sans-serif;
+}
+
+/* Below is the styling for a div to hold the objective statements */
+.objectiveContainer {
+  border: 1px solid white;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: auto;
+  height: auto;
+  font-size: 1em;
+  font-weight: 600;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Below is the styling for the objective headers */
+.objectiveContainer .heading {
+  color: gold;
+  margin-top: 0;
+  font-family: "Poppins", sans-serif;
+  padding-bottom: 0;
 }
 
 /* Below is the styling for some images within the tutorial and objective paragraphs. 
@@ -274,11 +320,6 @@ These are visual aids to help the player play the game */
   width: 80px;
   transform: translateY(7px);
   backdrop-filter: none;
-}
-
-.board {
-  width: 600px;
-  height: 600px;
 }
 
 /* --- Everything above this comment is Styling across the index.html page --- */
