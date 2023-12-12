@@ -32,13 +32,11 @@ function toggleFullScreen() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (localStorage) {
-  const savedScores = localStorage.getItem("highestScore");
+  const savedScores = localStorage.getItem("debug");
   console.log(savedScores);
 } else {
   console.log("localStorage is not supported");
 }
-
-// Registration and login page
 
 // Sign Up
 function signUp() {
@@ -223,6 +221,7 @@ function signIn() {
       console.log("JSON User",JSON.stringify(userObject));
       console.log("User:",userObject.username, "Signed in.");
       sessionStorage.UserSignedIn = signInUsername;
+      updateAccountCaption();
     }
     // If password doen't match account.
     else {
@@ -300,18 +299,30 @@ function updateProfilePage() {
         profileTableSurname.innerText = item.surname;
         profileTableGamesPlayed.innerText = item.gamesPlayed;
         profileTableHighestScore.innerText = item.highestScore;
-        profileTableAlienKillCount.innerText = "Sign In Successful";
+        profileTableAlienKillCount.innerText = item.alienKillCount;
       }
     }
   }
 }
 
 function updateAccountCaption() {
-  //dgdgdfgdfgdfgdfgdfgdfg
-  //
-  //
-  //
+  let pageAccountCaption = document.getElementById("userIdCaption");
+  for (let i = 0; i < localStorage.length; i++) {
+    // Get the key for the current item.
+    const key = localStorage.key(i);
+    if (key == "debug") {
+      // ignore the debug key in localStorage.
+      console.log("Ignored debug, localStorage non-user object");
+    } else {
+      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+      if (item.username === sessionStorage.UserSignedIn) {
+        pageAccountCaption.innerText = sessionStorage.UserSignedIn;
+        break; // Break the loop.
+      }
+    }
+  }
 }
+
 
 function signOut() {
   sessionStorage.clear();
@@ -327,10 +338,9 @@ function clearProfileInformation() {
   let profileTableSurname = document.getElementById("pTableSurname");
   let profileTableGamesPlayed = document.getElementById("pTableGamesPlayed");
   let profileTableHighestScore = document.getElementById("pTableHighestScore");
-  let profileTableAlienKillCount = document.getElementById(
-    "pTableAlienKillCount"
-  );
+  let profileTableAlienKillCount = document.getElementById("pTableAlienKillCount");
   let profileTableHeading = document.getElementById("profileTableHeading");
+  let pageAccountCaption = document.getElementById("userIdCaption");
   // (above) declaring some local variables, and (below) setting them to a prompt message.
   profileTableHeading.innerText = "Sign up, then Sign in to view";
   profileTableEmail.innerText = " ";
@@ -340,6 +350,7 @@ function clearProfileInformation() {
   profileTableGamesPlayed.innerText = " ";
   profileTableHighestScore.innerText = " ";
   profileTableAlienKillCount.innerText = " ";
+  pageAccountCaption.innerHTML = "Profile";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -415,6 +426,7 @@ function game() {
   requestAnimationFrame(game);
   if (gameOver) {
     gameOverStatement();
+    console.log("hello")
     gameDetailsOnCanvas();
     for (let i = 0; i < localStorage.length; i++) {
       // Get the key for the current item.
@@ -434,16 +446,12 @@ function game() {
         }
       }
     }
-    updateUserScores();
     const startButton = document.getElementById("startButton");
-    startButton.innerText = 
+    startButton.innerHTML = "Play Again"
     startButton.style.display = "initial";
     startButton.addEventListener("click", clickStartButton);
-    gameOver = false;
     return;
   }
-
-  //updateUserScores();
 
   context.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
 
@@ -460,7 +468,7 @@ function game() {
 
       if (alien.x + alien.width >= board.width || alien.x <= 0) {
         alienVelocityX *= -1; // If the aliens touch the side of the canvas, reverse the direction.
-        alien.x += alienVelocityX * 2; // Make sure the aliens are in their tile place correctly.
+        alien.x += (alienVelocityX*2); // Make sure the aliens are in their tile place correctly.
 
         for (let j = 0; j < alienArray.length; j++) {
           alienArray[j].y += alien.height;
@@ -475,6 +483,7 @@ function game() {
       );
       if (alien.y >= ship.y) {
         gameOver = true;
+        updateUserScores();
       }
     }
   }
@@ -489,13 +498,12 @@ function game() {
     // missile collision with alien ships
     for (let j = 0; j < alienArray.length; j++) {
       let alien = alienArray[j];
-      if (!missiles.used && alien.alive && detectCollision(missiles, alien)) {
+      if (!missiles.used && alien.alive && hasCollided(missiles, alien)) {
         missiles.used = true;
         alien.alive = false;
         killCount += 1;
         alienCount--;
-        score += 50;
-        gameOver = true;
+        score += 50;        
       }
     }
   }
@@ -542,6 +550,7 @@ function shipMovement(e) {
 function clickStartButton() {
   const startButton = document.getElementById("startButton");
   startButton.style.display = "none";
+  gameOver = false;
   createAliens();
   game();
 }
@@ -569,8 +578,8 @@ function fire(e) {
   if (gameOver) {
     return;
   }
+  // The user can use either space or arrow up to fire.
   if (e.code == "ArrowUp" || e.code == "Space") {
-    // The user can use either space or arrow up to fire.
     // Decresase the score for each missile used. This adds some skill to the game.
     score -= 5;
     // Fire missiles using the up arrow and or space.
@@ -585,41 +594,43 @@ function fire(e) {
   }
 }
 
-function detectCollision(a, b) {
+// This function detects if there has been a collision between two parameters
+function hasCollided(imageI, ImageJ) {
+  // This function uses the AND operator to return true or false for the combination of these four statements.
+  // These four statements return a boolean each, for whether imageI has acheived a position on imageJ.
   return (
-    a.x < b.x + b.width && //a's top left corner doesn't reach b's top right corner
-    a.x + a.width > b.x && //a's top right corner passes b's top left corner
-    a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
-    a.y + a.height > b.y
-  ); //a's bottom left corner passes b's top left corner
+    imageI.x < ImageJ.x + ImageJ.width &&
+    imageI.x + imageI.width > ImageJ.x &&
+    imageI.y < ImageJ.y + ImageJ.height &&
+    imageI.y + imageI.height > ImageJ.y
+  );
 }
 
 // This function updates the user that's signed in scores, stored within the local storage.
 function updateUserScores() {
-  /*for (let i = 0; i < localStorage.length; i++) {
+  let userOnjectToUpdate;
+  for (let i = 0; i < localStorage.length; i++) {
     // Get the key for the current item.
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
       console.log("Ignored debug, localStorage non-user object");
     } else {
-      const user = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
-
-      if (user.username === sessionStorage.UserSignedIn) {
-        let userAsJSObject = JSON.parse(sessionStorage.UserSignedIn);
-        console.log(user);
-        console.log(userAsJSObject);
-        if (score > user.highestScore) {
-          user.highestScore = score;
-        }
-        user.gamesPlayed += 1;
-        break; // Break the loop.
-      } else {
-        break; // Break the loop.
+      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+      // If the key matches the user signed in, stored in session.storage use their stored details.
+      if (item.username === sessionStorage.UserSignedIn) {
+        userOnjectToUpdate = item;
+        break;
       }
     }
   }
-*/
+  if (score > userOnjectToUpdate.highestScore){
+    userOnjectToUpdate.highestScore = score;
+  }
+  userOnjectToUpdate.gamesPlayed += 1;
+  userOnjectToUpdate.alienKillCount += killCount;
+  localStorage.setItem(sessionStorage.UserSignedIn, JSON.stringify(userOnjectToUpdate));
+  return;
 }
 
 // This function displays the game over statement with all the details.
@@ -680,6 +691,21 @@ function signInInfoOnCanvas() {
 function pageLoadLog() {
   console.log("Page Loaded Successfully");
   console.log("JavaScript loaded Successfully");
+}
+
+// This function resets the game values allowing the game to return to its original state and to be played again.
+function resetGameValues(){
+  score = 0;
+  wave = 1;
+  killCount = 0;
+  alienRows = 1; 
+  alienColumns = 10; 
+  alienCount = 0; 
+  //alienVelocityX = 3;
+  alienArray = [];
+  missilesArray = [];
+  //missilesVelocityY = -30;
+  gameOver = false;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
