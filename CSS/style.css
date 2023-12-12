@@ -572,7 +572,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table */
-.leaderboardTable {
+.leaderboardCanvas {
   margin: auto;
   margin-top: 20px;
   max-width: fit-content;
@@ -721,7 +721,7 @@ containing a table of the users profile information*/
   border: 1px solid white;
   margin: auto;
   width: 650px;
-  height: 450px;
+  height: auto;
   margin-bottom: 20px;
   margin-top: 20px;
   align-items: center;
@@ -731,6 +731,15 @@ containing a table of the users profile information*/
   backdrop-filter: blur(10px);
   padding: 20px 10px 40px 10px;
   border-radius: 20px;
+}
+
+#profileTableHeading {
+  font-size: 20px;
+  color: gold;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 /* Bellow is the styling for a profile image,
@@ -775,7 +784,7 @@ located beneath the profile table */
   font-size: 16px;
   cursor: pointer;
   padding: 5px 15px 5px 15px;
-  margin: 20px 0 0 0;
+  margin: 5px 0 0 0;
   border-radius: 15px;
 }
 

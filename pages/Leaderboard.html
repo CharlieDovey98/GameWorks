@@ -40,64 +40,11 @@
     <!-- Below is a div which contains the leaderboard -->
     <div class="leaderboardBox">
         <!-- Below is a table to hold users names, position and highscore which will be updated with javascript -->
-        <table class="leaderboardTable">
-            <tr>
-                <th>Position</th>
-                <th>Name</th>
-                <th>Highscore</th>
-            </tr>
-            <tr>
-                <td><img src="../Images/Winner.png" alt="Winner" class="trophy"></td>
-                <td>Benn</td>
-                <td>123,456</td>
-            </tr>
-            <tr>
-                <td><img src="../Images/Second.png" alt="Second Place" class="secondMedal"></td>
-                <td>CD98</td>
-                <td>88,003</td>
-            </tr>
-            <tr>
-                <td><img src="../Images/Third.png" alt="Third Place" class="thirdMedal"></td>
-                <td>jose</td>
-                <td>79,011</td>
-            </tr>
-            <tr>
-                <td>4TH</td>
-                <td>Chloe</td>
-                <td>56,000</td>
-            </tr>
-            <tr>
-                <td>5TH</td>
-                <td>Sammy</td>
-                <td>50,000</td>
-            </tr>
-            <tr>
-                <td>6TH</td>
-                <td>Cody</td>
-                <td>29,000</td>
-            </tr>
-            <tr>
-                <td>7TH</td>
-                <td>TMan</td>
-                <td>25,000</td>
-            </tr>
-            <tr>
-                <td>8TH</td>
-                <td>Manny</td>
-                <td>20,000</td>
-            </tr>
-            <tr>
-                <td>9TH</td>
-                <td>Steve</td>
-                <td>10,000</td>
-            </tr>
-            <tr>
-                <td>10TH</td>
-                <td>Carl</td>
-                <td>1,000</td>
-            </tr>
-
-        </table>
+        <canvas class="leaderboardCanvas">
+        <!-- <img src="../Images/Winner.png" alt="Winner" class="trophy"> -->  
+        <!-- <img src="../Images/Second.png" alt="Second Place" class="secondMedal"> -->  
+        <!-- <img src="../Images/Third.png" alt="Third Place" class="thirdMedal"> -->   
+        </canvas>
     </div>
     <!-- Below is a link to return to the game page index.html -->
     <p class="lReturn"> To return to Space Invaders <a href="../index.html"> Click Here</a></p>
@@ -118,10 +65,12 @@
         </p>
     </div>
     <script>
-        window.onload = function() {
-          pageLoadLog();
+        // Window onload run processes.
+        window.onload = function () {
+            pageLoadLog();
+            updateAccountCaption();
         };
-      </script>
+    </script>
 </body>
 
 </html>

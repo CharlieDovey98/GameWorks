@@ -41,37 +41,42 @@
     <div class="profileInformationContainer">
         <img src="../Images/AccountLogo.png" alt="AccountLogo" class="profileLogo">
         <!-- Below is a table contained within a div, which holds the users profile information, stored when they create an account -->
+        <p id="profileTableHeading">Sign up, then Sign in to view</p>
         <div class="profileTable">
             <table>
                 <tr>
                     <td class="pTableTitle">Email : </td>
-                    <td>cd908@live.mdx.ac.uk</td>
+                    <td id="pTableEmail"> </td>
                 </tr>
                 <tr>
                     <td class="pTableTitle">Username : </td>
-                    <td>CD98</td>
+                    <td id="pTableUsername"> </td>
                 </tr>
                 <tr>
                     <td class="pTableTitle">Forename : </td>
-                    <td>Charlie</td>
+                    <td id="pTableForename"> </td>
                 </tr>
                 <tr>
                     <td class="pTableTitle">Surname : </td>
-                    <td>Dovey</td>
+                    <td id="pTableSurname"> </td>
                 </tr>
                 <tr>
                     <td class="pTableTitle">Games played : </td>
-                    <td>15</td>
+                    <td id="pTableGamesPlayed"> </td>
                 </tr>
                 <tr>
                     <td class="pTableTitle">Highest Score : </td>
-                    <td>88,003</td>
+                    <td id="pTableHighestScore"> </td>
+                </tr>
+                <tr>
+                    <td class="pTableTitle">Alien kill Count : </td>
+                    <td  id="pTableAlienKillCount"> </td>
                 </tr>
             </table>
         </div>
         <!-- Below is a div which contains the sign out button -->
         <div class="signOutButton">
-            <button type="button">Sign out</button>
+            <button id="signOutButton" onclick="signOut();" type="button">Sign out</button>
         </div>
     </div>
     <!-- below is a div to hold some text about the users profile information-->
@@ -90,10 +95,13 @@
         </p>
     </div>
     <script>
-        window.onload = function() {
-          pageLoadLog();
+        // Window onload run processes.
+        window.onload = function () {
+            pageLoadLog();
+            updateAccountCaption();
+            updateProfilePage();
         };
-      </script>
+    </script>
 </body>
 
 </html>

@@ -31,9 +31,14 @@ function toggleFullScreen() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Registration and login page
+if (localStorage) {
+  const savedScores = localStorage.getItem("highestScore");
+  console.log(savedScores);
+} else {
+  console.log("localStorage is not supported");
+}
 
-let hasSignedIn = false;
+// Registration and login page
 
 // Sign Up
 function signUp() {
@@ -112,7 +117,7 @@ function signUp() {
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
-      console.log("Ignore debug");
+      console.log("Ignored debug, localStorage non-user object");
     } else {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       if (item && item.email === signUpEmail) {
@@ -142,8 +147,7 @@ function signUp() {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!?<>£$€%^&*#@])[A-Za-z\d!?<>£$€%^&*#@]{8,}$/;
   if (!validPasswordRegex.test(signUpPassword)) {
     signUpPasswordInputbox.parentElement.className = "inputBox error";
-    signUpPrompt.innerText =
-      "Password strength inadequate\n1x Uppercase\n1x Lowercase\n1x Number\n1x of !?<>£$€%^&*#@";
+    signUpPrompt.innerText ="Password strength inadequate!\nYou need to include a minimum of\n1 x Uppercase letter\n1 x Lowercase letter\n1 x Number\n1 x Special character\n( ! ? < > £ $ € % ^ & @ * # )";
     return;
   }
 
@@ -178,6 +182,7 @@ function signUp() {
     surname: signUpSurname,
     highestScore: 0,
     gamesPlayed: 0,
+    alienKillCount: 0,
   };
 
   signUpUsernameInputbox.parentElement.className = "inputBox success";
@@ -214,8 +219,9 @@ function signIn() {
     if (userObject.password === signInPassword) {
       signInPasswordInputbox.parentElement.className = "inputBox success";
       signInPrompt.innerHTML = "Sign In Successful";
-      hasSignedIn = true;
-      console.log(userObject);
+      console.log("UserObject",userObject);
+      console.log("JSON User",JSON.stringify(userObject));
+      console.log("User:",userObject.username, "Signed in.");
       sessionStorage.UserSignedIn = signInUsername;
     }
     // If password doen't match account.
@@ -231,20 +237,109 @@ function signIn() {
   }
 }
 
-// Forgot details button function.                  !!needs tweaking
+// Forgot details button function.
 function forgotDetails() {
-  let forgotUsername = document.getElementById("signInUsername").value;
-  if ((forgotUsername = "")) {
-    window.confirm(
-      "A reset password link has been sent to the Email of " +
-        forgotUsername +
-        "\nIf that username has an account registered to it."
-    );
-  } else {
-    window.confirm(
-      "Please enter a username registered to an account, then click Forgot Details"
-    );
+  // Attain the user input field username.
+  const signInUsername = document.getElementById("signInUsername").value;
+  // Attain elements by id.
+  let signInPrompt = document.getElementById("signInPrompt");
+  let signInUsernameInputbox = document.getElementById("signInUsername");
+
+  // Validation.
+  // Guard clause checking for an empty field in the username input box.
+  let emptyfields = false;
+  if (signInUsername === "") {
+    signInUsernameInputbox.parentElement.className = "inputBox error";
+    emptyfields = true;
   }
+  if (emptyfields == true) {
+    signInPrompt.innerHTML = "Please enter your username";
+    return;
+  }
+  // If user exists.
+  if (localStorage[signInUsername] !== undefined) {
+    signInUsernameInputbox.parentElement.className = "inputBox success";
+    signInPrompt.innerText = "A Password reset link has been sent\nto the users email address";
+  }
+  else { // Else the user has to enter a correct username to recieve the forgot password link.
+      signInPrompt.innerHTML = "That username is not registered";
+      signInPasswordInputbox.parentElement.className = "inputBox error";
+  }
+}
+
+// This function updates the profile page with the users information.
+function updateProfilePage() {
+  let profileTableEmail = document.getElementById("pTableEmail");
+  let profileTableUsername = document.getElementById("pTableUsername");
+  let profileTableForename = document.getElementById("pTableForename");
+  let profileTableSurname = document.getElementById("pTableSurname");
+  let profileTableGamesPlayed = document.getElementById("pTableGamesPlayed");
+  let profileTableHighestScore = document.getElementById("pTableHighestScore");
+  let profileTableAlienKillCount = document.getElementById(
+    "pTableAlienKillCount"
+  );
+  let profileTableHeading = document.getElementById("profileTableHeading");
+
+  // A for loop to look for the the user within local storage to attain their information.
+  for (let i = 0; i < localStorage.length; i++) {
+    // Get the key for the current item.
+    const key = localStorage.key(i);
+    if (key == "debug") {
+      // ignore the debug key in localStorage.
+      console.log("Ignored debug, localStorage non-user object");
+    } else {
+      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+      // If the key matches the user signed in, stored in session.storage use their stored details.
+      if (item.username === sessionStorage.UserSignedIn) {
+        let userObject = item;
+        console.log("the user is signed in as: ", sessionStorage.UserSignedIn);
+        profileTableHeading.innerText = " ";
+        profileTableEmail.innerText = item.email;
+        profileTableUsername.innerText = item.username;
+        profileTableForename.innerText = item.forename;
+        profileTableSurname.innerText = item.surname;
+        profileTableGamesPlayed.innerText = item.gamesPlayed;
+        profileTableHighestScore.innerText = item.highestScore;
+        profileTableAlienKillCount.innerText = "Sign In Successful";
+      }
+    }
+  }
+}
+
+function updateAccountCaption() {
+  //dgdgdfgdfgdfgdfgdfgdfg
+  //
+  //
+  //
+}
+
+function signOut() {
+  sessionStorage.clear();
+  clearProfileInformation();
+  console.log("User has signed out")
+}
+
+// A function to clear the profile information page when a player decides to sign out.
+function clearProfileInformation() {
+  let profileTableEmail = document.getElementById("pTableEmail");
+  let profileTableUsername = document.getElementById("pTableUsername");
+  let profileTableForename = document.getElementById("pTableForename");
+  let profileTableSurname = document.getElementById("pTableSurname");
+  let profileTableGamesPlayed = document.getElementById("pTableGamesPlayed");
+  let profileTableHighestScore = document.getElementById("pTableHighestScore");
+  let profileTableAlienKillCount = document.getElementById(
+    "pTableAlienKillCount"
+  );
+  let profileTableHeading = document.getElementById("profileTableHeading");
+  // (above) declaring some local variables, and (below) setting them to a prompt message.
+  profileTableHeading.innerText = "Sign up, then Sign in to view";
+  profileTableEmail.innerText = " ";
+  profileTableUsername.innerText = " ";
+  profileTableForename.innerText = " ";
+  profileTableSurname.innerText = " ";
+  profileTableGamesPlayed.innerText = " ";
+  profileTableHighestScore.innerText = " ";
+  profileTableAlienKillCount.innerText = " ";
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -253,9 +348,9 @@ function forgotDetails() {
 // Space invaders game coding.
 
 // Canvas details.
-let tileSize = 40;
-let rows = 16;
-let columns = 16;
+let tileSize = 100;
+let rows = 20;
+let columns = 20;
 let board;
 let boardWidth = tileSize * columns;
 let boardHeight = tileSize * rows;
@@ -289,22 +384,21 @@ let alienImage = new Image();
 alienImage.src = "../Images/AlienDefault.png";
 
 let alienRows = 1; // The amount of rows of aliens
-let alienColumns = 8; // The count of aliens, via the columns
+let alienColumns = 10; // The count of aliens, via the columns
 let alienCount = 0; // The amount of aliens on the canvas
-let alienVelocityX = 1; // aliens move by 1 (speed) can be increased with difficulty.
+let alienVelocityX = 3; // aliens move by 1 (speed) can be increased with difficulty.
 
 // Misslies Array.
 let missilesArray = [];
 // Missiles details.
-let missilesVelocityY = -10; // The missiles moving speed along the Y axis.
+let missilesVelocityY = -30; // The missiles moving speed along the Y axis.
 
 let score = 0;
 let wave = 1;
 let killCount = 0;
 let gameOver = false;
 
-// Windown onload run processes.
-window.onload = function () {
+function indexGamePage() {
   board = document.getElementById("board");
   board.width = boardWidth;
   board.height = boardHeight;
@@ -315,28 +409,41 @@ window.onload = function () {
 
   document.addEventListener("keydown", shipMovement);
   document.addEventListener("keyup", fire);
-};
+}
 
 function game() {
   requestAnimationFrame(game);
-  if (gameOver && hasSignedIn) {
+  if (gameOver) {
     gameOverStatement();
     gameDetailsOnCanvas();
-    leaderboardInfoOnCanvas();
+    for (let i = 0; i < localStorage.length; i++) {
+      // Get the key for the current item.
+      const key = localStorage.key(i);
+      if (key == "debug") {
+        // ignore the debug key in localStorage.
+        console.log("Ignored debug, localStorage non-user object");
+      } else {
+        const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+        if (item.username === sessionStorage.UserSignedIn) {
+          leaderboardInfoOnCanvas();
+          break; // Break the loop.
+        }
+        else {
+          signInInfoOnCanvas(); // 
+          break; // Break the loop.
+        }
+      }
+    }
+    updateUserScores();
     const startButton = document.getElementById("startButton");
+    startButton.innerText = 
     startButton.style.display = "initial";
     startButton.addEventListener("click", clickStartButton);
-  }
-  if (gameOver && (hasSignedIn == false)) {
-    gameOverStatement();
-    gameDetailsOnCanvas();
-    signInInfoOnCanvas();
-    const startButton = document.getElementById("startButton");
-    startButton.style.display = "initial";
-    startButton.addEventListener("click", clickStartButton);
-
+    gameOver = false;
     return;
   }
+
+  //updateUserScores();
 
   context.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
 
@@ -388,6 +495,7 @@ function game() {
         killCount += 1;
         alienCount--;
         score += 50;
+        gameOver = true;
       }
     }
   }
@@ -435,7 +543,7 @@ function clickStartButton() {
   const startButton = document.getElementById("startButton");
   startButton.style.display = "none";
   createAliens();
-  game()
+  game();
 }
 
 // Function to draw the aliens on the canvas.
@@ -470,7 +578,7 @@ function fire(e) {
       x: ship.x + 18,
       y: ship.y + 5,
       width: 5,
-      height: shipHeight - 20,
+      height: shipHeight - 30,
       used: false,
     };
     missilesArray.push(missiles);
@@ -486,65 +594,95 @@ function detectCollision(a, b) {
   ); //a's bottom left corner passes b's top left corner
 }
 
-// This function prints the game over statement with all the details.
+// This function updates the user that's signed in scores, stored within the local storage.
+function updateUserScores() {
+  /*for (let i = 0; i < localStorage.length; i++) {
+    // Get the key for the current item.
+    const key = localStorage.key(i);
+    if (key == "debug") {
+      // ignore the debug key in localStorage.
+      console.log("Ignored debug, localStorage non-user object");
+    } else {
+      const user = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+
+      if (user.username === sessionStorage.UserSignedIn) {
+        let userAsJSObject = JSON.parse(sessionStorage.UserSignedIn);
+        console.log(user);
+        console.log(userAsJSObject);
+        if (score > user.highestScore) {
+          user.highestScore = score;
+        }
+        user.gamesPlayed += 1;
+        break; // Break the loop.
+      } else {
+        break; // Break the loop.
+      }
+    }
+  }
+*/
+}
+
+// This function displays the game over statement with all the details.
 function gameOverStatement() {
+  // The Score details (position on the canvas, font, style).
   context.clearRect(0, 0, board.width, board.height); // Clear the canvas.
   context.fillStyle = "gold"; // Set text details.
-  context.font = "400% Astropolis Academy";
-  context.fillText("Game Over!", 100, 250); // Print the text.
+  context.font = "1000% Astropolis Academy";
+  context.fillText("Game Over!", 460, 800); // Print the text.
   context.fillStyle = "white";
-  context.font = "200% bold Poppins";
-  context.fillText("You achieved a score of", 160, 300);
-  context.fillText(score, 280, 334);
+  context.font = "600% bold Poppins";
+  context.fillText("You achieved a score of", 540, 1000);
+  context.fillText(score, 900, 1100);
 }
 
 // This function displays the current game details at the top of the canvas.
 function gameDetailsOnCanvas() {
   // The Score details (position on the canvas, font, style).
   context.fillStyle = "gold";
-  context.font = "20px bold Poppins";
-  context.fillText("Score: ", 15, 20);
-  context.fillText(score, 70, 20);
-  context.fillText("Aliens eliminated: ", 245, 20);
-  context.fillText(killCount, 400, 20);
-  context.fillText("Wave: ", 555, 20);
-  context.fillText(wave, 610, 20);
+  context.font = "450% bold Poppins";
+  context.fillText("Score: ", 35, 60);
+  context.fillText(score, 230, 60);
+  context.fillText("Aliens eliminated: ", 650, 60);
+  context.fillText(killCount, 1190, 60);
+  context.fillText("Wave: ", 1700, 60);
+  context.fillText(wave, 1900, 60);
 }
 
 // This function displays the start game details on the canvas.
 function startGameDetailsOnCanvas() {
+  // The Start screen details (position on the canvas, font, style).
   context.fillStyle = "gold";
-  context.font = "300% Astropolis Academy";
-  context.fillText("Space Invaders", 85, 250);
-  context.fillText("By GameWorks", 110, 300);
+  context.font = "1000% Astropolis Academy";
+  context.fillText("Space Invaders", 210, 800);
+  context.fillText("By GameWorks", 300, 950);
   context.fillStyle = "white";
-  context.font = "200% bold Poppins";
-  context.fillText("Click the Start Game button when ready", 60, 400);
+  context.font = "600% bold Poppins";
+  context.fillText("Click the Start Game button when ready", 200, 1300);
 }
 
 // This function prints details of the users score which may be added to the leaderboard.
 function leaderboardInfoOnCanvas() {
+  // The end screen leaderboard details (position on the canvas, font, style).
   context.fillStyle = "white";
-  context.font = "20px bold Poppins";
-  context.fillText("Your score if good enough will show on the leaderboard",20,400);
+  context.font = "500% bold Poppins";
+  context.fillText("Your score if good enough will show on the leaderboard",70,1300);
 }
 
 // This function prints a sign in prompt for the user on the canvas at the end of the game.
 function signInInfoOnCanvas() {
+  // The end screen sign in prompt details (position on the canvas, font, style).
   context.fillStyle = "white";
-  context.font = "20px bold Poppins";
-  context.fillText(
-    "Please sign in to have your score show on the leaderboard",
-    90,400
-  );
+  context.font = "500% bold Poppins";
+  context.fillText("Please sign in to have your score show on the leaderboard",75,1300);
 }
 
-
-// game leaderboard if signed in.
-// prompt user to sign in if not as leaderboard.
-
-// Page Load function.
+// Console log, Load function.
 function pageLoadLog() {
   console.log("Page Loaded Successfully");
+  console.log("JavaScript loaded Successfully");
 }
-console.log("JavaScript loaded Successfully");
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Code for the loaderboard which will be displayed on a canvas on the leaderboard page.

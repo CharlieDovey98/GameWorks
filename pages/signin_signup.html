@@ -85,7 +85,7 @@
                 <div class="inputBox">
                     <img src="../Images/Passwordlock.png" alt="Password Logo"
                         class="passwordLogo">
-                    <input type="password" id="signUpPasswordCheck" value="1223" placeholder=" ">
+                    <input type="password" id="signUpPasswordCheck" placeholder=" ">
                     <label for="password">Re-enter Password</label>
                 </div>
                 <div class="inputBox">
@@ -122,10 +122,12 @@
         </p>
     </div>
     <script>
-        window.onload = function() {
-          pageLoadLog();
+        // Window onload run processes.
+        window.onload = function () {
+            pageLoadLog();
+            updateAccountCaption();
         };
-      </script>
+    </script>
 </body>
 
 </html>

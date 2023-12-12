@@ -56,13 +56,14 @@
                 The last level will be a boss level with their leader present.<br>
                 This will be a formidable opponent with buffed abilities including fire rate and health.<br>
                 Good luck on your journey should you choose to accept pilot.
-            </p></div>
-            <div>
-                <!-- Below is a canvas for the game -->
-                <canvas id="board"></canvas>
-                <button id="startButton" type="button">Start Game</button>
-            </div>
-            <!-- Below is an image which the user can click on to make the webpage fullscreen. -->
+            </p>
+        </div>
+        <div>
+            <!-- Below is a canvas for the game -->
+            <canvas id="board"></canvas>
+            <button id="startButton" type="button">Start Game</button>
+        </div>
+        <!-- Below is an image which the user can click on to make the webpage fullscreen. -->
         <img src="Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullScreenButton"
             onclick="toggleFullScreen()">
         <!-- below is a div for a box containing the tutorial text -->
@@ -83,6 +84,14 @@
         <p>GameWorks &copy; 2023&nbsp;&nbsp;&nbsp;&nbsp;Created by Charlie Dovey M00843428.
         </p>
     </div>
+    <script>
+        // Window onload run processes.
+        window.onload = function () {
+        indexGamePage();
+        pageLoadLog();
+        updateAccountCaption();
+        };
+    </script>
 </body>
 
 </html>
