@@ -255,6 +255,7 @@ that when clicked makes the website fullscreen using javascrpit */
   width: auto;
   height: auto;
   font-size: 1em;
+  padding: 0px 10px 0px 10px;
   font-weight: 600;
   flex-direction: column;
   text-align: center;
@@ -276,6 +277,7 @@ that when clicked makes the website fullscreen using javascrpit */
   color: white;
   margin-left: 5%;
   margin-right: 5%;
+  padding: 0px 10px 0px 10px;
   width: auto;
   height: auto;
   font-size: 1em;
@@ -542,7 +544,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard div */
-.Leaderboardbox {
+#Leaderboardbox {
   display: flex;
   border: 1px solid white;
   background-color: transparent;
@@ -572,7 +574,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table */
-.leaderboardtable {
+#leaderboardTable {
   margin: auto;
   margin-top: 20px;
   max-width: fit-content;
@@ -584,8 +586,8 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table headings */
-.leaderboardtable th {
-  font-size: 1.7em;
+#leaderboardTable th {
+  font-size: 2.2em;
   padding: 5px 20px 5px 20px;
   font-weight: 100;
   text-align: center;
@@ -595,7 +597,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table data */
-.leaderboardtable td {
+#leaderboardTable td {
   text-align: center;
   color: white;
   font-size: 2em;

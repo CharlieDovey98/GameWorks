@@ -112,14 +112,15 @@ function signUp() {
 
   let emailInUse = false;
   for (let i = 0; i < localStorage.length; i++) {
-    // Get the key for the current item.
+    // Get the key for the first item within localStorage.
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
       console.log("Ignored debug, localStorage non-user object");
+      console.log("Yesssssss")
     } else {
-      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
-      if (item && item.email === signUpEmail) {
+      const user = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+      if (user.email === signUpEmail) {
         // Check for an email match.
         emailInUse = true;
         break; // Break the loop.
@@ -306,25 +307,6 @@ function updateProfilePage() {
   }
 }
 
-function updateAccountCaption() {
-  let pageAccountCaption = document.getElementById("userIdCaption");
-  for (let i = 0; i < localStorage.length; i++) {
-    // Get the key for the current item.
-    const key = localStorage.key(i);
-    if (key == "debug") {
-      // ignore the debug key in localStorage.
-      console.log("Ignored debug, localStorage non-user object");
-    } else {
-      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
-      if (item.username === sessionStorage.UserSignedIn) {
-        pageAccountCaption.innerText = sessionStorage.UserSignedIn;
-        break; // Break the loop.
-      }
-    }
-  }
-}
-
-
 function signOut() {
   sessionStorage.clear();
   clearProfileInformation();
@@ -405,6 +387,7 @@ let missilesArray = [];
 // Missiles details.
 let missilesVelocityY = -30; // The missiles moving speed along the Y axis.
 
+// Game details.
 let score = 0;
 let wave = 1;
 let killCount = 0;
@@ -424,11 +407,8 @@ function indexGamePage() {
 }
 
 function game() {
-  requestAnimationFrame(game);
   if (gameOver) {
-    gameOverStatement();
-    console.log("hello")
-    gameDetailsOnCanvas();
+    console.log("hello");
     for (let i = 0; i < localStorage.length; i++) {
       // Get the key for the current item.
       const key = localStorage.key(i);
@@ -438,22 +418,26 @@ function game() {
       } else {
         const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
         if (item.username === sessionStorage.UserSignedIn) {
+          context.clearRect(0, 0, board.width, board.height);
+          gameOverStatement();
+          gameDetailsOnCanvas();
           leaderboardInfoOnCanvas();
-          break; // Break the loop.
+          break;
         }
         else {
-          signInInfoOnCanvas(); // 
-          break; // Break the loop.
+          context.clearRect(0, 0, board.width, board.height);
+          gameOverStatement();
+          gameDetailsOnCanvas();
+          signInInfoOnCanvas(); 
         }
       }
     }
-    const startButton = document.getElementById("startButton");
-    startButton.innerHTML = "Play Again"
-    startButton.style.display = "initial";
-    startButton.addEventListener("click", clickStartButton);
+    playAgain();
     return;
   }
-
+  if (!gameOver){
+    requestAnimationFrame(game);
+  }
   context.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
 
   // Player ship. (draw)
@@ -466,15 +450,6 @@ function game() {
       // If the aliens are alive, draw them using the variables below.
 
       alien.x += alienVelocityX; // Move the aliens along the x axis.
-
-      if (alien.x + alien.width >= board.width || alien.x <= 0) {
-        alienVelocityX *= -1; // If the aliens touch the side of the canvas, reverse the direction.
-        alien.x += (alienVelocityX*2); // Make sure the aliens are in their tile place correctly.
-
-        for (let j = 0; j < alienArray.length; j++) {
-          alienArray[j].y += alien.height;
-        }
-      }
       context.drawImage(
         alienImage,
         alien.x,
@@ -482,9 +457,18 @@ function game() {
         alien.width,
         alien.height
       );
+
+      if (alien.x + alien.width >= board.width || alien.x <= 0) {
+        alienVelocityX *= -1; // If the aliens touch the side of the canvas, reverse the direction.
+        alien.x += (alienVelocityX*2); // An attempt to make sure the aliens are in their tile place correctly.
+
+        for (let j = 0; j < alienArray.length; j++) {
+          alienArray[j].y += alien.height;
+        }
+      }
+      
       if (alien.y >= ship.y) {
         gameOver = true;
-        updateUserScores();
       }
     }
   }
@@ -504,7 +488,7 @@ function game() {
         alien.alive = false;
         killCount += 1;
         alienCount--;
-        score += 50;        
+        score += 50;     
       }
     }
   }
@@ -516,6 +500,7 @@ function game() {
   ) {
     missilesArray.shift(); //removes the first element of the array
   }
+
   // Next level if statement.
   if (alienCount == 0) {
     //increase the number of aliens in columns and rows by 1
@@ -523,9 +508,9 @@ function game() {
     alienColumns = Math.min(alienColumns + 1, columns - 4); // cap at 12
     alienRows = Math.min(alienRows + 1, rows - 4); //cap at 16-4 = 12
     if (alienVelocityX > 0) {
-      alienVelocityX += 0.1; //increase the alien movement speed towards the right
+      alienVelocityX += 2; //increase the alien movement speed towards the right
     } else {
-      alienVelocityX -= 0.1; //increase the alien movement speed towards the left.
+      alienVelocityX -= 2; //increase the alien movement speed towards the left.
     }
     alienArray = [];
     missilesArray = [];
@@ -633,6 +618,16 @@ function updateUserScores() {
   localStorage.setItem(sessionStorage.UserSignedIn, JSON.stringify(userOnjectToUpdate));
   return;
 }
+// This function is called when the game is over. 
+// It calls some end game functions and waits on en event listener to play the game again.
+function playAgain(){
+  updateUserScores();
+  resetGameValues();
+  const startButton = document.getElementById("startButton");
+  startButton.innerHTML = "Play Again"
+  startButton.style.display = "initial";
+  startButton.addEventListener("click", clickStartButton);
+}
 
 // This function displays the game over statement with all the details.
 function gameOverStatement() {
@@ -688,12 +683,6 @@ function signInInfoOnCanvas() {
   context.fillText("Please sign in to have your score show on the leaderboard",75,1300);
 }
 
-// Console log, Load function.
-function pageLoadLog() {
-  console.log("Page Loaded Successfully");
-  console.log("JavaScript loaded Successfully");
-}
-
 // This function resets the game values allowing the game to return to its original state and to be played again.
 function resetGameValues(){
   score = 0;
@@ -702,14 +691,86 @@ function resetGameValues(){
   alienRows = 1; 
   alienColumns = 10; 
   alienCount = 0; 
-  //alienVelocityX = 3;
+  alienVelocityX = 3;
   alienArray = [];
   missilesArray = [];
-  //missilesVelocityY = -30;
+  missilesVelocityY = -30;
   gameOver = false;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Code for the loaderboard which will be displayed on a canvas on the leaderboard page.
+// Console log, Load function.
+function pageLoadLog() {
+  console.log("Page Loaded Successfully");
+  console.log("JavaScript loaded Successfully");
+}
+
+// This function is for the leaderboard.html page. 
+// It creates the leaderboard table and displays it in the div #leaderboardTable.
+function updateLeaderboardTable() {
+  let leaderboardTable = document.getElementById("LeaderboardDiv");
+  let users = [];
+  let leaderboardString = "<table id='leaderboardTable'><tr><th>Position</th><th>Name</th><th>Highscore</th></tr>";
+ 
+
+  let userkeys = Object.keys(localStorage);
+
+  for (let key of userkeys){
+    if (key == "debug") {
+      // ignore the debug key in localStorage.
+    } else {
+    let user = JSON.parse(localStorage[key]);
+    users.push(user);
+    }}
+    // Sort the users array from highest to lowest.
+    users.sort((a, b) => b.highestScore - a.highestScore);
+
+    // A for loop to add each user to the leaderboard.
+    // For the first three users, they get a medal or trophy instead of an index number.
+    // The for loop will start at 0, stop at 10 users within the users array, and step by 1.
+    for (let i = 0; i < Math.min(users.length, 10); i++) {
+      if (users[i].highestScore == 0){  // If the user within the user array has a score of 0 (when they first sign up/ havent played yet) skip them.
+        continue
+      }
+      if (i == 0){ // For the user with index 0 (highest Scoring user) add the first place trophy to their row.
+        leaderboardString += `<tr> <td><img src="../Images/Winner.png" alt="Winner" class="trophy"></td> <td>${users[i].username}</td> <td>${users[i].highestScore}</td> </tr>`;
+        continue;
+      }
+      if (i == 1){ // For the user with index 0 (2nd highest Scoring user) add the second place medal to their row.
+        leaderboardString += `<tr> <td><img src="../Images/Second.png" alt="Second Place" class="secondmedal"></td> <td>${users[i].username}</td> <td>${users[i].highestScore}</td> </tr>`;
+        continue;
+      }
+      if (i == 2){ // For the user with index 2 (3rd highest Scoring user) add the third place medal to their row.
+        leaderboardString += `<tr> <td><img src="../Images/Third.png" alt="Third Place" class="thirdmedal"></td> <td>${users[i].username}</td> <td>${users[i].highestScore}</td> </tr>`;
+        continue;
+      }else { // Else add the users in the leaderboard by index, name, and highestScore.
+        leaderboardString += `<tr> <td>${i + 1}</td> <td>${users[i].username}</td> <td>${users[i].highestScore}</td> </tr>`;
+      }
+  }
+
+  leaderboardString += "</table>";
+  leaderboardTable.innerHTML = leaderboardString;
+}
+
+// This function updates the account caption in the top right hand corner.
+// This function is called on every page. this helps the user know where to go to find their account information.
+// This function is also a good indicator to show that a user has signed in and which user.
+function updateAccountCaption() {
+  let pageAccountCaption = document.getElementById("userIdCaption");
+  for (let i = 0; i < localStorage.length; i++) {
+    // Get the key for the current item.
+    const key = localStorage.key(i);
+    if (key == "debug") {
+      // ignore the debug key in localStorage.
+      console.log("Ignored debug, localStorage non-user object");
+    } else {
+      const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
+      if (item.username === sessionStorage.UserSignedIn) {
+        pageAccountCaption.innerText = sessionStorage.UserSignedIn;
+        break; // Break the loop.
+      }
+    }
+  }
+}
