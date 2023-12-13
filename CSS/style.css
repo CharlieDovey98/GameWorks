@@ -542,7 +542,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard div */
-.leaderboardBox {
+.Leaderboardbox {
   display: flex;
   border: 1px solid white;
   background-color: transparent;
@@ -562,17 +562,17 @@ this allows the user to see what they are typing */
   width: 30px;
   height: 30px;
 }
-.secondMedal{
+.secondmedal{
   width: 30px;
   height: 30px;
 }
-.thirdMedal{
+.thirdmedal{
   width: 30px;
   height: 30px;
 }
 
 /* Below is the styling for the leaderboard table */
-.leaderboardCanvas {
+.leaderboardtable {
   margin: auto;
   margin-top: 20px;
   max-width: fit-content;
@@ -584,7 +584,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table headings */
-.leaderboardTable th {
+.leaderboardtable th {
   font-size: 1.7em;
   padding: 5px 20px 5px 20px;
   font-weight: 100;
@@ -595,7 +595,7 @@ this allows the user to see what they are typing */
 }
 
 /* Below is the styling for the leaderboard table data */
-.leaderboardTable td {
+.leaderboardtable td {
   text-align: center;
   color: white;
   font-size: 2em;

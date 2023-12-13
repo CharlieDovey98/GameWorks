@@ -38,6 +38,7 @@ if (localStorage) {
   console.log("localStorage is not supported");
 }
 
+
 // Sign Up
 function signUp() {
   // Attain the user input fields: username, password.
