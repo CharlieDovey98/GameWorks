@@ -64,8 +64,9 @@
             <button id="startButton" type="button">Start Game</button>
         </div>
         <div id="gameButtons">
-            <audio id="music"><source src="Audio/feedTheMachine.mp3"></audio>
+            <audio loop id="music"><source src="Audio/feedTheMachine.mp3"></audio>
         <!-- Below is an image which the user can click on to make the audio play for the game or pause. -->
+        <!-- The audio is on loop and will only stop when the player chooses to pause it. -->
         <img src="Images/AudioOff.png" alt="AudioButton" title="Toggle Music" id="AudioButton" onclick="toggleAudio()">
         <!-- Below is an image which the user can click on to make the webpage fullscreen. -->
         <img src="Images/FullScreen.png" alt="FullScreenButton" title="Go Full Screen" class="fullScreenButton" onclick="toggleFullScreen()">
@@ -92,7 +93,6 @@
         // Window onload run processes.
         window.onload = function () {
         indexGamePage();
-        pageLoadLog();
         updateAccountCaption();
         };
     </script>

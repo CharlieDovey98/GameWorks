@@ -48,18 +48,7 @@ function toggleFullScreen() {
   }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-if (localStorage) {
-  const savedScores = localStorage.getItem("debug");
-  console.log(savedScores);
-} else {
-  console.log("localStorage is not supported");
-}
-
-
-// Sign Up
+// Sign Up functionality with validation.
 function signUp() {
   // Attain the user input fields: username, password.
   const signUpUsername = document.getElementById("signUpUsername").value;
@@ -136,8 +125,6 @@ function signUp() {
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
-      console.log("Ignored debug, localStorage non-user object");
-      console.log("Yesssssss")
     } else {
       const user = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       if (user.email === signUpEmail) {
@@ -212,13 +199,12 @@ function signUp() {
   signUpForenameInputbox.parentElement.className = "inputBox success";
   signUpSurnameInputbox.parentElement.className = "inputBox success";
   signUpPrompt.innerHTML = "Sign Up successful";
-  console.log(userObject);
 
   // Save the input data to Local storage after all criteria has been met.
   localStorage[signUpUsername] = JSON.stringify(userObject);
 }
 
-// SignIn.
+// SignIn functionality with validation.
 function signIn() {
   // Attain the user input fields: username, password.
   const signInUsername = document.getElementById("signInUsername").value;
@@ -239,9 +225,6 @@ function signIn() {
     if (userObject.password === signInPassword) {
       signInPasswordInputbox.parentElement.className = "inputBox success";
       signInPrompt.innerHTML = "Sign In Successful";
-      console.log("UserObject",userObject);
-      console.log("JSON User",JSON.stringify(userObject));
-      console.log("User:",userObject.username, "Signed in.");
       sessionStorage.UserSignedIn = signInUsername;
       updateAccountCaption();
     }
@@ -258,7 +241,7 @@ function signIn() {
   }
 }
 
-// Forgot details button function.
+// Forgot details button functionality with validation.
 function forgotDetails() {
   // Attain the user input field username.
   const signInUsername = document.getElementById("signInUsername").value;
@@ -296,9 +279,7 @@ function updateProfilePage() {
   let profileTableSurname = document.getElementById("pTableSurname");
   let profileTableGamesPlayed = document.getElementById("pTableGamesPlayed");
   let profileTableHighestScore = document.getElementById("pTableHighestScore");
-  let profileTableAlienKillCount = document.getElementById(
-    "pTableAlienKillCount"
-  );
+  let profileTableAlienKillCount = document.getElementById("pTableAlienKillCount");
   let profileTableHeading = document.getElementById("profileTableHeading");
 
   // A for loop to look for the the user within local storage to attain their information.
@@ -307,13 +288,11 @@ function updateProfilePage() {
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
-      console.log("Ignored debug, localStorage non-user object");
     } else {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       // If the key matches the user signed in, stored in session.storage use their stored details.
       if (item.username === sessionStorage.UserSignedIn) {
         let userObject = item;
-        console.log("the user is signed in as: ", sessionStorage.UserSignedIn);
         profileTableHeading.innerText = " ";
         profileTableEmail.innerText = item.email;
         profileTableUsername.innerText = item.username;
@@ -327,10 +306,10 @@ function updateProfilePage() {
   }
 }
 
+// This function signs the user out of session storage and calls the clearProfileInformation() function. 
 function signOut() {
   sessionStorage.clear();
   clearProfileInformation();
-  console.log("User has signed out")
 }
 
 // A function to clear the profile information page when a player decides to sign out.
@@ -355,9 +334,6 @@ function clearProfileInformation() {
   profileTableAlienKillCount.innerText = " ";
   pageAccountCaption.innerHTML = "Profile";
 }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Space invaders game coding.
 
@@ -385,7 +361,7 @@ let ship = {
 };
 let shipImage = new Image();
 shipImage.src = "../Images/SpaceShuttleOne.png";
-let shipVelocityX = tileSize; // The ship moves one tile at a time
+let shipVelocityX = tileSize; // The ship moves one tile at a time.
 
 // All Aliens are held within the AlienArray.
 let alienArray = [];
@@ -397,9 +373,9 @@ let alienY = tileSize;
 let alienImage = new Image();
 alienImage.src = "../Images/AlienDefault.png";
 
-let alienRows = 1; // The amount of rows of aliens
-let alienColumns = 10; // The count of aliens, via the columns
-let alienCount = 0; // The amount of aliens on the canvas
+let alienRows = 1; // The amount of rows of aliens.
+let alienColumns = 10; // The count of aliens, via the columns.
+let alienCount = 0; // The amount of aliens on the canvas.
 let alienVelocityX = 3; // aliens move by 1 (speed) can be increased with difficulty.
 
 // Misslies Array.
@@ -413,6 +389,8 @@ let wave = 1;
 let killCount = 0;
 let gameOver = false;
 
+// This function is called with window.onload for the index.html page.
+// This function adds event listeners to call functions if the player starts the game.
 function indexGamePage() {
   board = document.getElementById("board");
   board.width = boardWidth;
@@ -426,15 +404,15 @@ function indexGamePage() {
   document.addEventListener("keyup", fire);
 }
 
+
+// This function holds the game itself, called when the player clicks the 'start game' or 'play again' buttons which hover over the canvas.
 function game() {
-  if (gameOver) {
-    console.log("hello");
+  if (gameOver) { // An if statement to check if the game is over via the gameover boolean variable.
     for (let i = 0; i < localStorage.length; i++) {
       // Get the key for the current item.
       const key = localStorage.key(i);
       if (key == "debug") {
         // ignore the debug key in localStorage.
-        console.log("Ignored debug, localStorage non-user object");
       } else {
         const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
         if (item.username === sessionStorage.UserSignedIn) {
@@ -455,7 +433,7 @@ function game() {
     playAgain();
     return;
   }
-  if (!gameOver){
+  if (!gameOver){ // This if statement checks if the game is not over, if so it recalls the game function so the player can keep playing.
     requestAnimationFrame(game);
   }
   context.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
@@ -528,9 +506,9 @@ function game() {
     alienColumns = Math.min(alienColumns + 1, columns - 4); // cap at 12
     alienRows = Math.min(alienRows + 1, rows - 4); //cap at 16-4 = 12
     if (alienVelocityX > 0) {
-      alienVelocityX += 2; //increase the alien movement speed towards the right
+      alienVelocityX += 1; //increase the alien movement speed towards the right
     } else {
-      alienVelocityX -= 2; //increase the alien movement speed towards the left.
+      alienVelocityX -= 1; //increase the alien movement speed towards the left.
     }
     alienArray = [];
     missilesArray = [];
@@ -620,24 +598,26 @@ function updateUserScores() {
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
-      console.log("Ignored debug, localStorage non-user object");
     } else {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       // If the key matches the user signed in, stored in session.storage use their stored details.
       if (item.username === sessionStorage.UserSignedIn) {
         userOnjectToUpdate = item;
+        if (score > userOnjectToUpdate.highestScore) {
+          userOnjectToUpdate.highestScore = score;
+          userOnjectToUpdate.gamesPlayed += 1;
+          userOnjectToUpdate.alienKillCount += killCount;
+          localStorage.setItem(
+            sessionStorage.UserSignedIn,
+            JSON.stringify(userOnjectToUpdate)
+          );
+        }
         break;
       }
     }
   }
-  if (score > userOnjectToUpdate.highestScore){
-    userOnjectToUpdate.highestScore = score;
-  }
-  userOnjectToUpdate.gamesPlayed += 1;
-  userOnjectToUpdate.alienKillCount += killCount;
-  localStorage.setItem(sessionStorage.UserSignedIn, JSON.stringify(userOnjectToUpdate));
-  return;
 }
+
 // This function is called when the game is over. 
 // It calls some end game functions and waits on en event listener to play the game again.
 function playAgain(){
@@ -718,15 +698,6 @@ function resetGameValues(){
   gameOver = false;
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Console log, Load function.
-function pageLoadLog() {
-  console.log("Page Loaded Successfully");
-  console.log("JavaScript loaded Successfully");
-}
-
 // This function is for the leaderboard.html page. 
 // It creates the leaderboard table and displays it in the div #leaderboardTable.
 function updateLeaderboardTable() {
@@ -784,7 +755,6 @@ function updateAccountCaption() {
     const key = localStorage.key(i);
     if (key == "debug") {
       // ignore the debug key in localStorage.
-      console.log("Ignored debug, localStorage non-user object");
     } else {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       if (item.username === sessionStorage.UserSignedIn) {
