@@ -6,15 +6,15 @@
 <head>
     <!-- Below is the link to the stylesheet CSS file -->
     <link rel="stylesheet" href="CSS/style.css">
-    <!-- Below is the link to the JavaScript file -->
-    <script src="Javascript/script.js"></script>
+    <!-- Below is the link to the JavaScript files needed -->
+    <script src="Javascript/spaceInvadersScripting.js"></script>
+    <script src="../Javascript/UserAndProfileScripting.js"></script>
     <!-- Below are meta tags to set the universal character set to UTF-8 and a meta tag for the website width -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameWorks Home</title>
 </head>
 <!-- Below is the body tag, containing the all the code for the page -->
-
 <body>
     <!-- Below is a div for all the navigation links fixed at the top of the page -->
     <div class="navigationBar">
@@ -23,7 +23,6 @@
             <img src="Images/GameWorksWebsiteLogo.png" alt="GameWorksWebsiteLogo" class="gameWorksWebsiteLogoB">
         </div>
         <!-- Below is an unordered list for all the navigation links -->
-
         <ul>
             <!-- Below is a span with the class active, which allows css to show the user which page they're currently on -->
             <li> <a href="index.html"><button type="button" class="active">Home</button></a> </li>
@@ -61,10 +60,11 @@
         <div>
             <!-- Below is a canvas for the game -->
             <canvas id="board"></canvas>
-            <button id="startButton" type="button">Start Game</button>
+            <div id="emptyContainer"><button id="startButton" type="button">Start Game</button></div>
         </div>
         <div id="gameButtons">
-            <audio loop id="music"><source src="Audio/feedTheMachine.mp3"></audio>
+            <!-- Music for the Space invaders game-->
+            <audio loop id="music"><source src="Audio/FeedTheMachine.mp3"></audio>
         <!-- Below is an image which the user can click on to make the audio play for the game or pause. -->
         <!-- The audio is on loop and will only stop when the player chooses to pause it. -->
         <img src="Images/AudioOff.png" alt="AudioButton" title="Toggle Music" id="AudioButton" onclick="toggleAudio()">

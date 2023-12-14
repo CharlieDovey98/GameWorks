@@ -142,7 +142,7 @@ body {
   color: white;
   font-weight: 900;
   text-align: center;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
   /* Using the font-family 'Poppins' imported at the top of this style.css sheet */
 }
 
@@ -220,6 +220,12 @@ body {
   }
 }
 
+/* Below is a dive which will set empty. This allows the footer to be pushed down and containers to align correctly.*/
+#emptyContainer{
+  background: transparent;
+  width: 200px;
+  height: 100px;
+}
 /* Below is the styling for the Start Game button 
 that when clicked makes the game start */
 #startButton {
@@ -229,13 +235,12 @@ that when clicked makes the game start */
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   padding: 5px 15px 5px 15px;
   border-radius: 15px;
-  transform: translateY(-60px);
+  transform: translateY(-60px) translateX(200px);
 }
 
 /* Below is the styling for the audio images
@@ -264,9 +269,8 @@ that when clicked makes the website fullscreen using javascrpit */
   border: 1px solid white;
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  color: white;  
+  margin: 3% 5% 10% 5%;
   width: auto;
   height: auto;
   font-size: 1em;
@@ -274,7 +278,6 @@ that when clicked makes the website fullscreen using javascrpit */
   font-weight: 600;
   flex-direction: column;
   text-align: center;
-  margin-top: 0;
 }
 
 /* Below is the styling for the tutorial headers */
@@ -290,8 +293,7 @@ that when clicked makes the website fullscreen using javascrpit */
   backdrop-filter: blur(10px);
   border-radius: 20px;
   color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 3% 5% 10% 5%;
   padding: 0px 10px 0px 10px;
   width: auto;
   height: auto;
@@ -561,6 +563,8 @@ this allows the user to see what they are typing */
 /* Below is the styling for the leaderboard div */
 #Leaderboardbox {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid white;
   background-color: transparent;
   border-radius: 20px;
@@ -570,8 +574,6 @@ this allows the user to see what they are typing */
   width: 700px;
   height: 600px;
   margin-bottom: 20px;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Below is the styling for the placing images for 1st, 2nd, 3rd place within the leaderboard */
@@ -591,7 +593,6 @@ this allows the user to see what they are typing */
 /* Below is the styling for the leaderboard table */
 #leaderboardTable {
   margin: auto;
-  margin-top: 20px;
   max-width: fit-content;
   align-items: center;
   justify-content: center;
