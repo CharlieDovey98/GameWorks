@@ -344,7 +344,7 @@ let columns = 20;
 let board;
 let boardWidth = tileSize * columns;
 let boardHeight = tileSize * rows;
-let context;
+let canvas;
 
 // Ship details.
 let shipWidth = tileSize;
@@ -378,10 +378,10 @@ let alienColumns = 10; // The count of aliens, via the columns.
 let alienCount = 0; // The amount of aliens on the canvas.
 let alienVelocityX = 3; // aliens move by 1 (speed) can be increased with difficulty.
 
-// Misslies Array.
-let missilesArray = [];
-// Missiles details.
-let missilesVelocityY = -30; // The missiles moving speed along the Y axis.
+// User misslies Array.
+let UserMissilesArray = [];
+// User missiles details.
+let userMissilesVelocityY = -30; // The missiles moving speed along the Y axis.
 
 // Game details.
 let score = 0;
@@ -395,7 +395,7 @@ function indexGamePage() {
   board = document.getElementById("board");
   board.width = boardWidth;
   board.height = boardHeight;
-  context = board.getContext("2d");
+  canvas = board.getContext("2d");
   startGameDetailsOnCanvas();
   const startButton = document.getElementById("startButton");
   startButton.addEventListener("click", clickStartButton);
@@ -407,7 +407,8 @@ function indexGamePage() {
 
 // This function holds the game itself, called when the player clicks the 'start game' or 'play again' buttons which hover over the canvas.
 function game() {
-  if (gameOver) { // An if statement to check if the game is over via the gameover boolean variable.
+  if (gameOver) {
+    // An if statement to check if the game is over via the gameover boolean variable.
     for (let i = 0; i < localStorage.length; i++) {
       // Get the key for the current item.
       const key = localStorage.key(i);
@@ -416,87 +417,88 @@ function game() {
       } else {
         const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
         if (item.username === sessionStorage.UserSignedIn) {
-          context.clearRect(0, 0, board.width, board.height);
+          canvas.clearRect(0, 0, board.width, board.height);
           gameOverStatement();
           gameDetailsOnCanvas();
           leaderboardInfoOnCanvas();
           break;
-        }
-        else {
-          context.clearRect(0, 0, board.width, board.height);
+        } else {
+          canvas.clearRect(0, 0, board.width, board.height);
           gameOverStatement();
           gameDetailsOnCanvas();
-          signInInfoOnCanvas(); 
+          signInInfoOnCanvas();
         }
       }
     }
     playAgain();
     return;
   }
-  if (!gameOver){ // This if statement checks if the game is not over, if so it recalls the game function so the player can keep playing.
+  if (!gameOver) {
+    // This if statement checks if the game is not over, if so it recalls the game function so the player can keep playing.
     requestAnimationFrame(game);
   }
-  context.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
-
-  // Player ship. (draw)
-  context.drawImage(shipImage, ship.x, ship.y, ship.width, ship.height);
+  canvas.clearRect(0, 0, board.width, board.height); // Clear the canvas on every game.
+ 
+  // User ship. (draw)
+  canvas.drawImage(shipImage, ship.x, ship.y, ship.width, ship.height);
 
   // Alien ships. (draw, move)
+  let reachBorder = false;
   for (let i = 0; i < alienArray.length; i++) {
     let alien = alienArray[i]; // Alien is each index within the alien array.
     if (alien.alive) {
       // If the aliens are alive, draw them using the variables below.
-
       alien.x += alienVelocityX; // Move the aliens along the x axis.
-      context.drawImage(
-        alienImage,
-        alien.x,
-        alien.y,
-        alien.width,
-        alien.height
-      );
+      canvas.drawImage(alienImage, alien.x, alien.y, alien.width, alien.height);
 
       if (alien.x + alien.width >= board.width || alien.x <= 0) {
-        alienVelocityX *= -1; // If the aliens touch the side of the canvas, reverse the direction.
-        alien.x += (alienVelocityX*2); // An attempt to make sure the aliens are in their tile place correctly.
-
-        for (let j = 0; j < alienArray.length; j++) {
-          alienArray[j].y += alien.height;
-        }
+        reachBorder = true;
       }
-      
-      if (alien.y >= ship.y) {
-        gameOver = true;
+      if (reachBorder) {
+        alienVelocityX *= -1; // Reverse direction
+        for (let j = 0; j < alienArray.length; j++) {
+          alienArray[j].x += alienVelocityX; // Adjust X position when changing direction
+          alienArray[j].y += alienheight; // Move all aliens down by one row
+          if (alienArray[j].y >= ship.y) {
+            gameOver = true;
+          }
+          reachBorder = false;
+        }
       }
     }
   }
 
-  // Missiles
-  for (let i = 0; i < missilesArray.length; i++) {
-    let missiles = missilesArray[i];
-    missiles.y += missilesVelocityY;
-    context.fillStyle = "gold";
-    context.fillRect(missiles.x, missiles.y, missiles.width, missiles.height);
+  // User missiles
+  for (let i = 0; i < UserMissilesArray.length; i++) {
+    let uMissiles = UserMissilesArray[i];
+    uMissiles.y += userMissilesVelocityY;
+    canvas.fillStyle = "gold";
+    canvas.fillRect(
+      uMissiles.x,
+      uMissiles.y,
+      uMissiles.width,
+      uMissiles.height
+    );
 
     // missile collision with alien ships
     for (let j = 0; j < alienArray.length; j++) {
       let alien = alienArray[j];
-      if (!missiles.used && alien.alive && hasCollided(missiles, alien)) {
-        missiles.used = true;
+      if (!uMissiles.used && alien.alive && hasCollided(uMissiles, alien)) {
+        uMissiles.used = true;
         alien.alive = false;
         killCount += 1;
         alienCount--;
-        score += 50;     
+        score += 50;
       }
     }
   }
 
-  // Clear missiles
+  // Clear user missiles
   while (
-    missilesArray.length > 0 &&
-    (missilesArray[0].used || missilesArray[0].y < 0)
+    UserMissilesArray.length > 0 &&
+    (UserMissilesArray[0].used || UserMissilesArray[0].y < 0)
   ) {
-    missilesArray.shift(); //removes the first element of the array
+    UserMissilesArray.shift(); //removes the first element of the array
   }
 
   // Next level if statement.
@@ -511,14 +513,14 @@ function game() {
       alienVelocityX -= 1; //increase the alien movement speed towards the left.
     }
     alienArray = [];
-    missilesArray = [];
+    UserMissilesArray = [];
     createAliens();
     wave += 1;
   }
   gameDetailsOnCanvas(); // show the score, wave and alien kil count on the scoreboard
 }
 
-// Function to move the ship along the x axis using wither lef tor right arrows.
+// Function to move the ship along the x axis using wither left or right arrows.
 function shipMovement(e) {
   if (e.code == "ArrowLeft" && ship.x - shipVelocityX >= 0) {
     ship.x -= shipVelocityX;
@@ -530,7 +532,7 @@ function shipMovement(e) {
   }
 }
 
-// A function toi start the game when the button is clicked.
+// A function to start the game when the button is clicked.
 function clickStartButton() {
   const startButton = document.getElementById("startButton");
   startButton.style.display = "none";
@@ -567,14 +569,14 @@ function fire(e) {
     // Decresase the score for each missile used. This adds some skill to the game.
     score -= 5;
     // Fire missiles using the up arrow and or space.
-    let missiles = {
-      x: ship.x + 18,
+    let uMissiles = {
+      x: ship.x + 50,
       y: ship.y + 5,
       width: 5,
       height: shipHeight - 30,
       used: false,
     };
-    missilesArray.push(missiles);
+    UserMissilesArray.push(uMissiles);
   }
 }
 
@@ -592,7 +594,7 @@ function hasCollided(imageI, ImageJ) {
 
 // This function updates the user that's signed in scores, stored within the local storage.
 function updateUserScores() {
-  let userOnjectToUpdate;
+  let userObjectToUpdate;
   for (let i = 0; i < localStorage.length; i++) {
     // Get the key for the current item.
     const key = localStorage.key(i);
@@ -602,14 +604,14 @@ function updateUserScores() {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       // If the key matches the user signed in, stored in session.storage use their stored details.
       if (item.username === sessionStorage.UserSignedIn) {
-        userOnjectToUpdate = item;
-        if (score > userOnjectToUpdate.highestScore) {
-          userOnjectToUpdate.highestScore = score;
-          userOnjectToUpdate.gamesPlayed += 1;
-          userOnjectToUpdate.alienKillCount += killCount;
+        userObjectToUpdate = item;
+        if (score > userObjectToUpdate.highestScore) {
+          userObjectToUpdate.highestScore = score;
+          userObjectToUpdate.gamesPlayed += 1;
+          userObjectToUpdate.alienKillCount += killCount;
           localStorage.setItem(
             sessionStorage.UserSignedIn,
-            JSON.stringify(userOnjectToUpdate)
+            JSON.stringify(userObjectToUpdate)
           );
         }
         break;
@@ -632,55 +634,55 @@ function playAgain(){
 // This function displays the game over statement with all the details.
 function gameOverStatement() {
   // The Score details (position on the canvas, font, style).
-  context.clearRect(0, 0, board.width, board.height); // Clear the canvas.
-  context.fillStyle = "gold"; // Set text details.
-  context.font = "1000% Astropolis Academy";
-  context.fillText("Game Over!", 460, 800); // Print the text.
-  context.fillStyle = "white";
-  context.font = "600% bold Poppins";
-  context.fillText("You achieved a score of", 540, 1000);
-  context.fillText(score, 900, 1100);
+  canvas.clearRect(0, 0, board.width, board.height); // Clear the canvas.
+  canvas.fillStyle = "gold"; // Set text details.
+  canvas.font = "1000% Astropolis Academy";
+  canvas.fillText("Game Over!", 460, 800); // Print the text.
+  canvas.fillStyle = "white";
+  canvas.font = "600% bold Poppins";
+  canvas.fillText("You achieved a score of", 540, 1000);
+  canvas.fillText(score, 900, 1100);
 }
 
 // This function displays the current game details at the top of the canvas.
 function gameDetailsOnCanvas() {
   // The Score details (position on the canvas, font, style).
-  context.fillStyle = "gold";
-  context.font = "450% bold Poppins";
-  context.fillText("Score: ", 35, 60);
-  context.fillText(score, 230, 60);
-  context.fillText("Aliens eliminated: ", 650, 60);
-  context.fillText(killCount, 1190, 60);
-  context.fillText("Wave: ", 1700, 60);
-  context.fillText(wave, 1900, 60);
+  canvas.fillStyle = "gold";
+  canvas.font = "450% bold Poppins";
+  canvas.fillText("Score: ", 35, 60);
+  canvas.fillText(score, 230, 60);
+  canvas.fillText("Aliens eliminated: ", 650, 60);
+  canvas.fillText(killCount, 1190, 60);
+  canvas.fillText("Wave: ", 1700, 60);
+  canvas.fillText(wave, 1900, 60);
 }
 
 // This function displays the start game details on the canvas.
 function startGameDetailsOnCanvas() {
   // The Start screen details (position on the canvas, font, style).
-  context.fillStyle = "gold";
-  context.font = "1000% Astropolis Academy";
-  context.fillText("Space Invaders", 210, 800);
-  context.fillText("By GameWorks", 300, 950);
-  context.fillStyle = "white";
-  context.font = "600% bold Poppins";
-  context.fillText("Click the Start Game button when ready", 200, 1300);
+  canvas.fillStyle = "gold";
+  canvas.font = "1000% Astropolis Academy";
+  canvas.fillText("Space Invaders", 210, 800);
+  canvas.fillText("By GameWorks", 300, 950);
+  canvas.fillStyle = "white";
+  canvas.font = "600% bold Poppins";
+  canvas.fillText("Click the Start Game button when ready", 200, 1300);
 }
 
 // This function prints details of the users score which may be added to the leaderboard.
 function leaderboardInfoOnCanvas() {
   // The end screen leaderboard details (position on the canvas, font, style).
-  context.fillStyle = "white";
-  context.font = "500% bold Poppins";
-  context.fillText("Your score if good enough will show on the leaderboard",70,1300);
+  canvas.fillStyle = "white";
+  canvas.font = "500% bold Poppins";
+  canvas.fillText("Your score if good enough will show on the leaderboard",70,1300);
 }
 
 // This function prints a sign in prompt for the user on the canvas at the end of the game.
 function signInInfoOnCanvas() {
   // The end screen sign in prompt details (position on the canvas, font, style).
-  context.fillStyle = "white";
-  context.font = "500% bold Poppins";
-  context.fillText("Please sign in to have your score show on the leaderboard",75,1300);
+  canvas.fillStyle = "white";
+  canvas.font = "500% bold Poppins";
+  canvas.fillText("Please sign in to have your score show on the leaderboard",75,1300);
 }
 
 // This function resets the game values allowing the game to return to its original state and to be played again.
@@ -693,8 +695,8 @@ function resetGameValues(){
   alienCount = 0; 
   alienVelocityX = 3;
   alienArray = [];
-  missilesArray = [];
-  missilesVelocityY = -30;
+  UserMissilesArray = [];
+  userMissilesVelocityY = -30;
   gameOver = false;
 }
 
@@ -745,7 +747,7 @@ function updateLeaderboardTable() {
   leaderboardTable.innerHTML = leaderboardString;
 }
 
-// This function updates the account caption in the top right hand corner.
+// This function updates the account caption in the top right hand corner of the page.
 // This function is called on every page. this helps the user know where to go to find their account information.
 // This function is also a good indicator to show that a user has signed in and which user.
 function updateAccountCaption() {
