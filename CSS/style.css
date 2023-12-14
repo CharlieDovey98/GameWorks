@@ -196,6 +196,10 @@ body {
   justify-content: center;
 }
 
+.gameButtons {
+  display:block;
+}
+
 /* Below is the styling for a placeholder canvas where the game will be */
 #board{
   width: 600px;
@@ -234,14 +238,25 @@ that when clicked makes the game start */
   transform: translateY(-60px);
 }
 
+/* Below is the styling for the audio images
+that when clicked makes the website fullscreen using javascrpit */
+#AudioButton {
+  width: auto;
+  height: auto;
+  float: right;
+  margin: 0 10px 10px 10px;
+  cursor: pointer;
+}
+
 /* Below is the styling for the full screen image 
 that when clicked makes the website fullscreen using javascrpit */
 .fullScreenButton {
   width: auto;
   height: auto;
   float: right;
-  margin: 0 0 0 10px;
+  margin: 10px 10px 0 10px;
   cursor: pointer;
+
 }
 
 /* Below is the styling for a div to hold the tutorial statements */

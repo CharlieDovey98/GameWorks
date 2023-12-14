@@ -1,5 +1,25 @@
 // JavaScript for the GameWorks Website
 
+// Below is the audo for the game, this audio will be heard when playing the game.
+let audioImageNumber = 0;
+function toggleAudio() {
+  // Below is an array of the audio images that will be used on the index page to show the audio is on or off
+  let images = ["Images/AudioOff.png", "Images/AudioOn.png"];
+  // An if statement to change the audio image source, and play or pause the audio itself.
+  if(audioImageNumber == 0){
+    document.getElementById("AudioButton").src = images[1];
+    document.getElementById("music").play();
+    audioImageNumber = 1;
+    return;
+  } 
+  else {
+    document.getElementById("AudioButton").src = images[0];
+    document.getElementById("music").pause();
+    audioImageNumber = 0;
+    return;
+  }
+}
+
 /* Below is the code for a fullscreen element,
 called when the user clicks on the full screen png:
 reference: https://stackoverflow.com/questions/3900701/onclick-go-full-screen */
