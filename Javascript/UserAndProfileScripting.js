@@ -1,4 +1,5 @@
-// JavaScript for the GameWorks Website
+// JavaScript for the GameWorks Website.
+// This file contains the User sign In and Sign Up functionality, Profile page functionality, and account caption functionality across all pages.
 
 // Sign Up functionality with validation.
 function signUp() {

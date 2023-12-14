@@ -1,4 +1,5 @@
-// JavaScript for the GameWorks Website
+// JavaScript for the GameWorks Website.
+// This file contains the Space Invaders Game code for the index.html page, and functions to update the users local storage saved data.
 
 // Below is the audo for the game, this audio will be heard when playing the game.
 let audioImageNumber = 0;

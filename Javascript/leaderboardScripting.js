@@ -1,4 +1,5 @@
-// JavaScript for the GameWorks Website
+// JavaScript for the GameWorks Website.
+// This file contains the leaderboard functionality for the leaderboard.html page.
 
 // This function is for the leaderboard.html page. 
 // It creates the leaderboard table and displays it in the div #leaderboardTable.
