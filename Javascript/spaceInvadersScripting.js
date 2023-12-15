@@ -127,7 +127,7 @@ function indexGamePage() {
   startButton.addEventListener("click", clickStartButton);
 
   document.addEventListener("keydown", shipMovement);
-  document.addEventListener("keyup", fire);
+  document.addEventListener("keyup", userFires);
 }
 
 
@@ -139,7 +139,12 @@ function game() {
       // Get the key for the current item.
       const key = localStorage.key(i);
       if (key == "debug") {
-        // ignore the debug key in localStorage.
+        // Ignore the debug key in localStorage.
+        // And if the scenario ever occurs where its the first user to play the game with noone signed in, run these statements.
+        canvas.clearRect(0, 0, board.width, board.height);
+        gameOverStatement();
+        gameDetailsOnCanvas();
+        signInInfoOnCanvas();
       } else {
         const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
         if (item.username === sessionStorage.UserSignedIn) {
@@ -180,11 +185,11 @@ function game() {
       if (alien.x + alien.width >= board.width || alien.x <= 0) {
         reachBorder = true;
       }
-      if (reachBorder) {
-        alienVelocityX *= -1; // Reverse direction
+      if (reachBorder) { // if the aliens have reached the edge of the borad.
+        alienVelocityX *= -1; // Reverse the direction of the aliens.
+        alien.x += alienVelocityX*2; // An attempt to adjust the aliens positions.
         for (let j = 0; j < alienArray.length; j++) {
-          alienArray[j].x += alienVelocityX; // Adjust X position when changing direction
-          alienArray[j].y += alienheight; // Move all aliens down by one row
+          alienArray[j].y += alienheight; // Move all aliens down by one row.
           if (alienArray[j].y >= ship.y) {
             gameOver = true;
             userExploding.cloneNode().play();
@@ -207,26 +212,23 @@ function game() {
     alienFireMissilesTimer = alienMissilesFireDelay;
   }
 
-  // Move alien missiles
+  // Alien missiles (draw, move, check for a collision)
   for (let i = 0; i < alienMissilesArray.length; i++) {
     let aMissile = alienMissilesArray[i];
     aMissile.y += alienMissilesVelocityY;
-    canvas.fillStyle = "red"; // Example color
+    canvas.fillStyle = "red";
     canvas.fillRect(aMissile.x, aMissile.y, aMissile.width, aMissile.height);
 
-    // Check collision with player's ship
+    // Check collision with userss ship
     if (hasCollided(aMissile, ship)) {
-      gameOver = true; // Example game over condition
+      gameOver = true; 
       userExploding.cloneNode().play();
       aMissile.used = true;
     }
   }
 
-  // Clear used or off screen alien missiles
-  while (
-    alienMissilesArray.length > 0 &&
-    (alienMissilesArray[0].used || alienMissilesArray[0].y >= boardHeight)
-  ) {
+  // Clear used or off screen alien missiles.
+  while (alienMissilesArray.length > 0 && (alienMissilesArray[0].used || alienMissilesArray[0].y >= boardHeight)) {
     // .shift() removes the first element of the array. 
     // This shouldnt be a problem as missiles are expected to expire (FIFO) and are cleared after the game ends.
     alienMissilesArray.shift();
@@ -237,12 +239,7 @@ function game() {
     let uMissiles = UserMissilesArray[i];
     uMissiles.y += userMissilesVelocityY;
     canvas.fillStyle = "gold";
-    canvas.fillRect(
-      uMissiles.x,
-      uMissiles.y,
-      uMissiles.width,
-      uMissiles.height
-    );
+    canvas.fillRect(uMissiles.x, uMissiles.y, uMissiles.width, uMissiles.height);
 
     // missile collision with alien ships
     for (let j = 0; j < alienArray.length; j++) {
@@ -258,11 +255,8 @@ function game() {
     }
   }
 
-  // Clear used or off screen user missiles
-  while (
-    UserMissilesArray.length > 0 &&
-    (UserMissilesArray[0].used || UserMissilesArray[0].y < 0)
-  ) {
+  // Clear used or off screen user missiles.
+  while (UserMissilesArray.length > 0 && (UserMissilesArray[0].used || UserMissilesArray[0].y < 0)) {
     // .shift() removes the first element of the array. 
     // This shouldnt be a problem as missiles are expected to expire (FIFO) and are cleared after the game ends.
     UserMissilesArray.shift();
@@ -271,13 +265,13 @@ function game() {
   // Next level if statement.
   if (alienCount == 0) {
     //increase the number of aliens in columns and rows by 1
-    score += alienColumns * alienRows * 100; //bonus points :)
-    alienColumns = Math.min(alienColumns + 1, columns - 4); // cap at 12
-    alienRows = Math.min(alienRows + 1, rows - 4); //cap at 16-4 = 12
+    score += alienColumns * alienRows * 100; // Add some bonus points to the users score. 
+    alienColumns = Math.min(alienColumns + 1, columns - 4); // A cap on the possible columns of aliens.
+    alienRows = Math.min(alienRows + 1, rows - 4); // A cap at on the possible rows of aliens.
     if (alienVelocityX > 0) {
-      alienVelocityX += 1; //increase the alien movement speed towards the right
+      alienVelocityX += 1; // Increase the alien movement speed towards the right by 1
     } else {
-      alienVelocityX -= 1; //increase the alien movement speed towards the left.
+      alienVelocityX -= 1; // Increase the alien movement speed towards the left.
     }
     alienArray = [];
     UserMissilesArray = [];
@@ -291,10 +285,7 @@ function game() {
 function shipMovement(e) {
   if (e.code == "ArrowLeft" && ship.x - shipVelocityX >= 0) {
     ship.x -= shipVelocityX;
-  } else if (
-    e.code == "ArrowRight" &&
-    ship.x + shipVelocityX + ship.width <= board.width
-  ) {
+  } else if (e.code == "ArrowRight" && ship.x + shipVelocityX + ship.width <= board.width) {
     ship.x += shipVelocityX;
   }
 }
@@ -327,16 +318,13 @@ function createAliens() {
 }
 
 // Function to handle the firing from the ship
-function fire(e) {
-  if (gameOver) {
-    return;
-  }
-  // The user can use either space or arrow up to fire.
+function userFires(e) {
+  // The user can use either space or arrow up to shoot.
   if (e.code == "ArrowUp" || e.code == "Space") {
     userShooting.cloneNode().play();
     // Decresase the score for each missile used. This adds some skill to the game.
     score -= 5;
-    // Fire missiles using the up arrow and or space.
+    // Shoot missiles using the up arrow and or space.
     let uMissiles = {
       x: ship.x + 50,
       y: ship.y + 5,
@@ -349,7 +337,6 @@ function fire(e) {
 }
 
 function aliensFire() {
-  // Example: Randomly select an alien to shoot
   let firingAliens = alienArray.filter(alien => alien.alive);
   if (firingAliens.length > 0) {
     let shooter = firingAliens[Math.floor(Math.random() * firingAliens.length)];
@@ -393,10 +380,7 @@ function updateUserScores() {
           userObjectToUpdate.highestScore = score;
           userObjectToUpdate.gamesPlayed += 1;
           userObjectToUpdate.alienKillCount += killCount;
-          localStorage.setItem(
-            sessionStorage.UserSignedIn,
-            JSON.stringify(userObjectToUpdate)
-          );
+          localStorage.setItem(sessionStorage.UserSignedIn,JSON.stringify(userObjectToUpdate));
         }
         break;
       }
@@ -410,7 +394,7 @@ function playAgain(){
   updateUserScores();
   resetGameValues();
   const startButton = document.getElementById("startButton");
-  startButton.innerHTML = "Play Again"
+  startButton.innerHTML = "Play Again";
   startButton.style.display = "initial";
   startButton.addEventListener("click", clickStartButton);
 }
@@ -418,7 +402,6 @@ function playAgain(){
 // This function displays the game over statement with all the details.
 function gameOverStatement() {
   // The Score details (position on the canvas, font, style).
-  canvas.clearRect(0, 0, board.width, board.height); // Clear the canvas.
   canvas.fillStyle = "gold"; // Set text details.
   canvas.font = "1000% Astropolis Academy";
   canvas.fillText("Game Over!", 460, 800); // Print the text.

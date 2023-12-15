@@ -4,23 +4,19 @@
 // Sign Up functionality with validation.
 function signUp() {
   // Attain the user input fields: username, password.
-  const signUpUsername = document.getElementById("signUpUsername").value;
-  const signUpEmail = document.getElementById("signUpEmail").value;
-  const signUpPassword = document.getElementById("signUpPassword").value;
-  const signUpPasswordCheck = document.getElementById(
-    "signUpPasswordCheck"
-  ).value;
-  const signUpForename = document.getElementById("signUpForename").value;
-  const signUpSurname = document.getElementById("signUpSurname").value;
+  let signUpUsername = document.getElementById("signUpUsername").value;
+  let signUpEmail = document.getElementById("signUpEmail").value;
+  let signUpPassword = document.getElementById("signUpPassword").value;
+  let signUpPasswordCheck = document.getElementById("signUpPasswordCheck").value;
+  let signUpForename = document.getElementById("signUpForename").value;
+  let signUpSurname = document.getElementById("signUpSurname").value;
 
   // Attain the elements by id.
   let signUpPrompt = document.getElementById("signUpPrompt");
   let signUpUsernameInputbox = document.getElementById("signUpUsername");
   let signUpEmailInputbox = document.getElementById("signUpEmail");
   let signUpPasswordInputbox = document.getElementById("signUpPassword");
-  let signUpPasswordCheckInputbox = document.getElementById(
-    "signUpPasswordCheck"
-  );
+  let signUpPasswordCheckInputbox = document.getElementById("signUpPasswordCheck");
   let signUpForenameInputbox = document.getElementById("signUpForename");
   let signUpSurnameInputbox = document.getElementById("signUpSurname");
 
@@ -123,8 +119,7 @@ function signUp() {
   const validNameRegex = /^[A-Za-z]{3,}$/;
   if (!validNameRegex.test(signUpForename)) {
     signUpForenameInputbox.parentElement.className = "inputBox error";
-    signUpPrompt.innerText =
-      "Please enter a forename without\nspaces, numbers, special characters";
+    signUpPrompt.innerText ="Please enter a forename without\nspaces, numbers, special characters";
     return;
   }
   if (!validNameRegex.test(signUpSurname)) {
@@ -307,4 +302,9 @@ function updateAccountCaption() {
       }
     }
   }
+}
+
+// This function adds the ability for the user to go back to the top of the page instantly rather than scrolling up.
+function scrollToTop(){
+  window.scrollTo({top: 0, behavior: "smooth"});
 }
