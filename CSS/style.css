@@ -201,6 +201,10 @@ body {
   display:block;
 }
 
+.imageTitles{
+  margin: 0 0 0 5px;
+}
+
 /* Below is the styling for a placeholder canvas where the game will be */
 #board{
   width: 600px;
