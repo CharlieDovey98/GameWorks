@@ -337,6 +337,7 @@ function userFires(e) {
   }
 }
 
+// This function controls the alien missiles that they can fire.
 function aliensFire() {
   let firingAliens = alienArray.filter(alien => alien.alive);
   if (firingAliens.length > 0) {
