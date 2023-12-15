@@ -134,6 +134,7 @@ function indexGamePage() {
 // This function holds the game itself, called when the player clicks the 'start game' or 'play again' buttons which hover over the canvas.
 function game() {
   if (gameOver) {
+    updateUserScores();
     // An if statement to check if the game is over via the gameover boolean variable.
     for (let i = 0; i < localStorage.length; i++) {
       // Get the key for the current item.
@@ -365,24 +366,39 @@ function hasCollided(imageI, ImageJ) {
 
 // This function updates the user that's signed in scores, stored within the local storage.
 function updateUserScores() {
+  console.log("working scores");
   let userObjectToUpdate;
   for (let i = 0; i < localStorage.length; i++) {
     // Get the key for the current item.
-    const key = localStorage.key(i);
+    let key = localStorage.key(i);
     if (key == "debug") {
+      console.log("local storage debug")
       // ignore the debug key in localStorage.
     } else {
       const item = JSON.parse(localStorage.getItem(key)); // parse the key to obtain the object.
       // If the key matches the user signed in, stored in session.storage use their stored details.
-      if (item.username === sessionStorage.UserSignedIn) {
-        userObjectToUpdate = item;
-        if (score > userObjectToUpdate.highestScore) {
-          userObjectToUpdate.highestScore = score;
+      console.log("checking for details match");
+
+
+      for (let j = 0; j < sessionStorage.length; j++) {
+        let sessionKey = sessionStorage.key(i);
+        let sessionKeyItem = JSON.parse(localStorage.getItem(sessionKey));
+        console.log("sessionkey", sessionKey, "sessionitem", sessionKeyItem)
+        if (sessionKeyItem == "IsThisFirstTime_Log_From_LiveServer"){
+          console.log("session storage debug")
+          // ignore the debug key in localStorage.    
+        }
+        if (item.username === sessionStorage.UserSignedIn) {
+          console.log("match found")
+          userObjectToUpdate = item;
           userObjectToUpdate.gamesPlayed += 1;
           userObjectToUpdate.alienKillCount += killCount;
+          if (score > userObjectToUpdate.highestScore) {
+            userObjectToUpdate.highestScore = score;
+          }
           localStorage.setItem(sessionStorage.UserSignedIn,JSON.stringify(userObjectToUpdate));
-        }
-        break;
+          break;
+        } 
       }
     }
   }
@@ -391,7 +407,6 @@ function updateUserScores() {
 // This function is called when the game is over. 
 // It calls some end game functions and waits on en event listener to play the game again.
 function playAgain(){
-  updateUserScores();
   resetGameValues();
   const startButton = document.getElementById("startButton");
   startButton.innerHTML = "Play Again";

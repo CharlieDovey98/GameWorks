@@ -5,7 +5,7 @@
 function signUp() {
   // Attain the user input fields: username, password.
   let signUpUsername = document.getElementById("signUpUsername").value;
-  let signUpEmail = document.getElementById("signUpEmail").value;
+  let signUpEmail = document.getElementById("signUpEmail").value.toLowerCase();
   let signUpPassword = document.getElementById("signUpPassword").value;
   let signUpPasswordCheck = document.getElementById("signUpPasswordCheck").value;
   let signUpForename = document.getElementById("signUpForename").value;
