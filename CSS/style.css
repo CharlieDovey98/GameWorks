@@ -210,7 +210,7 @@ body {
   width: 600px;
   height: 600px;
   border: 5px solid white;
-  background: url(/Images/CanvasBackground.png);
+  background: url(../Images/CanvasBackground.png);
   animation: scroll-background  10s linear infinite;
   position: relative;
   z-index: -2;
@@ -231,6 +231,7 @@ body {
   width: 200px;
   height: 30px;
 }
+
 /* Below is the styling for the Start Game button 
 that when clicked makes the game start */
 #startButton {
